@@ -1,0 +1,22 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/fqy22/桌面/pointid'
+/usr/bin/cmake -S/home/fqy22/桌面/pointid -B/home/fqy22/桌面/pointid --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/fqy22/桌面/pointid/CMakeFiles /home/fqy22/桌面/pointid/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/fqy22/桌面/pointid'
+make -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/depend
+make[2]: Entering directory '/home/fqy22/桌面/pointid'
+cd /home/fqy22/桌面/pointid && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/fqy22/桌面/pointid /home/fqy22/桌面/pointid /home/fqy22/桌面/pointid /home/fqy22/桌面/pointid /home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/DependInfo.cmake --color=
+make[2]: Leaving directory '/home/fqy22/桌面/pointid'
+make -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/build
+make[2]: Entering directory '/home/fqy22/桌面/pointid'
+/usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=1 "Building CXX object CMakeFiles/ImageShow.dir/pointid.cpp.o"
+/usr/bin/c++   -isystem /usr/local/include/opencv4  -std=gnu++11 -o CMakeFiles/ImageShow.dir/pointid.cpp.o -c /home/fqy22/桌面/pointid/pointid.cpp
+/usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=2 "Linking CXX executable ImageShow"
+/usr/bin/cmake -E cmake_link_script CMakeFiles/ImageShow.dir/link.txt --verbose=
+make[2]: Leaving directory '/home/fqy22/桌面/pointid'
+/usr/bin/cmake -E cmake_echo_color --switch= --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=1,2 "Built target ImageShow"
+make[1]: Leaving directory '/home/fqy22/桌面/pointid'
+/usr/bin/cmake -E cmake_progress_start /home/fqy22/桌面/pointid/CMakeFiles 0
+make: Leaving directory '/home/fqy22/桌面/pointid'
+ 

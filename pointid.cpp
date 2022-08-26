@@ -33,7 +33,7 @@ int main()
     SP_0.Amax = 80.0;
     SP_0.Amin = 7.0;
     SP_0.div = 111.3;//以此为分割长度,一个里面至多有4个点簇
-    SP_0.d_cl = 10;//以此为点簇判定标准,一个点簇至多有四个点
+    SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
     SP_0.resolution = 1374.0*882.0;
 
 
@@ -85,7 +85,9 @@ int main()
     //拿到所有的点集合
     vector<Point> connect_points;
     for(int i=1;i<nccpmps;i++){
-        connect_points.push_back(Point(centroids.at<Vec2d>(i,0)));
+        if(stats.at<int>(i,CC_STAT_AREA)>SP.Amin&&stats.at<int>(i,CC_STAT_AREA)<SP.Amax){
+            connect_points.push_back(Point(centroids.at<Vec2d>(i,0)));
+        }
     }
 
 
@@ -101,8 +103,6 @@ int main()
     Mat redraw(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
     int row_num = SP.row/SP.div;
     int col_num = SP.col/SP.div;
-    cout << row_num << " " << col_num << endl;
-    cout << SP.row << " " << SP.col << endl;
     for(int i=0;i<=row_num;i++){
         line(redraw,Point(0,i*SP.div),Point(SP.col,i*SP.div),Scalar(0,0,0));
     }
@@ -134,15 +134,54 @@ int main()
     
     //这里已经拿到了所有的cluster，现在尝试对cluster进行分割
     //开始遍历点和网格分割(这没想好,但是感觉复杂度挺高的,O(n^2*m),n表示点的个数,m表示方格的个数),删除方格内超过16个的点的方格
-    
-
-
-    vector<Point> cluster_points;
-    for(int i=0;i<connect_points.size();i++){
-        if(cluster_counter[cluster_hash[i]]<=SP.n_cl){
-            cluster_points.push_back(connect_points[i]);
+    vector<int>** grid_queue = new vector<int>*[row_num+1];
+    for(int i=0;i<=row_num;i++){
+        grid_queue[i] = new vector<int>[col_num+1];
+    }
+    cout << "size:" << connect_points.size() << endl;
+    for(int point=0;point<connect_points.size();point++){
+        Point p(connect_points[point]);
+        for(float i=0;i<=row_num;i++){
+            if(p.x>=i*SP.div&&p.x<=(i+1)*SP.div){
+                for(float j=0;j<=col_num;j++){
+                    if(p.y>=j*SP.div&&p.y<=(j+1)*SP.div){
+                        grid_queue[int(i)][int(j)].push_back(point);
+                    }
+                }
+            }
         }
     }
+    cout << row_num << " " << col_num << endl;
+    for(int i=0;i<=row_num;i++){
+        for(int j=0;j<=col_num;j++){
+            cout << grid_queue[i][j].size() << " ";
+        }
+        cout << endl;
+    }
+    vector<Point> grid_points;
+    for(float i=0;i<=row_num;i++){
+        for(float j=0;j<=col_num;j++){
+            vector<int> grid_q = grid_queue[int(i)][int(j)];
+            set<int> cl_set;
+            for(int point=0;point<grid_q.size();point++){
+                cl_set.insert(cluster_hash[grid_q[point]]);
+            }
+            if(grid_q.size()<=cl_set.size()*4){
+                for(int q:grid_q){
+                    grid_points.push_back(connect_points[q]);
+                }
+            }
+        }
+    }
+    
+
+    //单个点簇不能太大
+    // vector<Point> cluster_points;
+    // for(int i=0;i<grid_points.size();i++){
+    //     if(cluster_counter[cluster_hash[i]]<=SP.n_cl){
+    //         cluster_points.push_back(connect_points[i]);
+    //     }
+    // }
 
 
     //原图复制
@@ -152,7 +191,7 @@ int main()
     //         circle(redraw,Point(centroids.at<Vec2d>(i,0)),3,Scalar(0,0,0),1,LINE_8,0);
     //     }
     // }
-    for(Point p:cluster_points){
+    for(Point p:grid_points){
         circle(redraw,p,3,Scalar(0,0,0),1,LINE_8,0);
     }
     imshow("output",redraw);
