@@ -1,0 +1,3 @@
+/home/fqy22/桌面/pointid/CMakeFiles/rebuild_cache.dir
+/home/fqy22/桌面/pointid/CMakeFiles/edit_cache.dir
+/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir
