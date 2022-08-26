@@ -82,6 +82,13 @@ int main()
     );
 
 
+    //拿到所有的点集合
+    vector<Point> connect_points;
+    for(int i=1;i<nccpmps;i++){
+        connect_points.push_back(Point(centroids.at<Vec2d>(i,0)));
+    }
+
+
     //输出数据调试
     // cout << "连通域数："<<nccpmps<<endl;
     // for(int i=0;i<nccpmps;i++){
@@ -104,51 +111,13 @@ int main()
     }
 
 
-    // 开始遍历点和网格分割(这没想好,但是感觉复杂度挺高的,O(n^2*m),n表示点的个数,m表示方格的个数),删除方格内超过16个的点的方格
-    int **point_counter = new int*[row_num+1];
-    Point point_locate[nccpmps];
-    for(int row = 0;row<=row_num;row++){
-        point_counter[row] = new int[col_num+1];
-        for(int col = 0;col<=col_num;col++){
-            point_counter[row][col] = 0;
-        }
-    }
-    for(int point=1;point<nccpmps;point++){
-        Point p(centroids.at<Vec2d>(point,0));
-        if(stats.at<int>(point,CC_STAT_AREA)>SP.Amin&&stats.at<int>(point,CC_STAT_AREA)<SP.Amax){
-            for(float grid_row = 0;grid_row<SP.row;grid_row+=SP.div){
-                if(p.x>grid_row&&p.x<grid_row+SP.div){
-                    for(float grid_col = 0;grid_col<SP.col;grid_col+=SP.div){
-                        if(p.y>grid_col&&p.y<grid_col+SP.div){
-                            point_counter[int(grid_row/SP.div)][int(grid_col/SP.div)]+=1;
-                            point_locate[point] = Point(grid_row/SP.div,grid_col/SP.div);
-                        }
-                    }
-                }
-            }
-        }
-        else{
-            point_locate[point] = Point(-1,-1);
-        }
-    }
-    vector<Point> grid_points;
-    for(int point = 1;point<nccpmps;point++){
-        Point p(point_locate[point]);
-        if(p.x>0&&p.y>0){
-            if(point_counter[int(point_locate[point].x)][int(point_locate[point].y)]<=SP.n_kp){
-                grid_points.push_back(Point(centroids.at<Vec2d>(point,0)));
-            }
-        }
-    }
-
-    
-    //点簇分割,这个原来的论文里面没有讲,但是我觉得可以加上,效果会更好,可以省去大量的计算(当前我做的是最短路算法的,后续有时间可以改成画圆包裹计算的)
+    //点簇分割,这个原来的论文里面没有讲,但是我觉得可以加上,效果会更好,可以省去大量的计算
     vector<int> cluster_counter;
     vector<int> cluster_hash;
-    for(int i=0;i<grid_points.size();i++){
+    for(int i=0;i<connect_points.size();i++){
         bool new_cluster=true;
         for(int j=0;j<i;j++){
-            if(getDis_p2p(grid_points[i],grid_points[j])<SP.d_cl){
+            if(getDis_p2p(connect_points[i],connect_points[j])<SP.d_cl){
                 cluster_hash.push_back(cluster_hash[j]);
                 cluster_counter[cluster_hash[j]]++;
                 new_cluster = false;
@@ -160,11 +129,18 @@ int main()
             cluster_hash.push_back(cluster_counter.size()-1);
         }
     }
-    assert(cluster_hash.size()==grid_points.size());
+    assert(cluster_hash.size()==connect_points.size());
+    
+    
+    //这里已经拿到了所有的cluster，现在尝试对cluster进行分割
+    //开始遍历点和网格分割(这没想好,但是感觉复杂度挺高的,O(n^2*m),n表示点的个数,m表示方格的个数),删除方格内超过16个的点的方格
+    
+
+
     vector<Point> cluster_points;
-    for(int i=0;i<grid_points.size();i++){
+    for(int i=0;i<connect_points.size();i++){
         if(cluster_counter[cluster_hash[i]]<=SP.n_cl){
-            cluster_points.push_back(grid_points[i]);
+            cluster_points.push_back(connect_points[i]);
         }
     }
 
