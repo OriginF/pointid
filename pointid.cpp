@@ -1,10 +1,17 @@
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
 #include <iostream>
 #include <cmath>
+#include <unordered_set>
 #include <string>
 
 using namespace std;
 using namespace cv;
+
+typedef int EdgeID;
+typedef Vec4f Edge;
+
+Mat redraw;
 
 //记录当前相机的一些处理参数
 struct src_param{
@@ -24,6 +31,14 @@ struct src_param{
 //获取两点之间距离的函数
 float getDis_p2p(Point A,Point B);
 
+//输出线段的值
+void paint_line(Edge l);
+
+//计算模向量乘法
+float mod_multi(Edge n1,Edge n2);
+
+//计算L_sq_se
+float L_sq_se_calculator(EdgeID e,Subdiv2D sub_div);
 
 int main()
 {
@@ -59,7 +74,7 @@ int main()
     SP.d_cl = sqrt(SP.resolution/SP_0.resolution)*SP_0.d_cl;
     SP.n_kp = 16;
     SP.n_cl = 4;
-    cout << SP.Amax << " "  << SP.Amin << " " << SP.div << endl;
+    // cout << SP.Amax << " "  << SP.Amin << " " << SP.div << endl;
 
 
     //图片降噪
@@ -100,7 +115,7 @@ int main()
 
 
     //添加网格分割
-    Mat redraw(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
+    redraw=Mat(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
     int row_num = SP.row/SP.div;
     int col_num = SP.col/SP.div;
     for(int i=0;i<=row_num;i++){
@@ -113,23 +128,31 @@ int main()
 
     //点簇分割,这个原来的论文里面没有讲,但是我觉得可以加上,效果会更好,可以省去大量的计算
     vector<int> cluster_counter;
-    vector<int> cluster_hash;
+    vector<Point> cluster_center;
+    vector<int> point2cluster;
     for(int i=0;i<connect_points.size();i++){
         bool new_cluster=true;
         for(int j=0;j<i;j++){
             if(getDis_p2p(connect_points[i],connect_points[j])<SP.d_cl){
-                cluster_hash.push_back(cluster_hash[j]);
-                cluster_counter[cluster_hash[j]]++;
+                point2cluster.push_back(point2cluster[j]);
+                cluster_counter[point2cluster[j]]++;
+                cluster_center[point2cluster[j]].x+=connect_points[i].x;
+                cluster_center[point2cluster[j]].y+=connect_points[i].y;
                 new_cluster = false;
                 break;
             }
         }
         if(new_cluster){
             cluster_counter.push_back(1);
-            cluster_hash.push_back(cluster_counter.size()-1);
+            cluster_center.push_back(Point(connect_points[i]));
+            point2cluster.push_back(cluster_counter.size()-1);
         }
     }
-    assert(cluster_hash.size()==connect_points.size());
+    for(int i=0;i<cluster_center.size();i++){
+        cluster_center[i].x/=cluster_counter[i];
+        cluster_center[i].y/=cluster_counter[i];
+    }
+    assert(point2cluster.size()==connect_points.size());
     
     
     //这里已经拿到了所有的cluster，现在尝试对cluster进行分割
@@ -138,7 +161,7 @@ int main()
     for(int i=0;i<=row_num;i++){
         grid_queue[i] = new vector<int>[col_num+1];
     }
-    cout << "size:" << connect_points.size() << endl;
+    // cout << "size:" << connect_points.size() << endl;
     for(int point=0;point<connect_points.size();point++){
         Point p(connect_points[point]);
         for(float i=0;i<=row_num;i++){
@@ -151,26 +174,47 @@ int main()
             }
         }
     }
-    cout << row_num << " " << col_num << endl;
-    for(int i=0;i<=row_num;i++){
-        for(int j=0;j<=col_num;j++){
-            cout << grid_queue[i][j].size() << " ";
-        }
-        cout << endl;
-    }
+    // cout << row_num << " " << col_num << endl;
+    // for(int i=0;i<=row_num;i++){
+    //     for(int j=0;j<=col_num;j++){
+    //         cout << grid_queue[i][j].size() << " ";
+    //     }
+    //     cout << endl;
+    // }
     vector<Point> grid_points;
+    vector<int> point_id;
+    vector<Point> temp_clusters;
     for(float i=0;i<=row_num;i++){
         for(float j=0;j<=col_num;j++){
             vector<int> grid_q = grid_queue[int(i)][int(j)];
             set<int> cl_set;
             for(int point=0;point<grid_q.size();point++){
-                cl_set.insert(cluster_hash[grid_q[point]]);
+                cl_set.insert(point2cluster[grid_q[point]]);
             }
             if(grid_q.size()<=cl_set.size()*4){
                 for(int q:grid_q){
                     grid_points.push_back(connect_points[q]);
+                    point_id.push_back(q);
                 }
             }
+        }
+    }
+    for(int i=0;i<point_id.size();i++){
+        Point center = cluster_center[point2cluster[point_id[i]]];
+        temp_clusters.push_back(center);
+    }
+
+    vector<Point> clusters;
+    for(int i=0;i<temp_clusters.size();i++){
+        bool new_point=true;
+        for(int j=0;j<i;j++){
+            if(temp_clusters[i]==temp_clusters[j]){
+                new_point= false;
+                break;
+            }
+        }
+        if(new_point){
+            clusters.push_back(temp_clusters[i]);
         }
     }
     
@@ -178,19 +222,62 @@ int main()
     //单个点簇不能太大
     // vector<Point> cluster_points;
     // for(int i=0;i<grid_points.size();i++){
-    //     if(cluster_counter[cluster_hash[i]]<=SP.n_cl){
+    //     if(cluster_counter[point2cluster[i]]<=SP.n_cl){
     //         cluster_points.push_back(connect_points[i]);
     //     }
     // }
 
 
-    //原图复制
-    // Mat redraw(src.rows,src.cols,CV_8UC3,Scalar(255,255,255));
-    // for(int i=1;i<nccpmps;i++){//每个位置是一个黑点
-    //     if(stats.at<int>(i,CC_STAT_AREA)>SP.Amin&&stats.at<int>(i,CC_STAT_AREA)<SP.Amax){
-    //         circle(redraw,Point(centroids.at<Vec2d>(i,0)),3,Scalar(0,0,0),1,LINE_8,0);
-    //     }
-    // }
+    //Delaunay三角剖分算法
+    Rect rect(0, 0, SP.row, SP.col);
+    Subdiv2D sub_div(rect);
+    sub_div.initDelaunay(rect);
+    map<int,int> point2index;
+
+    //插入点簇
+    for(int i=0;i<clusters.size();i++){
+        int pointid = sub_div.insert(clusters[i]);
+        // cout << clusters[i] << endl;
+    }
+
+    //拿到所有的边的集合（这里只是视觉呈现，并不必要
+    vector<Vec4f> edgeList;
+    sub_div.Subdiv2D::getEdgeList(edgeList);
+    vector<int> leadingEdgeList;
+    sub_div.Subdiv2D::getLeadingEdgeList(leadingEdgeList);
+    for(int i=0;i<edgeList.size();i++){
+        Point p1(edgeList[i][0],edgeList[i][1]),p2(edgeList[i][2],edgeList[i][3]);
+        // cout << edgeList[i] << " i: "<<i<<" P1: "<< p1 << " p2: "<< p2 <<endl;
+        line(redraw,p1,p2,Scalar(255,0,0),1,LINE_8,0);
+    }
+    //到此位置可以注释
+
+
+    //绘制所有的主边
+    for(int i=0;i<leadingEdgeList.size();i++){
+        EdgeID id = leadingEdgeList[i];
+        Point2f p1,p2;
+        int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
+        int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
+        if(ans1>0&&ans2>0){
+            line(redraw,p1,p2,Scalar(0,255,0));
+        }
+    }
+
+    //尝试计算所有的主边的Lsq_se
+    Point2f p1,p2;
+    int id = leadingEdgeList[20];
+    int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
+    int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
+    if(ans1>0&&ans2>0){
+        cout << "legal" << endl;
+        circle(redraw,p1,3,Scalar(0,0,255),10,LINE_8,0);
+        circle(redraw,p2,3,Scalar(0,0,255),10,LINE_8,0);
+        line(redraw,p1,p2,Scalar(0,255,0));
+    }
+    L_sq_se_calculator(id,sub_div);
+
+
     for(Point p:grid_points){
         circle(redraw,p,3,Scalar(0,0,0),1,LINE_8,0);
     }
@@ -203,6 +290,49 @@ int main()
     return 0;
 }
 
+
 float getDis_p2p(Point A,Point B){
     return sqrt(pow((A.x-B.x),2)+pow((A.y-B.y),2));
+}
+
+
+void paint_line(Edge l){
+    Point p1(l[0],l[1]),p2(l[2],l[3]);
+    line(redraw,p1,p2,Scalar(0,255,0));
+}
+
+
+float mod_multi(Edge n1,Edge n2){
+    float mod1 = sqrt(pow(n1[3]-n1[1],2)+pow(n1[2]-n1[0],2));
+    float mod2 = sqrt(pow(n2[3]-n2[1],2)+pow(n2[2]-n2[0],2));
+    float multi = (n1[3]-n1[1])*(n2[3]-n2[1])+(n1[2]-n1[0])*(n2[2]-n2[0]);
+    return multi/(mod1*mod2);
+}
+
+
+float L_sq_se_calculator(EdgeID e,Subdiv2D sub_div){
+    Point2f p1,p2;
+    EdgeID AB_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
+    sub_div.Subdiv2D::edgeOrg(AB_id,&p1);
+    sub_div.Subdiv2D::edgeDst(AB_id,&p2);
+    Edge AB(p1.x,p1.y,p2.x,p2.y);
+    EdgeID AD_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
+    sub_div.Subdiv2D::edgeOrg(AD_id,&p1);
+    sub_div.Subdiv2D::edgeDst(AD_id,&p2);
+    Edge AD(p1.x,p1.y,p2.x,p2.y);
+    EdgeID CB_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+    sub_div.Subdiv2D::edgeOrg(CB_id,&p1);
+    sub_div.Subdiv2D::edgeDst(CB_id,&p2);
+    Edge CB(p1.x,p1.y,p2.x,p2.y);
+    EdgeID CD_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
+    sub_div.Subdiv2D::edgeOrg(CD_id,&p1);
+    sub_div.Subdiv2D::edgeDst(CD_id,&p2);
+    Edge CD(p1.x,p1.y,p2.x,p2.y);
+    Edge AC(AB[0],AB[1],CB[0],CB[1]);
+    Edge DB(CD[2],CD[3],CB[2],CB[3]);
+    float Lsq_se=1.0
+        -1.0/3.0*pow(mod_multi(AB,AD),2)
+        -1.0/3.0*pow(mod_multi(CB,CD),2)
+        -1.0/3.0*pow(mod_multi(AC,DB),2);
+    return Lsq_se;
 }

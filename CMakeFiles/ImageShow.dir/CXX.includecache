@@ -9,9 +9,13 @@
 /home/fqy22/桌面/pointid/pointid.cpp
 opencv2/opencv.hpp
 -
+opencv2/imgproc.hpp
+-
 iostream
 -
 cmath
+-
+unordered_set
 -
 string
 -
