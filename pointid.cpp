@@ -4,14 +4,27 @@
 #include <cmath>
 #include <unordered_set>
 #include <string>
+#include <queue>
 
 using namespace std;
 using namespace cv;
 
 typedef int EdgeID;
 typedef Vec4f Edge;
+typedef pair<int,float> SN;
 
 Mat redraw;
+Subdiv2D sub_div;
+
+//表示对应的位置
+enum E_locate{
+    e_AB,
+    e_AD,
+    e_CB,
+    e_CD,
+    e_AC,
+    e_DB
+} LOCATE[6];
 
 //记录当前相机的一些处理参数
 struct src_param{
@@ -25,8 +38,12 @@ struct src_param{
     int n_kp;
     float d_cl;
     int n_cl;
+    float LSE;
 } SP,SP_0;
 
+
+//自定义SN排序算法规则
+bool comp(const SN sn_1,const SN sn_2);
 
 //获取两点之间距离的函数
 float getDis_p2p(Point A,Point B);
@@ -38,7 +55,10 @@ void paint_line(Edge l);
 float mod_multi(Edge n1,Edge n2);
 
 //计算L_sq_se
-float L_sq_se_calculator(EdgeID e,Subdiv2D sub_div);
+float L_sq_se_calculator(EdgeID e);
+
+//计算Mn
+void getMn(int*** Mn,vector<SN> Sn);
 
 int main()
 {
@@ -50,10 +70,19 @@ int main()
     SP_0.div = 111.3;//以此为分割长度,一个里面至多有4个点簇
     SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
     SP_0.resolution = 1374.0*882.0;
-
+    SP_0.LSE = 0.1;//LSE threshold
 
     SP.url = "./realimage/real2.jpg";
     // SP.url = "./points.jpg";
+
+
+    //预处理全局变量
+    LOCATE[0] = E_locate::e_AB;
+    LOCATE[1] = E_locate::e_AD;
+    LOCATE[2] = E_locate::e_CB;
+    LOCATE[3] = E_locate::e_CD;
+    LOCATE[4] = E_locate::e_AC;
+    LOCATE[5] = E_locate::e_DB;
 
 
     //图像读取
@@ -74,6 +103,7 @@ int main()
     SP.d_cl = sqrt(SP.resolution/SP_0.resolution)*SP_0.d_cl;
     SP.n_kp = 16;
     SP.n_cl = 4;
+    SP.LSE = SP_0.LSE;
     // cout << SP.Amax << " "  << SP.Amin << " " << SP.div << endl;
 
 
@@ -230,7 +260,6 @@ int main()
 
     //Delaunay三角剖分算法
     Rect rect(0, 0, SP.row, SP.col);
-    Subdiv2D sub_div(rect);
     sub_div.initDelaunay(rect);
     map<int,int> point2index;
 
@@ -265,17 +294,29 @@ int main()
     }
 
     //尝试计算所有的主边的Lsq_se
-    Point2f p1,p2;
-    int id = leadingEdgeList[20];
-    int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
-    int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
-    if(ans1>0&&ans2>0){
-        cout << "legal" << endl;
-        circle(redraw,p1,3,Scalar(0,0,255),10,LINE_8,0);
-        circle(redraw,p2,3,Scalar(0,0,255),10,LINE_8,0);
-        line(redraw,p1,p2,Scalar(0,255,0));
+    vector<SN> Sn; 
+    for(int i=0;i<leadingEdgeList.size();i++){
+        int id = leadingEdgeList[i];
+        float Lsq_se = L_sq_se_calculator(id);
+        if(Lsq_se>SP.LSE){
+            Sn.push_back(SN(id,Lsq_se));
+        }
     }
-    L_sq_se_calculator(id,sub_div);
+
+    //根据LSE的值进行排序
+    sort(Sn.begin(),Sn.end(),comp);
+    
+    // Point2f p1,p2;
+    // int id = leadingEdgeList[20];
+    // int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
+    // int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
+    // if(ans1>0&&ans2>0){
+    //     cout << "legal" << endl;
+    //     circle(redraw,p1,3,Scalar(0,0,255),10,LINE_8,0);
+    //     circle(redraw,p2,3,Scalar(0,0,255),10,LINE_8,0);
+    //     line(redraw,p1,p2,Scalar(0,255,0));
+    // }
+    // L_sq_se_calculator(id,sub_div);
 
 
     for(Point p:grid_points){
@@ -288,6 +329,12 @@ int main()
     system("path");
     getchar();
     return 0;
+}
+
+
+bool comp(const SN sn_1,const SN sn_2){
+    if(sn_1.second>sn_2.second)return true;
+    else return false;
 }
 
 
@@ -309,8 +356,67 @@ float mod_multi(Edge n1,Edge n2){
     return multi/(mod1*mod2);
 }
 
+Edge getNextEdge(EdgeID e,E_locate nx){
+    Point2f p1,p2;
+    EdgeID temp1_id,temp2_id,ans_id;
+    Edge temp1,temp2,ans;
+    switch(nx)
+    {
+        case E_locate::e_AB:
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
+            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
+            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
+            ans = Edge(p1.x,p1.y,p2.x,p2.y);
+            return ans;
+        case E_locate::e_AD:
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
+            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
+            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
+            ans = Edge(p1.x,p1.y,p2.x,p2.y);
+            return ans;
+        case E_locate::e_CB:
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
+            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
+            ans = Edge(p1.x,p1.y,p2.x,p2.y);
+            return ans;
+        case E_locate::e_CD:
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
+            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
+            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
+            ans = Edge(p1.x,p1.y,p2.x,p2.y);
+            return ans;
+        case E_locate::e_AC:
+            temp1_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
+            sub_div.Subdiv2D::edgeOrg(temp1_id,&p1);
+            sub_div.Subdiv2D::edgeDst(temp1_id,&p2);
+            temp1 = Edge(p1.x,p1.y,p2.x,p2.y);
+            temp2_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+            sub_div.Subdiv2D::edgeOrg(temp2_id,&p1);
+            sub_div.Subdiv2D::edgeDst(temp2_id,&p2);
+            temp2 = Edge(p1.x,p1.y,p2.x,p2.y);
+            ans = Edge(temp1[0],temp1[1],temp2[0],temp2[1]);
+            return ans;
+        case E_locate::e_DB:
+            temp1_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
+            sub_div.Subdiv2D::edgeOrg(temp1_id,&p1);
+            sub_div.Subdiv2D::edgeDst(temp1_id,&p2);
+            temp1 = Edge(p1.x,p1.y,p2.x,p2.y);
+            temp2_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+            sub_div.Subdiv2D::edgeOrg(temp2_id,&p1);
+            sub_div.Subdiv2D::edgeDst(temp2_id,&p2);
+            temp2 = Edge(p1.x,p1.y,p2.x,p2.y);
+            ans = Edge(temp1[2],temp1[3],temp2[2],temp2[3]);
+            return ans;
+        default:
+            cout << "wrong locate" << endl;
+            exit(1);
+    }
+    return Edge(0,0,0,0);
+}
 
-float L_sq_se_calculator(EdgeID e,Subdiv2D sub_div){
+
+float L_sq_se_calculator(EdgeID e){
     Point2f p1,p2;
     EdgeID AB_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
     sub_div.Subdiv2D::edgeOrg(AB_id,&p1);
@@ -335,4 +441,31 @@ float L_sq_se_calculator(EdgeID e,Subdiv2D sub_div){
         -1.0/3.0*pow(mod_multi(CB,CD),2)
         -1.0/3.0*pow(mod_multi(AC,DB),2);
     return Lsq_se;
+}
+
+void getMn(int*** Mn,vector<SN> Sn){
+    Mn = new int**[Sn.size()];
+    for(int i=0;i<Sn.size();i++){
+        Mn[i] = new int*[Sn.size()];
+        for(int j=0;j<Sn.size();j++){
+            Mn[i][j] = new int[Sn.size()];
+        }
+    }
+    vector<bool> Sn_mark(Sn.size(),false);
+    for(int n=0;n<=Sn.size();n++){
+        if(!Sn_mark[n]){
+            Sn_mark[n] = true;
+            Mn[n][0][0] = Sn[n].first;
+            queue<pair<EdgeID,Point>> Q;
+            Q.push(pair<EdgeID,Point>(Sn[n].first,Point(0,0)));
+            while(!Q.empty()){
+                EdgeID id = Q.front().first;
+                Point p = Q.front().second;
+                Q.pop();
+                for(int l=0;l<=3;l++){
+                    Edge edge_l = getNextEdge(id,LOCATE[l]);
+                }
+            }
+        }
+    }
 }
