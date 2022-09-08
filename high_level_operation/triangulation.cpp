@@ -58,9 +58,13 @@ NegMatrix<int>* triangulation(vector<Point> clusters){
     int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
     line(redraw,p1,p2,Scalar(255,255,0));
 
-    // int*** Mn = new int**[Sn.size()];
     NegMatrix<int>* Mn = new NegMatrix<int>[Sn.size()];
     getMn(Mn,Sn);
+
+    NegMatrix<int>* calibrate_Mn = new NegMatrix<int>[Sn.size()];
+    for(int i=0;i<Sn.size();i++){
+        calibrate_Mn[i] = Mn[i].calibrate(-1);
+    }
 
     for(int i=0;i<SP.cluster_side;i++){
         for(int j=0;j<SP.cluster_side;j++){

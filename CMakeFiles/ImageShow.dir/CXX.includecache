@@ -88,6 +88,10 @@ high_level_operation/triangulation.cpp
 base_operation.hpp
 /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
 
+/home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp
+Mn_generater.hpp
+/home/fqy22/桌面/pointid/single_operation/Mn_generater.hpp
+
 /home/fqy22/桌面/pointid/single_operation/Mn_generater.hpp
 ../def.hpp
 /home/fqy22/桌面/pointid/def.hpp
