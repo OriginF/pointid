@@ -9,6 +9,11 @@
 using namespace std;
 using namespace cv;
 
+#define RIGHT 0
+#define UP 1
+#define LEFT 2
+#define DOWN 3
+
 typedef int EdgeID;
 typedef Vec4f Edge;
 typedef pair<int,float> SN;
@@ -39,6 +44,10 @@ struct src_param{
     float d_cl;
     int n_cl;
     float LSE;
+    float thet_par;
+    float thet_ver;
+    int max_edge_id;
+    int cluster_side;
 } SP,SP_0;
 
 
@@ -53,6 +62,12 @@ void paint_line(Edge l);
 
 //计算模向量乘法
 float mod_multi(Edge n1,Edge n2);
+
+//根据方位获取附近的边ID
+EdgeID getNextEdgeID(EdgeID e,E_locate nx);
+
+//根据方位获取附近的边
+Edge getNextEdge(EdgeID e,E_locate nx);
 
 //计算L_sq_se
 float L_sq_se_calculator(EdgeID e);
@@ -71,16 +86,19 @@ int main()
     SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
     SP_0.resolution = 1374.0*882.0;
     SP_0.LSE = 0.1;//LSE threshold
+    SP_0.thet_par = 0.6;
+    SP_0.thet_ver = 0.6;
+    SP_0.cluster_side = 20;
 
     SP.url = "./realimage/real2.jpg";
     // SP.url = "./points.jpg";
 
 
     //预处理全局变量
-    LOCATE[0] = E_locate::e_AB;
-    LOCATE[1] = E_locate::e_AD;
-    LOCATE[2] = E_locate::e_CB;
-    LOCATE[3] = E_locate::e_CD;
+    LOCATE[0] = E_locate::e_CB;
+    LOCATE[1] = E_locate::e_CD;
+    LOCATE[2] = E_locate::e_AD;
+    LOCATE[3] = E_locate::e_AB;
     LOCATE[4] = E_locate::e_AC;
     LOCATE[5] = E_locate::e_DB;
 
@@ -104,6 +122,9 @@ int main()
     SP.n_kp = 16;
     SP.n_cl = 4;
     SP.LSE = SP_0.LSE;
+    SP.thet_par = SP_0.thet_par;
+    SP.thet_ver = SP_0.thet_ver;
+    SP.cluster_side = SP_0.cluster_side;
     // cout << SP.Amax << " "  << SP.Amin << " " << SP.div << endl;
 
 
@@ -191,7 +212,6 @@ int main()
     for(int i=0;i<=row_num;i++){
         grid_queue[i] = new vector<int>[col_num+1];
     }
-    // cout << "size:" << connect_points.size() << endl;
     for(int point=0;point<connect_points.size();point++){
         Point p(connect_points[point]);
         for(float i=0;i<=row_num;i++){
@@ -204,13 +224,8 @@ int main()
             }
         }
     }
-    // cout << row_num << " " << col_num << endl;
-    // for(int i=0;i<=row_num;i++){
-    //     for(int j=0;j<=col_num;j++){
-    //         cout << grid_queue[i][j].size() << " ";
-    //     }
-    //     cout << endl;
-    // }
+    
+
     vector<Point> grid_points;
     vector<int> point_id;
     vector<Point> temp_clusters;
@@ -266,7 +281,6 @@ int main()
     //插入点簇
     for(int i=0;i<clusters.size();i++){
         int pointid = sub_div.insert(clusters[i]);
-        // cout << clusters[i] << endl;
     }
 
     //拿到所有的边的集合（这里只是视觉呈现，并不必要
@@ -276,20 +290,20 @@ int main()
     sub_div.Subdiv2D::getLeadingEdgeList(leadingEdgeList);
     for(int i=0;i<edgeList.size();i++){
         Point p1(edgeList[i][0],edgeList[i][1]),p2(edgeList[i][2],edgeList[i][3]);
-        // cout << edgeList[i] << " i: "<<i<<" P1: "<< p1 << " p2: "<< p2 <<endl;
-        line(redraw,p1,p2,Scalar(255,0,0),1,LINE_8,0);
+        // line(redraw,p1,p2,Scalar(255,0,0),1,LINE_8,0);
     }
     //到此位置可以注释
-
+    SP.max_edge_id = 0;
 
     //绘制所有的主边
     for(int i=0;i<leadingEdgeList.size();i++){
         EdgeID id = leadingEdgeList[i];
+        if(id>SP.max_edge_id)SP.max_edge_id = id;
         Point2f p1,p2;
         int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
         int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
         if(ans1>0&&ans2>0){
-            line(redraw,p1,p2,Scalar(0,255,0));
+            // line(redraw,p1,p2,Scalar(0,255,0));
         }
     }
 
@@ -303,9 +317,53 @@ int main()
         }
     }
 
+    
+
     //根据LSE的值进行排序
     sort(Sn.begin(),Sn.end(),comp);
     
+    int id = Sn[0].first;
+    Point2f p1,p2;
+    int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
+    int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
+    line(redraw,p1,p2,Scalar(255,255,0));
+
+    int*** Mn = new int**[Sn.size()];
+    getMn(Mn,Sn);
+
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<SP.cluster_side;j++){
+            EdgeID e_id = Mn[0][i][j];
+            Point2f p1,p2;
+            int ans1,ans2;
+            // cout << e_id << endl;
+            EdgeID AB_id = getNextEdgeID(e_id,E_locate::e_AB);
+            ans1 = sub_div.Subdiv2D::edgeDst(AB_id,&p1);
+            ans2 = sub_div.Subdiv2D::edgeOrg(AB_id,&p2);
+            if(ans1>0&&ans2>0){
+                line(redraw,p1,p2,Scalar(255,100,100));
+            }
+            EdgeID AD_id = getNextEdgeID(e_id,E_locate::e_AD);
+            ans1 = sub_div.Subdiv2D::edgeDst(AD_id,&p1);
+            ans2 = sub_div.Subdiv2D::edgeOrg(AD_id,&p2);
+            if(ans1>0&&ans2>0){
+                line(redraw,p1,p2,Scalar(255,100,100));
+            }
+            EdgeID CB_id = getNextEdgeID(e_id,E_locate::e_CB);
+            ans1 = sub_div.Subdiv2D::edgeDst(CB_id,&p1);
+            ans2 = sub_div.Subdiv2D::edgeOrg(CB_id,&p2);
+            if(ans1>0&&ans2>0){
+                line(redraw,p1,p2,Scalar(255,100,100));
+            }
+            EdgeID CD_id = getNextEdgeID(e_id,E_locate::e_CD);
+            ans1 = sub_div.Subdiv2D::edgeDst(CD_id,&p1);
+            ans2 = sub_div.Subdiv2D::edgeOrg(CD_id,&p2);
+            if(ans1>0&&ans2>0){
+                line(redraw,p1,p2,Scalar(255,100,100));
+            }
+        }
+    }
+
     // Point2f p1,p2;
     // int id = leadingEdgeList[20];
     // int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
@@ -356,63 +414,104 @@ float mod_multi(Edge n1,Edge n2){
     return multi/(mod1*mod2);
 }
 
-Edge getNextEdge(EdgeID e,E_locate nx){
-    Point2f p1,p2;
-    EdgeID temp1_id,temp2_id,ans_id;
-    Edge temp1,temp2,ans;
-    switch(nx)
-    {
-        case E_locate::e_AB:
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
-            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
-            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
-            ans = Edge(p1.x,p1.y,p2.x,p2.y);
-            return ans;
-        case E_locate::e_AD:
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
-            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
-            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
-            ans = Edge(p1.x,p1.y,p2.x,p2.y);
-            return ans;
-        case E_locate::e_CB:
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
-            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
-            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
-            ans = Edge(p1.x,p1.y,p2.x,p2.y);
-            return ans;
-        case E_locate::e_CD:
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
-            sub_div.Subdiv2D::edgeOrg(ans_id,&p1);
-            sub_div.Subdiv2D::edgeDst(ans_id,&p2);
-            ans = Edge(p1.x,p1.y,p2.x,p2.y);
-            return ans;
-        case E_locate::e_AC:
-            temp1_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
-            sub_div.Subdiv2D::edgeOrg(temp1_id,&p1);
-            sub_div.Subdiv2D::edgeDst(temp1_id,&p2);
-            temp1 = Edge(p1.x,p1.y,p2.x,p2.y);
-            temp2_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
-            sub_div.Subdiv2D::edgeOrg(temp2_id,&p1);
-            sub_div.Subdiv2D::edgeDst(temp2_id,&p2);
-            temp2 = Edge(p1.x,p1.y,p2.x,p2.y);
-            ans = Edge(temp1[0],temp1[1],temp2[0],temp2[1]);
-            return ans;
-        case E_locate::e_DB:
-            temp1_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
-            sub_div.Subdiv2D::edgeOrg(temp1_id,&p1);
-            sub_div.Subdiv2D::edgeDst(temp1_id,&p2);
-            temp1 = Edge(p1.x,p1.y,p2.x,p2.y);
-            temp2_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
-            sub_div.Subdiv2D::edgeOrg(temp2_id,&p1);
-            sub_div.Subdiv2D::edgeDst(temp2_id,&p2);
-            temp2 = Edge(p1.x,p1.y,p2.x,p2.y);
-            ans = Edge(temp1[2],temp1[3],temp2[2],temp2[3]);
-            return ans;
-        default:
-            cout << "wrong locate" << endl;
-            exit(1);
+
+float mod_multi(EdgeID e1,EdgeID e2){
+    Point2f p01,p02,p11,p12;
+    sub_div.Subdiv2D::edgeOrg(e1,&p01);
+    sub_div.Subdiv2D::edgeDst(e1,&p02);
+    Edge n1 = Edge(p01.x,p01.y,p02.x,p02.y);
+    sub_div.Subdiv2D::edgeOrg(e2,&p11);
+    sub_div.Subdiv2D::edgeDst(e2,&p12);
+    Edge n2 = Edge(p11.x,p11.y,p12.x,p12.y);
+    return mod_multi(n1,n2);
+}
+
+E_locate CB_CD_AD_AB_maper(EdgeID e,int l){
+    Point2f org,dst;
+    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
+    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
+    if(org.x<=dst.x){
+        if(org.y<=dst.y){
+            switch(l){
+                case RIGHT:return E_locate::e_CB;
+                case UP:return E_locate::e_CD;
+                case LEFT:return E_locate::e_AD;
+                case DOWN:return E_locate::e_AB;
+                default:cout << "wrong locate" << endl;exit(4);
+            }
+        }
+        else{
+            switch(l){
+                case RIGHT:return E_locate::e_CD;
+                case UP:return E_locate::e_AD;
+                case LEFT:return E_locate::e_AB;
+                case DOWN:return E_locate::e_CB;
+                default:cout << "wrong locate" << endl;exit(4); 
+            }
+        }
     }
-    return Edge(0,0,0,0);
+    else{
+        if(org.y<=dst.y){
+            switch(l){
+                case RIGHT:return E_locate::e_AB;
+                case UP:return E_locate::e_CB;
+                case LEFT:return E_locate::e_CD;
+                case DOWN:return E_locate::e_AD;
+                default:cout << "wrong locate" << endl;exit(4);
+            }
+        }
+        else{
+            switch(l){
+                case RIGHT:return E_locate::e_AD;
+                case UP:return E_locate::e_AB;
+                case LEFT:return E_locate::e_CB;
+                case DOWN:return E_locate::e_CD;
+                default:cout << "wrong locate" << endl;exit(4);
+            }
+        }
+    }
+    return E_locate::e_AC;
+}
+
+
+EdgeID getNextEdgeID(EdgeID e,E_locate nx){
+    EdgeID ans_id;
+    switch(nx){
+        case E_locate::e_AB:{
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
+            return ans_id;
+        }
+        case E_locate::e_AD:{
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
+            return ans_id;
+        }
+        case E_locate::e_CB:{
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+            return ans_id;
+        }
+        case E_locate::e_CD:{
+            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
+            return ans_id;
+        }
+        case E_locate::e_DB:{
+            return e;
+        }
+        case E_locate::e_AC:{
+            ans_id = sub_div.Subdiv2D::rotateEdge(e,1);
+            return ans_id;
+        }
+        default:cout << "wrong nx" << endl;exit(5);
+    }
+    return ans_id;
+}
+
+
+Edge getNextEdge(EdgeID e,E_locate nx){
+    EdgeID e_l_id= getNextEdgeID(e,nx);
+    Point2f org,dst;
+    int organs = sub_div.Subdiv2D::edgeOrg(e_l_id,&org);
+    int dstans = sub_div.Subdiv2D::edgeDst(e_l_id,&dst);
+    return Edge(org.x,org.y,dst.x,dst.y);
 }
 
 
@@ -443,27 +542,149 @@ float L_sq_se_calculator(EdgeID e){
     return Lsq_se;
 }
 
-void getMn(int*** Mn,vector<SN> Sn){
-    Mn = new int**[Sn.size()];
-    for(int i=0;i<Sn.size();i++){
-        Mn[i] = new int*[Sn.size()];
-        for(int j=0;j<Sn.size();j++){
-            Mn[i][j] = new int[Sn.size()];
+
+int condition_Judger(EdgeID e){
+    Edge AB = getNextEdge(e,E_locate::e_AB);
+    Edge AD = getNextEdge(e,E_locate::e_AD);
+    Edge CB = getNextEdge(e,E_locate::e_CB);
+    Edge CD = getNextEdge(e,E_locate::e_CD);
+    int ans = 0;
+    // cout << mod_multi(AD,CB) << endl;
+    if(1-pow(mod_multi(AB,CD),2)<SP.thet_par
+      &&1-pow(mod_multi(AD,CB),2)<SP.thet_par){
+        ans|=1;
+    }
+    if(pow(mod_multi(AD,CD),2)<SP.thet_ver
+        &&1-pow(mod_multi(AB,CB),2)<SP.thet_par){
+            ans|=2;
+    }
+    return ans;
+}
+
+
+EdgeID get_eBar(EdgeID e,int locate){
+    E_locate ans_locate = CB_CD_AD_AB_maper(e,locate);
+    switch(ans_locate){
+        case E_locate::e_CB: case E_locate::e_CD:
+        {
+            Edge DB = getNextEdge(e,E_locate::e_DB);
+            Edge CB = getNextEdge(e,E_locate::e_CB);
+            Edge CD = getNextEdge(e,E_locate::e_CD);
+            float mod_cos_CB_DB = abs(mod_multi(CB,DB));
+            float mod_cos_CD_DB = abs(mod_multi(CD,DB));
+            if(mod_cos_CB_DB < mod_cos_CD_DB){
+                return getNextEdgeID(e,E_locate::e_CD);
+            }
+            else{
+                return getNextEdgeID(e,E_locate::e_CB);
+            }
+        }break;
+        case E_locate::e_AB: case E_locate::e_AD:
+        {
+            Edge AB = getNextEdge(e,E_locate::e_AB);
+            Edge AD = getNextEdge(e,E_locate::e_AD);
+            Edge DB = getNextEdge(e,E_locate::e_DB);
+            float mod_cos_AB_DB = abs(mod_multi(AB,DB));
+            float mod_cos_AD_DB = abs(mod_multi(AD,DB));
+            if(mod_cos_AB_DB < mod_cos_AD_DB){
+                return getNextEdgeID(e,E_locate::e_AD);
+            }
+            else{
+                return getNextEdgeID(e,E_locate::e_AB);
+            }
+        }break;
+        default:{
+            cout << "wrong locate num" << endl;
+            exit(3);
         }
     }
-    vector<bool> Sn_mark(Sn.size(),false);
-    for(int n=0;n<=Sn.size();n++){
-        if(!Sn_mark[n]){
-            Sn_mark[n] = true;
+    return -1;
+}
+
+
+void cout_paint_line(string s,EdgeID e){
+    Point2f org,dst;
+    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
+    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
+    line(redraw,org,dst,Scalar(0,255,0));
+    cout << s <<":["<<org<<","<<dst<<"]"<<endl;
+}
+
+
+void getMn(int*** Mn,vector<SN> Sn){
+    for(int i=0;i<Sn.size();i++){//这里的这个Mn的大小实际上是需要我们进行一个优化，但是我还没有考虑好空间的上界，目前先设立成这个大小。
+        Mn[i] = new int*[SP.cluster_side];
+        for(int j=0;j<SP.cluster_side;j++){
+            Mn[i][j] = new int[SP.cluster_side];
+            for(int k=0;k<SP.cluster_side;k++){
+                Mn[i][j][k] = -1;
+            }
+        }
+    }
+    vector<bool> Sn_mark(SP.max_edge_id,false);//这里感觉还是有一点奇怪的，因为此处实际上是开始只设立一个mark，但是要重复对每个点进行一次考虑。
+    for(int n=0;n<Sn.size();n++){
+        if(!Sn_mark[Sn[n].first]){
+            Sn_mark[Sn[n].first] = true;
             Mn[n][0][0] = Sn[n].first;
             queue<pair<EdgeID,Point>> Q;
             Q.push(pair<EdgeID,Point>(Sn[n].first,Point(0,0)));
+            int counter = 0;
             while(!Q.empty()){
+                counter++;
                 EdgeID id = Q.front().first;
                 Point p = Q.front().second;
                 Q.pop();
                 for(int l=0;l<=3;l++){
-                    Edge edge_l = getNextEdge(id,LOCATE[l]);
+                    E_locate l_locate = CB_CD_AD_AB_maper(id,l);
+                    EdgeID e_id = getNextEdgeID(id,l_locate);
+                    Point2f p01,p02;
+                    int ans1 = sub_div.Subdiv2D::edgeDst(e_id,&p01);
+                    int ans2 = sub_div.Subdiv2D::edgeOrg(e_id,&p02);
+                    int condition_ans = condition_Judger(e_id);
+                    if(condition_ans>0){//这个地方变成的可能不是原来的那个边，很奇怪（有可能覆盖原来的位置
+                        EdgeID eBar_id = get_eBar(e_id,l);
+                        Point eBar_p;
+                        int eBar_condition_ans = condition_Judger(eBar_id);
+                        // float cos = abs(mod_multi(id,eBar_id));
+                        // if(cos>0.92&&cos<1-1e-3){continue;};//这个地方很奇怪，在所有的情况下，cos都应该小于1
+                        if(!Sn_mark[eBar_id]&&((eBar_condition_ans&1)>0)){//现在每种情况下，这里只会在单个地方进行访问？
+                            cout << "in!n:" << n << " l:" << l << endl; 
+                            switch(l){
+                                case 0:
+                                    eBar_p = Point(p.x,p.y+1);
+                                    if(p.y+1>=SP.cluster_side)continue;
+                                    Mn[n][p.x][p.y+1] = eBar_id;
+                                    break;
+                                case 1:
+                                    eBar_p = Point(p.x-1,p.y);
+                                    if(p.x-1<0)continue;
+                                    Mn[n][p.x-1][p.y] = eBar_id;
+                                    break;
+                                case 2:
+                                    eBar_p = Point(p.x,p.y-1);
+                                    if(p.y-1<0)continue;
+                                    Mn[n][p.x][p.y-1] = eBar_id;
+                                    break;
+                                case 3:
+                                    eBar_p = Point(p.x+1,p.y);
+                                    if(p.x+1>=SP.cluster_side)continue;
+                                    Mn[n][p.x+1][p.y] = eBar_id;
+                                    break;
+                                default:
+                                    cout << "wrong l num"<< endl;
+                                    exit(-2);
+                            }
+                            Point2f p1,p2;
+                            int ans1 = sub_div.Subdiv2D::edgeDst(eBar_id,&p1);
+                            int ans2 = sub_div.Subdiv2D::edgeOrg(eBar_id,&p2);
+                            // if(n==0)line(redraw,p1,p2,Scalar(255,0,100));
+                            // if(n==0)cout << eBar_p << endl;
+                            Q.push(pair<EdgeID,Point>(eBar_id,eBar_p));
+                            Sn_mark[eBar_id] = true;
+                            EdgeID rotate_eBar_id = sub_div.Subdiv2D::rotateEdge(eBar_id,2);
+                            Sn_mark[rotate_eBar_id] = true;
+                        }
+                    }
                 }
             }
         }

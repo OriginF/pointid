@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 26 12:31:42 2022
+# Make data base, printed on Wed Sep  7 09:47:08 2022
 
 # Variables
 
@@ -43,13 +43,13 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 45)
 RM = /usr/bin/cmake -E remove -f
 # environment
-SNAP_DATA = /var/snap/code/105
+SNAP_DATA = /var/snap/code/106
 # environment
 VTE_VERSION = 6003
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"cc0490d1397af23dc5bf44a96fe15dbb.zh-cn","_translationsConfigFile":"/home/fqy22/.config/Code/clp/cc0490d1397af23dc5bf44a96fe15dbb.zh-cn/tcf.json","_cacheRoot":"/home/fqy22/.config/Code/clp/cc0490d1397af23dc5bf44a96fe15dbb.zh-cn","_resolvedLanguagePackCoreLocation":"/home/fqy22/.config/Code/clp/cc0490d1397af23dc5bf44a96fe15dbb.zh-cn/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/fqy22/.config/Code/clp/cc0490d1397af23dc5bf44a96fe15dbb.zh-cn/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"33ccd904ddd3f53f7ff14eb57875de36.zh-cn","_translationsConfigFile":"/home/fqy22/.config/Code/clp/33ccd904ddd3f53f7ff14eb57875de36.zh-cn/tcf.json","_cacheRoot":"/home/fqy22/.config/Code/clp/33ccd904ddd3f53f7ff14eb57875de36.zh-cn","_resolvedLanguagePackCoreLocation":"/home/fqy22/.config/Code/clp/33ccd904ddd3f53f7ff14eb57875de36.zh-cn/784b0177c56c607789f9638da7b6bf3230d47a8c","_corruptedFile":"/home/fqy22/.config/Code/clp/33ccd904ddd3f53f7ff14eb57875de36.zh-cn/corrupted.info","_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:42452
+JOURNAL_STREAM = 8:39464
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -71,9 +71,9 @@ MAKELEVEL := 0
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=6c7eeb1e058c79689632a92b630846a4
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=1488acee216c2a3b6f142dca6316abef
 # environment
-MANAGERPID = 1101
+MANAGERPID = 1154
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -81,7 +81,7 @@ LC_NAME = zh_CN.UTF-8
 # environment
 VSCODE_CWD = /home/fqy22/桌面/pointid
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/106/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -89,25 +89,23 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/fqy22:@/tmp/.ICE-unix/1335,unix/fqy22:/tmp/.ICE-unix/1335
+SESSION_MANAGER = local/fqy22:@/tmp/.ICE-unix/1373,unix/fqy22:/tmp/.ICE-unix/1373
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/fqy22/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-SNAP = /snap/code/105
+SNAP = /snap/code/106
 # environment
-SNAP_VERSION = e4503b30
+SNAP_VERSION = 784b0177
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-DISABLE_WAYLAND = 1
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 48fdfc8fb2f2405cb4ce534183889376
+INVOCATION_ID = 91b333394956463aa5c5941a12ead362
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/105/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/106/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -127,7 +125,7 @@ PWD = /home/fqy22/桌面/pointid
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1298
+SSH_AGENT_PID = 1336
 # environment
 PKG_CONFIG_PATH = :/usr/local/lib/pkgconfig
 # environment
@@ -143,11 +141,11 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/fqy22/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
+VSCODE_CODE_CACHE_PATH = /home/fqy22/.config/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
 # environment
 LOGNAME = fqy22
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 48)
 EQUALS = =
 # environment
@@ -179,7 +177,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SNAP_USER_DATA = /home/fqy22/snap/code/105
+SNAP_USER_DATA = /home/fqy22/snap/code/106
 # environment
 SHLVL = 1
 # environment
@@ -189,7 +187,7 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = fqy22
 # environment
-SNAP_REVISION = 105
+SNAP_REVISION = 106
 # environment
 LC_MONETARY = zh_CN.UTF-8
 # makefile
@@ -211,7 +209,7 @@ MAKE_COMMAND := make
 # environment
 LANGUAGE = zh_CN:zh:en_US:en
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-3f232ea2-1.70.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-3f232ea2-1.71.0-main.sock
 # makefile
 MAKEFLAGS = pqrRs
 # environment
@@ -245,11 +243,11 @@ DBUS_STARTER_BUS_TYPE = session
 # makefile (from 'Makefile', line 42)
 CMAKE_COMMAND = /usr/bin/cmake
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b8eb3df4_6755_4bbe_b9d0_62cd9778dd63
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/4e6473d8_98a2_44b7_bcc0_543919474f35
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.88
+GNOME_TERMINAL_SERVICE = :1.286
 # makefile (from 'Makefile', line 21)
 SUFFIXES = 
 # environment
@@ -271,12 +269,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 4419
+VSCODE_PID = 62947
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=6c7eeb1e058c79689632a92b630846a4
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=1488acee216c2a3b6f142dca6316abef
 # variable set hash-table stats:
- 
-# Load=132/1024=13%, Rehash=0, Collisions=20/166=12%
+# Load=131/1024=13%, Rehash=0, Collisions=20/165=12%
 
 # Pattern-specific Variable Values
 
@@ -292,6 +289,7 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=6c7eeb1e058c79689632a92
 
 %.hpux_make_needs_suffix_list:
 
+ 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
@@ -354,7 +352,7 @@ preinstall/fast:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-26 10:46:11.669974677
+#  Last modified 2022-09-06 17:07:13.145476733
 #  File has been updated.
 #  Successfully updated.
 
@@ -546,6 +544,6 @@ rebuild_cache:
 # strcache performance: lookups = 158 / hit rate = 69%
 # hash-table stats:
 # Load=48/8192=1%, Rehash=0, Collisions=2/158=1%
-# Finished Make data base on Fri Aug 26 12:31:42 2022
+# Finished Make data base on Wed Sep  7 09:47:08 2022
 
  
