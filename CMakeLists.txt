@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 # Declare the executable target built from your sources
-add_executable(ImageShow pointid.cpp base_operation.cpp delaunay_ext.cpp L_sq_se_calculator.cpp)
+add_executable(ImageShow pointid.cpp base_operation.cpp delaunay_ext.cpp L_sq_se_calculator.cpp Mn_generater.cpp)
 
 # Link your application with OpenCV libraries
 target_link_libraries(ImageShow PRIVATE ${OpenCV_LIBS})

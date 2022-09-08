@@ -150,6 +150,33 @@ L_sq_se_calculator.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.s
 .PHONY : L_sq_se_calculator.cpp.s
 
+Mn_generater.o: Mn_generater.cpp.o
+
+.PHONY : Mn_generater.o
+
+# target to build an object file
+Mn_generater.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.o
+.PHONY : Mn_generater.cpp.o
+
+Mn_generater.i: Mn_generater.cpp.i
+
+.PHONY : Mn_generater.i
+
+# target to preprocess a source file
+Mn_generater.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.i
+.PHONY : Mn_generater.cpp.i
+
+Mn_generater.s: Mn_generater.cpp.s
+
+.PHONY : Mn_generater.s
+
+# target to generate assembly for a file
+Mn_generater.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.s
+.PHONY : Mn_generater.cpp.s
+
 base_operation.o: base_operation.cpp.o
 
 .PHONY : base_operation.o
@@ -243,6 +270,9 @@ help:
 	@echo "... L_sq_se_calculator.o"
 	@echo "... L_sq_se_calculator.i"
 	@echo "... L_sq_se_calculator.s"
+	@echo "... Mn_generater.o"
+	@echo "... Mn_generater.i"
+	@echo "... Mn_generater.s"
 	@echo "... base_operation.o"
 	@echo "... base_operation.i"
 	@echo "... base_operation.s"

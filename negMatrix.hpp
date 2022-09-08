@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef _NAME_NEGMATRIX_
+#define _NAME_NEGMATRIX_
+
 template<class T>
 class NegMatrix{
 public:
@@ -54,3 +57,5 @@ public:
         return matrix[x][y];
     }
 };
+
+#endif
