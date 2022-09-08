@@ -6,6 +6,8 @@
 #include <string>
 #include <queue>
 
+#include "negMatrix.hpp"
+
 using namespace std;
 using namespace cv;
 
@@ -73,7 +75,7 @@ Edge getNextEdge(EdgeID e,E_locate nx);
 float L_sq_se_calculator(EdgeID e);
 
 //计算Mn
-void getMn(int*** Mn,vector<SN> Sn);
+void getMn(NegMatrix<int>* Mn,vector<SN> Sn);
 
 int main()
 {
@@ -86,9 +88,9 @@ int main()
     SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
     SP_0.resolution = 1374.0*882.0;
     SP_0.LSE = 0.1;//LSE threshold
-    SP_0.thet_par = 0.6;
-    SP_0.thet_ver = 0.6;
-    SP_0.cluster_side = 20;
+    SP_0.thet_par = 0.55;
+    SP_0.thet_ver = 0.55;
+    SP_0.cluster_side = 10;
 
     SP.url = "./realimage/real2.jpg";
     // SP.url = "./points.jpg";
@@ -328,12 +330,14 @@ int main()
     int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
     line(redraw,p1,p2,Scalar(255,255,0));
 
-    int*** Mn = new int**[Sn.size()];
+    // int*** Mn = new int**[Sn.size()];
+    NegMatrix<int>* Mn = new NegMatrix<int>[Sn.size()];
     getMn(Mn,Sn);
 
     for(int i=0;i<SP.cluster_side;i++){
         for(int j=0;j<SP.cluster_side;j++){
-            EdgeID e_id = Mn[0][i][j];
+            EdgeID e_id = Mn[0].get_normal(i,j);
+            if(e_id == -1)continue;
             Point2f p1,p2;
             int ans1,ans2;
             // cout << e_id << endl;
@@ -611,21 +615,15 @@ void cout_paint_line(string s,EdgeID e){
 }
 
 
-void getMn(int*** Mn,vector<SN> Sn){
+void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
     for(int i=0;i<Sn.size();i++){//这里的这个Mn的大小实际上是需要我们进行一个优化，但是我还没有考虑好空间的上界，目前先设立成这个大小。
-        Mn[i] = new int*[SP.cluster_side];
-        for(int j=0;j<SP.cluster_side;j++){
-            Mn[i][j] = new int[SP.cluster_side];
-            for(int k=0;k<SP.cluster_side;k++){
-                Mn[i][j][k] = -1;
-            }
-        }
+        Mn[i].reset(SP.cluster_side,SP.cluster_side,-1);
     }
     vector<bool> Sn_mark(SP.max_edge_id,false);//这里感觉还是有一点奇怪的，因为此处实际上是开始只设立一个mark，但是要重复对每个点进行一次考虑。
     for(int n=0;n<Sn.size();n++){
         if(!Sn_mark[Sn[n].first]){
             Sn_mark[Sn[n].first] = true;
-            Mn[n][0][0] = Sn[n].first;
+            Mn[n].set(0,0,Sn[n].first);
             queue<pair<EdgeID,Point>> Q;
             Q.push(pair<EdgeID,Point>(Sn[n].first,Point(0,0)));
             int counter = 0;
@@ -645,30 +643,30 @@ void getMn(int*** Mn,vector<SN> Sn){
                         EdgeID eBar_id = get_eBar(e_id,l);
                         Point eBar_p;
                         int eBar_condition_ans = condition_Judger(eBar_id);
-                        // float cos = abs(mod_multi(id,eBar_id));
-                        // if(cos>0.92&&cos<1-1e-3){continue;};//这个地方很奇怪，在所有的情况下，cos都应该小于1
+                        float cos = abs(mod_multi(id,eBar_id));
+                        if(cos>0.80&&cos<1-1e-3){continue;};//这个地方很奇怪，在所有的情况下，cos都应该小于1
                         if(!Sn_mark[eBar_id]&&((eBar_condition_ans&1)>0)){//现在每种情况下，这里只会在单个地方进行访问？
                             cout << "in!n:" << n << " l:" << l << endl; 
                             switch(l){
                                 case 0:
                                     eBar_p = Point(p.x,p.y+1);
-                                    if(p.y+1>=SP.cluster_side)continue;
-                                    Mn[n][p.x][p.y+1] = eBar_id;
+                                    // if(p.y+1>=SP.cluster_side)continue;
+                                    Mn[n].set(p.x,p.y+1,eBar_id);
                                     break;
                                 case 1:
                                     eBar_p = Point(p.x-1,p.y);
-                                    if(p.x-1<0)continue;
-                                    Mn[n][p.x-1][p.y] = eBar_id;
+                                    // if(p.x-1<0)continue;
+                                    Mn[n].set(p.x-1,p.y,eBar_id);
                                     break;
                                 case 2:
                                     eBar_p = Point(p.x,p.y-1);
-                                    if(p.y-1<0)continue;
-                                    Mn[n][p.x][p.y-1] = eBar_id;
+                                    // if(p.y-1<0)continue;
+                                    Mn[n].set(p.x,p.y-1,eBar_id);
                                     break;
                                 case 3:
                                     eBar_p = Point(p.x+1,p.y);
-                                    if(p.x+1>=SP.cluster_side)continue;
-                                    Mn[n][p.x+1][p.y] = eBar_id;
+                                    // if(p.x+1>=SP.cluster_side)continue;
+                                    Mn[n].set(p.x+1,p.y,eBar_id);
                                     break;
                                 default:
                                     cout << "wrong l num"<< endl;

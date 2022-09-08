@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/fqy22/桌面/pointid/negMatrix.hpp
+vector
+-
+iostream
+-
+
 /home/fqy22/桌面/pointid/pointid.cpp
 opencv2/opencv.hpp
 -
@@ -21,6 +27,8 @@ string
 -
 queue
 -
+negMatrix.hpp
+/home/fqy22/桌面/pointid/negMatrix.hpp
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
