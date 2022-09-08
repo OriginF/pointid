@@ -6,70 +6,22 @@
 #include <string>
 #include <queue>
 
+#include "g_variable.hpp"
+#include "base_operation.h"
 #include "negMatrix.hpp"
+#include "delaunay_ext.h"
 
 using namespace std;
 using namespace cv;
-
-#define RIGHT 0
-#define UP 1
-#define LEFT 2
-#define DOWN 3
-
-typedef int EdgeID;
-typedef Vec4f Edge;
-typedef pair<int,float> SN;
 
 Mat redraw;
 Subdiv2D sub_div;
 
 //表示对应的位置
-enum E_locate{
-    e_AB,
-    e_AD,
-    e_CB,
-    e_CD,
-    e_AC,
-    e_DB
-} LOCATE[6];
+E_locate LOCATE[6];
 
 //记录当前相机的一些处理参数
-struct src_param{
-    string url;
-    float row;
-    float col;
-    float resolution;
-    float Amax;
-    float Amin;
-    float div;
-    int n_kp;
-    float d_cl;
-    int n_cl;
-    float LSE;
-    float thet_par;
-    float thet_ver;
-    int max_edge_id;
-    int cluster_side;
-} SP,SP_0;
-
-
-//自定义SN排序算法规则
-bool comp(const SN sn_1,const SN sn_2);
-
-//获取两点之间距离的函数
-float getDis_p2p(Point A,Point B);
-
-//输出线段的值
-void paint_line(Edge l);
-
-//计算模向量乘法
-float mod_multi(Edge n1,Edge n2);
-
-//根据方位获取附近的边ID
-EdgeID getNextEdgeID(EdgeID e,E_locate nx);
-
-//根据方位获取附近的边
-Edge getNextEdge(EdgeID e,E_locate nx);
+src_param SP,SP_0;
 
 //计算L_sq_se
 float L_sq_se_calculator(EdgeID e);
@@ -394,227 +346,6 @@ int main()
 }
 
 
-bool comp(const SN sn_1,const SN sn_2){
-    if(sn_1.second>sn_2.second)return true;
-    else return false;
-}
-
-
-float getDis_p2p(Point A,Point B){
-    return sqrt(pow((A.x-B.x),2)+pow((A.y-B.y),2));
-}
-
-
-void paint_line(Edge l){
-    Point p1(l[0],l[1]),p2(l[2],l[3]);
-    line(redraw,p1,p2,Scalar(0,255,0));
-}
-
-
-float mod_multi(Edge n1,Edge n2){
-    float mod1 = sqrt(pow(n1[3]-n1[1],2)+pow(n1[2]-n1[0],2));
-    float mod2 = sqrt(pow(n2[3]-n2[1],2)+pow(n2[2]-n2[0],2));
-    float multi = (n1[3]-n1[1])*(n2[3]-n2[1])+(n1[2]-n1[0])*(n2[2]-n2[0]);
-    return multi/(mod1*mod2);
-}
-
-
-float mod_multi(EdgeID e1,EdgeID e2){
-    Point2f p01,p02,p11,p12;
-    sub_div.Subdiv2D::edgeOrg(e1,&p01);
-    sub_div.Subdiv2D::edgeDst(e1,&p02);
-    Edge n1 = Edge(p01.x,p01.y,p02.x,p02.y);
-    sub_div.Subdiv2D::edgeOrg(e2,&p11);
-    sub_div.Subdiv2D::edgeDst(e2,&p12);
-    Edge n2 = Edge(p11.x,p11.y,p12.x,p12.y);
-    return mod_multi(n1,n2);
-}
-
-E_locate CB_CD_AD_AB_maper(EdgeID e,int l){
-    Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
-    if(org.x<=dst.x){
-        if(org.y<=dst.y){
-            switch(l){
-                case RIGHT:return E_locate::e_CB;
-                case UP:return E_locate::e_CD;
-                case LEFT:return E_locate::e_AD;
-                case DOWN:return E_locate::e_AB;
-                default:cout << "wrong locate" << endl;exit(4);
-            }
-        }
-        else{
-            switch(l){
-                case RIGHT:return E_locate::e_CD;
-                case UP:return E_locate::e_AD;
-                case LEFT:return E_locate::e_AB;
-                case DOWN:return E_locate::e_CB;
-                default:cout << "wrong locate" << endl;exit(4); 
-            }
-        }
-    }
-    else{
-        if(org.y<=dst.y){
-            switch(l){
-                case RIGHT:return E_locate::e_AB;
-                case UP:return E_locate::e_CB;
-                case LEFT:return E_locate::e_CD;
-                case DOWN:return E_locate::e_AD;
-                default:cout << "wrong locate" << endl;exit(4);
-            }
-        }
-        else{
-            switch(l){
-                case RIGHT:return E_locate::e_AD;
-                case UP:return E_locate::e_AB;
-                case LEFT:return E_locate::e_CB;
-                case DOWN:return E_locate::e_CD;
-                default:cout << "wrong locate" << endl;exit(4);
-            }
-        }
-    }
-    return E_locate::e_AC;
-}
-
-
-EdgeID getNextEdgeID(EdgeID e,E_locate nx){
-    EdgeID ans_id;
-    switch(nx){
-        case E_locate::e_AB:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
-            return ans_id;
-        }
-        case E_locate::e_AD:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
-            return ans_id;
-        }
-        case E_locate::e_CB:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
-            return ans_id;
-        }
-        case E_locate::e_CD:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
-            return ans_id;
-        }
-        case E_locate::e_DB:{
-            return e;
-        }
-        case E_locate::e_AC:{
-            ans_id = sub_div.Subdiv2D::rotateEdge(e,1);
-            return ans_id;
-        }
-        default:cout << "wrong nx" << endl;exit(5);
-    }
-    return ans_id;
-}
-
-
-Edge getNextEdge(EdgeID e,E_locate nx){
-    EdgeID e_l_id= getNextEdgeID(e,nx);
-    Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e_l_id,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e_l_id,&dst);
-    return Edge(org.x,org.y,dst.x,dst.y);
-}
-
-
-float L_sq_se_calculator(EdgeID e){
-    Point2f p1,p2;
-    EdgeID AB_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
-    sub_div.Subdiv2D::edgeOrg(AB_id,&p1);
-    sub_div.Subdiv2D::edgeDst(AB_id,&p2);
-    Edge AB(p1.x,p1.y,p2.x,p2.y);
-    EdgeID AD_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
-    sub_div.Subdiv2D::edgeOrg(AD_id,&p1);
-    sub_div.Subdiv2D::edgeDst(AD_id,&p2);
-    Edge AD(p1.x,p1.y,p2.x,p2.y);
-    EdgeID CB_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
-    sub_div.Subdiv2D::edgeOrg(CB_id,&p1);
-    sub_div.Subdiv2D::edgeDst(CB_id,&p2);
-    Edge CB(p1.x,p1.y,p2.x,p2.y);
-    EdgeID CD_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
-    sub_div.Subdiv2D::edgeOrg(CD_id,&p1);
-    sub_div.Subdiv2D::edgeDst(CD_id,&p2);
-    Edge CD(p1.x,p1.y,p2.x,p2.y);
-    Edge AC(AB[0],AB[1],CB[0],CB[1]);
-    Edge DB(CD[2],CD[3],CB[2],CB[3]);
-    float Lsq_se=1.0
-        -1.0/3.0*pow(mod_multi(AB,AD),2)
-        -1.0/3.0*pow(mod_multi(CB,CD),2)
-        -1.0/3.0*pow(mod_multi(AC,DB),2);
-    return Lsq_se;
-}
-
-
-int condition_Judger(EdgeID e){
-    Edge AB = getNextEdge(e,E_locate::e_AB);
-    Edge AD = getNextEdge(e,E_locate::e_AD);
-    Edge CB = getNextEdge(e,E_locate::e_CB);
-    Edge CD = getNextEdge(e,E_locate::e_CD);
-    int ans = 0;
-    // cout << mod_multi(AD,CB) << endl;
-    if(1-pow(mod_multi(AB,CD),2)<SP.thet_par
-      &&1-pow(mod_multi(AD,CB),2)<SP.thet_par){
-        ans|=1;
-    }
-    if(pow(mod_multi(AD,CD),2)<SP.thet_ver
-        &&1-pow(mod_multi(AB,CB),2)<SP.thet_par){
-            ans|=2;
-    }
-    return ans;
-}
-
-
-EdgeID get_eBar(EdgeID e,int locate){
-    E_locate ans_locate = CB_CD_AD_AB_maper(e,locate);
-    switch(ans_locate){
-        case E_locate::e_CB: case E_locate::e_CD:
-        {
-            Edge DB = getNextEdge(e,E_locate::e_DB);
-            Edge CB = getNextEdge(e,E_locate::e_CB);
-            Edge CD = getNextEdge(e,E_locate::e_CD);
-            float mod_cos_CB_DB = abs(mod_multi(CB,DB));
-            float mod_cos_CD_DB = abs(mod_multi(CD,DB));
-            if(mod_cos_CB_DB < mod_cos_CD_DB){
-                return getNextEdgeID(e,E_locate::e_CD);
-            }
-            else{
-                return getNextEdgeID(e,E_locate::e_CB);
-            }
-        }break;
-        case E_locate::e_AB: case E_locate::e_AD:
-        {
-            Edge AB = getNextEdge(e,E_locate::e_AB);
-            Edge AD = getNextEdge(e,E_locate::e_AD);
-            Edge DB = getNextEdge(e,E_locate::e_DB);
-            float mod_cos_AB_DB = abs(mod_multi(AB,DB));
-            float mod_cos_AD_DB = abs(mod_multi(AD,DB));
-            if(mod_cos_AB_DB < mod_cos_AD_DB){
-                return getNextEdgeID(e,E_locate::e_AD);
-            }
-            else{
-                return getNextEdgeID(e,E_locate::e_AB);
-            }
-        }break;
-        default:{
-            cout << "wrong locate num" << endl;
-            exit(3);
-        }
-    }
-    return -1;
-}
-
-
-void cout_paint_line(string s,EdgeID e){
-    Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
-    line(redraw,org,dst,Scalar(0,255,0));
-    cout << s <<":["<<org<<","<<dst<<"]"<<endl;
-}
-
-
 void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
     for(int i=0;i<Sn.size();i++){//这里的这个Mn的大小实际上是需要我们进行一个优化，但是我还没有考虑好空间的上界，目前先设立成这个大小。
         Mn[i].reset(SP.cluster_side,SP.cluster_side,-1);
@@ -646,7 +377,6 @@ void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
                         float cos = abs(mod_multi(id,eBar_id));
                         if(cos>0.80&&cos<1-1e-3){continue;};//这个地方很奇怪，在所有的情况下，cos都应该小于1
                         if(!Sn_mark[eBar_id]&&((eBar_condition_ans&1)>0)){//现在每种情况下，这里只会在单个地方进行访问？
-                            cout << "in!n:" << n << " l:" << l << endl; 
                             switch(l){
                                 case 0:
                                     eBar_p = Point(p.x,p.y+1);

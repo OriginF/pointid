@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/home/fqy22/桌面/pointid/base_operation.h
+g_variable.hpp
+/home/fqy22/桌面/pointid/g_variable.hpp
+
+/home/fqy22/桌面/pointid/def.hpp
+opencv2/opencv.hpp
+-
+opencv2/imgproc.hpp
+-
+iostream
+-
+
+/home/fqy22/桌面/pointid/delaunay_ext.h
+def.hpp
+/home/fqy22/桌面/pointid/def.hpp
+g_variable.hpp
+/home/fqy22/桌面/pointid/g_variable.hpp
+base_operation.h
+/home/fqy22/桌面/pointid/base_operation.h
+
+/home/fqy22/桌面/pointid/g_variable.hpp
+def.hpp
+/home/fqy22/桌面/pointid/def.hpp
+
 /home/fqy22/桌面/pointid/negMatrix.hpp
 vector
 -
@@ -27,8 +51,14 @@ string
 -
 queue
 -
+g_variable.hpp
+/home/fqy22/桌面/pointid/g_variable.hpp
+base_operation.h
+/home/fqy22/桌面/pointid/base_operation.h
 negMatrix.hpp
 /home/fqy22/桌面/pointid/negMatrix.hpp
+delaunay_ext.h
+/home/fqy22/桌面/pointid/delaunay_ext.h
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

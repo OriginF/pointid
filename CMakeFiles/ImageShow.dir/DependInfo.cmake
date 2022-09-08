@@ -4,6 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/fqy22/桌面/pointid/L_sq_se_calculator.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o"
+  "/home/fqy22/桌面/pointid/base_operation.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/base_operation.cpp.o"
+  "/home/fqy22/桌面/pointid/delaunay_ext.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o"
   "/home/fqy22/桌面/pointid/pointid.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

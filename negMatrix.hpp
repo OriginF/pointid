@@ -34,6 +34,7 @@ public:
         x = x<0?x_side+x:x;
         y = y<0?y_side+y:y;
         matrix[x][y]=value;
+        return true;
     }
     T get(int x,int y){
         if(x<x_bias||y<y_bias||x>=x_max||y>=y_max){
