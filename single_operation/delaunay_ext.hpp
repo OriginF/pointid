@@ -1,6 +1,6 @@
-#include "def.hpp"
-#include "g_variable.hpp"
-#include "base_operation.h"
+#include "../def.hpp"
+#include "../g_variable.hpp"
+#include "base_operation.hpp"
 
 #ifndef _NAME_DELAUNAY_EXT_
 #define _NAME_DELAUNAY_EXT_

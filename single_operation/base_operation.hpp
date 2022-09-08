@@ -1,4 +1,4 @@
-#include "g_variable.hpp"
+#include "../g_variable.hpp"
 
 #ifndef _NAME_BASE_OPERATION_
 #define _NAME_BASE_OPERATION_

@@ -70,74 +70,74 @@ CMakeFiles/ImageShow.dir/pointid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/pointid.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/pointid.cpp -o CMakeFiles/ImageShow.dir/pointid.cpp.s
 
-CMakeFiles/ImageShow.dir/base_operation.cpp.o: CMakeFiles/ImageShow.dir/flags.make
-CMakeFiles/ImageShow.dir/base_operation.cpp.o: base_operation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ImageShow.dir/base_operation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/base_operation.cpp.o -c /home/fqy22/桌面/pointid/base_operation.cpp
+CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o: single_operation/base_operation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o -c /home/fqy22/桌面/pointid/single_operation/base_operation.cpp
 
-CMakeFiles/ImageShow.dir/base_operation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/base_operation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/base_operation.cpp > CMakeFiles/ImageShow.dir/base_operation.cpp.i
+CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/single_operation/base_operation.cpp > CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.i
 
-CMakeFiles/ImageShow.dir/base_operation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/base_operation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/base_operation.cpp -o CMakeFiles/ImageShow.dir/base_operation.cpp.s
+CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/single_operation/base_operation.cpp -o CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.s
 
-CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o: CMakeFiles/ImageShow.dir/flags.make
-CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o: delaunay_ext.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o -c /home/fqy22/桌面/pointid/delaunay_ext.cpp
+CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o: single_operation/delaunay_ext.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o -c /home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp
 
-CMakeFiles/ImageShow.dir/delaunay_ext.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/delaunay_ext.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/delaunay_ext.cpp > CMakeFiles/ImageShow.dir/delaunay_ext.cpp.i
+CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp > CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.i
 
-CMakeFiles/ImageShow.dir/delaunay_ext.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/delaunay_ext.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/delaunay_ext.cpp -o CMakeFiles/ImageShow.dir/delaunay_ext.cpp.s
+CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp -o CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.s
 
-CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o: CMakeFiles/ImageShow.dir/flags.make
-CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o: L_sq_se_calculator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o -c /home/fqy22/桌面/pointid/L_sq_se_calculator.cpp
+CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o: single_operation/L_sq_se_calculator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o -c /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp
 
-CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/L_sq_se_calculator.cpp > CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.i
+CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp > CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.i
 
-CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/L_sq_se_calculator.cpp -o CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.s
+CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp -o CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s
 
-CMakeFiles/ImageShow.dir/Mn_generater.cpp.o: CMakeFiles/ImageShow.dir/flags.make
-CMakeFiles/ImageShow.dir/Mn_generater.cpp.o: Mn_generater.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ImageShow.dir/Mn_generater.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/Mn_generater.cpp.o -c /home/fqy22/桌面/pointid/Mn_generater.cpp
+CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o: single_operation/Mn_generater.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o -c /home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp
 
-CMakeFiles/ImageShow.dir/Mn_generater.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/Mn_generater.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/Mn_generater.cpp > CMakeFiles/ImageShow.dir/Mn_generater.cpp.i
+CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp > CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.i
 
-CMakeFiles/ImageShow.dir/Mn_generater.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/Mn_generater.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/Mn_generater.cpp -o CMakeFiles/ImageShow.dir/Mn_generater.cpp.s
+CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp -o CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.s
 
 # Object files for target ImageShow
 ImageShow_OBJECTS = \
 "CMakeFiles/ImageShow.dir/pointid.cpp.o" \
-"CMakeFiles/ImageShow.dir/base_operation.cpp.o" \
-"CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o" \
-"CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o" \
-"CMakeFiles/ImageShow.dir/Mn_generater.cpp.o"
+"CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o" \
+"CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o" \
+"CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o" \
+"CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o"
 
 # External object files for target ImageShow
 ImageShow_EXTERNAL_OBJECTS =
 
 ImageShow: CMakeFiles/ImageShow.dir/pointid.cpp.o
-ImageShow: CMakeFiles/ImageShow.dir/base_operation.cpp.o
-ImageShow: CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o
-ImageShow: CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o
-ImageShow: CMakeFiles/ImageShow.dir/Mn_generater.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/build.make
 ImageShow: /usr/local/lib/libopencv_gapi.so.4.6.0
 ImageShow: /usr/local/lib/libopencv_highgui.so.4.6.0

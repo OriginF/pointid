@@ -6,11 +6,17 @@
 #include <string>
 #include <queue>
 
+#include "def.hpp"
 #include "g_variable.hpp"
-#include "base_operation.h"
-#include "negMatrix.hpp"
-#include "delaunay_ext.h"
-#include "Mn_generater.h"
+#include "single_operation/base_operation.hpp"
+#include "single_operation/negMatrix.hpp"
+#include "single_operation/delaunay_ext.hpp"
+#include "single_operation/Mn_generater.hpp"
+
+#include "high_level_operation/parameter_init.cpp"
+#include "high_level_operation/img_preprocess.cpp"
+#include "high_level_operation/point2cluster.cpp"
+#include "high_level_operation/triangulation.cpp"
 
 using namespace std;
 using namespace cv;
@@ -27,29 +33,7 @@ src_param SP,SP_0;
 int main()
 {
     //预处理图像参数(来自points.jpg)
-    SP_0.row = 1374.0;
-    SP_0.col = 882.0;
-    SP_0.Amax = 80.0;
-    SP_0.Amin = 7.0;
-    SP_0.div = 111.3;//以此为分割长度,一个里面至多有4个点簇
-    SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
-    SP_0.resolution = 1374.0*882.0;
-    SP_0.LSE = 0.1;//LSE threshold
-    SP_0.thet_par = 0.55;
-    SP_0.thet_ver = 0.55;
-    SP_0.cluster_side = 10;
-
-    SP.url = "./realimage/real2.jpg";
-    // SP.url = "./points.jpg";
-
-
-    //预处理全局变量
-    LOCATE[0] = E_locate::e_CB;
-    LOCATE[1] = E_locate::e_CD;
-    LOCATE[2] = E_locate::e_AD;
-    LOCATE[3] = E_locate::e_AB;
-    LOCATE[4] = E_locate::e_AC;
-    LOCATE[5] = E_locate::e_DB;
+    parameter_init();
 
 
     //图像读取
@@ -61,20 +45,7 @@ int main()
 
 
     //按照图片像素得到对应的全局参数的值
-    SP.row = src.rows;
-    SP.col = src.cols;
-    SP.resolution = src.rows*src.cols;
-    SP.Amax = sqrt(SP.resolution/SP_0.resolution)*SP_0.Amax;
-    SP.Amin = sqrt(SP.resolution/SP_0.resolution)*SP_0.Amin;
-    SP.div = sqrt(SP.resolution/SP_0.resolution)*SP_0.div;
-    SP.d_cl = sqrt(SP.resolution/SP_0.resolution)*SP_0.d_cl;
-    SP.n_kp = 16;
-    SP.n_cl = 4;
-    SP.LSE = SP_0.LSE;
-    SP.thet_par = SP_0.thet_par;
-    SP.thet_ver = SP_0.thet_ver;
-    SP.cluster_side = SP_0.cluster_side;
-    // cout << SP.Amax << " "  << SP.Amin << " " << SP.div << endl;
+    parameter_convert(src);
 
 
     //图片降噪
@@ -98,239 +69,15 @@ int main()
 
 
     //拿到所有的点集合
-    vector<Point> connect_points;
-    for(int i=1;i<nccpmps;i++){
-        if(stats.at<int>(i,CC_STAT_AREA)>SP.Amin&&stats.at<int>(i,CC_STAT_AREA)<SP.Amax){
-            connect_points.push_back(Point(centroids.at<Vec2d>(i,0)));
-        }
-    }
-
-
-    //输出数据调试
-    // cout << "连通域数："<<nccpmps<<endl;
-    // for(int i=0;i<nccpmps;i++){
-    //     cout << "第"<<i<<"个连通域:面积:"<<stats.at<int>(i,CC_STAT_AREA)<<" 圆心："<<centroids.at<Vec2d>(i,0)<<endl;
-    // }
-    // imshow("ImputImage",bin);
-
-
-    //添加网格分割
-    redraw=Mat(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
-    int row_num = SP.row/SP.div;
-    int col_num = SP.col/SP.div;
-    for(int i=0;i<=row_num;i++){
-        line(redraw,Point(0,i*SP.div),Point(SP.col,i*SP.div),Scalar(0,0,0));
-    }
-    for(int i=0;i<=col_num;i++){
-        line(redraw,Point(i*SP.div,0),Point(i*SP.div,SP.row),Scalar(0,0,0));
-    }
-
-
-    //点簇分割,这个原来的论文里面没有讲,但是我觉得可以加上,效果会更好,可以省去大量的计算
-    vector<int> cluster_counter;
-    vector<Point> cluster_center;
-    vector<int> point2cluster;
-    for(int i=0;i<connect_points.size();i++){
-        bool new_cluster=true;
-        for(int j=0;j<i;j++){
-            if(getDis_p2p(connect_points[i],connect_points[j])<SP.d_cl){
-                point2cluster.push_back(point2cluster[j]);
-                cluster_counter[point2cluster[j]]++;
-                cluster_center[point2cluster[j]].x+=connect_points[i].x;
-                cluster_center[point2cluster[j]].y+=connect_points[i].y;
-                new_cluster = false;
-                break;
-            }
-        }
-        if(new_cluster){
-            cluster_counter.push_back(1);
-            cluster_center.push_back(Point(connect_points[i]));
-            point2cluster.push_back(cluster_counter.size()-1);
-        }
-    }
-    for(int i=0;i<cluster_center.size();i++){
-        cluster_center[i].x/=cluster_counter[i];
-        cluster_center[i].y/=cluster_counter[i];
-    }
-    assert(point2cluster.size()==connect_points.size());
+    vector<Point> connect_points = get_points(nccpmps,stats,centroids);
     
-    
-    //这里已经拿到了所有的cluster，现在尝试对cluster进行分割
-    //开始遍历点和网格分割(这没想好,但是感觉复杂度挺高的,O(n^2*m),n表示点的个数,m表示方格的个数),删除方格内超过16个的点的方格
-    vector<int>** grid_queue = new vector<int>*[row_num+1];
-    for(int i=0;i<=row_num;i++){
-        grid_queue[i] = new vector<int>[col_num+1];
-    }
-    for(int point=0;point<connect_points.size();point++){
-        Point p(connect_points[point]);
-        for(float i=0;i<=row_num;i++){
-            if(p.x>=i*SP.div&&p.x<=(i+1)*SP.div){
-                for(float j=0;j<=col_num;j++){
-                    if(p.y>=j*SP.div&&p.y<=(j+1)*SP.div){
-                        grid_queue[int(i)][int(j)].push_back(point);
-                    }
-                }
-            }
-        }
-    }
-    
-
-    vector<Point> grid_points;
-    vector<int> point_id;
-    vector<Point> temp_clusters;
-    for(float i=0;i<=row_num;i++){
-        for(float j=0;j<=col_num;j++){
-            vector<int> grid_q = grid_queue[int(i)][int(j)];
-            set<int> cl_set;
-            for(int point=0;point<grid_q.size();point++){
-                cl_set.insert(point2cluster[grid_q[point]]);
-            }
-            if(grid_q.size()<=cl_set.size()*4){
-                for(int q:grid_q){
-                    grid_points.push_back(connect_points[q]);
-                    point_id.push_back(q);
-                }
-            }
-        }
-    }
-    for(int i=0;i<point_id.size();i++){
-        Point center = cluster_center[point2cluster[point_id[i]]];
-        temp_clusters.push_back(center);
-    }
-
-    vector<Point> clusters;
-    for(int i=0;i<temp_clusters.size();i++){
-        bool new_point=true;
-        for(int j=0;j<i;j++){
-            if(temp_clusters[i]==temp_clusters[j]){
-                new_point= false;
-                break;
-            }
-        }
-        if(new_point){
-            clusters.push_back(temp_clusters[i]);
-        }
-    }
-    
-
-    //单个点簇不能太大
-    // vector<Point> cluster_points;
-    // for(int i=0;i<grid_points.size();i++){
-    //     if(cluster_counter[point2cluster[i]]<=SP.n_cl){
-    //         cluster_points.push_back(connect_points[i]);
-    //     }
-    // }
+    //根据点集获取点簇集
+    vector<Point> clusters = point2cluster(connect_points);
 
 
-    //Delaunay三角剖分算法
-    Rect rect(0, 0, SP.row, SP.col);
-    sub_div.initDelaunay(rect);
-    map<int,int> point2index;
+    //Delaunay三角剖分算法加算法划分得到最终的剖分棋盘
+    NegMatrix<int>* Mn = triangulation(clusters);
 
-    //插入点簇
-    for(int i=0;i<clusters.size();i++){
-        int pointid = sub_div.insert(clusters[i]);
-    }
-
-    //拿到所有的边的集合（这里只是视觉呈现，并不必要
-    vector<Vec4f> edgeList;
-    sub_div.Subdiv2D::getEdgeList(edgeList);
-    vector<int> leadingEdgeList;
-    sub_div.Subdiv2D::getLeadingEdgeList(leadingEdgeList);
-    for(int i=0;i<edgeList.size();i++){
-        Point p1(edgeList[i][0],edgeList[i][1]),p2(edgeList[i][2],edgeList[i][3]);
-        // line(redraw,p1,p2,Scalar(255,0,0),1,LINE_8,0);
-    }
-    //到此位置可以注释
-    SP.max_edge_id = 0;
-
-    //绘制所有的主边
-    for(int i=0;i<leadingEdgeList.size();i++){
-        EdgeID id = leadingEdgeList[i];
-        if(id>SP.max_edge_id)SP.max_edge_id = id;
-        Point2f p1,p2;
-        int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
-        int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
-        if(ans1>0&&ans2>0){
-            // line(redraw,p1,p2,Scalar(0,255,0));
-        }
-    }
-
-    //尝试计算所有的主边的Lsq_se
-    vector<SN> Sn; 
-    for(int i=0;i<leadingEdgeList.size();i++){
-        int id = leadingEdgeList[i];
-        float Lsq_se = L_sq_se_calculator(id);
-        if(Lsq_se>SP.LSE){
-            Sn.push_back(SN(id,Lsq_se));
-        }
-    }
-
-    
-
-    //根据LSE的值进行排序
-    sort(Sn.begin(),Sn.end(),comp);
-    
-    int id = Sn[0].first;
-    Point2f p1,p2;
-    int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
-    int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
-    line(redraw,p1,p2,Scalar(255,255,0));
-
-    // int*** Mn = new int**[Sn.size()];
-    NegMatrix<int>* Mn = new NegMatrix<int>[Sn.size()];
-    getMn(Mn,Sn);
-
-    for(int i=0;i<SP.cluster_side;i++){
-        for(int j=0;j<SP.cluster_side;j++){
-            EdgeID e_id = Mn[0].get_normal(i,j);
-            if(e_id == -1)continue;
-            Point2f p1,p2;
-            int ans1,ans2;
-            // cout << e_id << endl;
-            EdgeID AB_id = getNextEdgeID(e_id,E_locate::e_AB);
-            ans1 = sub_div.Subdiv2D::edgeDst(AB_id,&p1);
-            ans2 = sub_div.Subdiv2D::edgeOrg(AB_id,&p2);
-            if(ans1>0&&ans2>0){
-                line(redraw,p1,p2,Scalar(255,100,100));
-            }
-            EdgeID AD_id = getNextEdgeID(e_id,E_locate::e_AD);
-            ans1 = sub_div.Subdiv2D::edgeDst(AD_id,&p1);
-            ans2 = sub_div.Subdiv2D::edgeOrg(AD_id,&p2);
-            if(ans1>0&&ans2>0){
-                line(redraw,p1,p2,Scalar(255,100,100));
-            }
-            EdgeID CB_id = getNextEdgeID(e_id,E_locate::e_CB);
-            ans1 = sub_div.Subdiv2D::edgeDst(CB_id,&p1);
-            ans2 = sub_div.Subdiv2D::edgeOrg(CB_id,&p2);
-            if(ans1>0&&ans2>0){
-                line(redraw,p1,p2,Scalar(255,100,100));
-            }
-            EdgeID CD_id = getNextEdgeID(e_id,E_locate::e_CD);
-            ans1 = sub_div.Subdiv2D::edgeDst(CD_id,&p1);
-            ans2 = sub_div.Subdiv2D::edgeOrg(CD_id,&p2);
-            if(ans1>0&&ans2>0){
-                line(redraw,p1,p2,Scalar(255,100,100));
-            }
-        }
-    }
-
-    // Point2f p1,p2;
-    // int id = leadingEdgeList[20];
-    // int ans1 = sub_div.Subdiv2D::edgeDst(id,&p1);
-    // int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
-    // if(ans1>0&&ans2>0){
-    //     cout << "legal" << endl;
-    //     circle(redraw,p1,3,Scalar(0,0,255),10,LINE_8,0);
-    //     circle(redraw,p2,3,Scalar(0,0,255),10,LINE_8,0);
-    //     line(redraw,p1,p2,Scalar(0,255,0));
-    // }
-    // L_sq_se_calculator(id,sub_div);
-
-
-    for(Point p:grid_points){
-        circle(redraw,p,3,Scalar(0,0,0),1,LINE_8,0);
-    }
     imshow("output",redraw);
 
     //系统等待

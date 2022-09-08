@@ -123,114 +123,6 @@ ImageShow/fast:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/build
 .PHONY : ImageShow/fast
 
-L_sq_se_calculator.o: L_sq_se_calculator.cpp.o
-
-.PHONY : L_sq_se_calculator.o
-
-# target to build an object file
-L_sq_se_calculator.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.o
-.PHONY : L_sq_se_calculator.cpp.o
-
-L_sq_se_calculator.i: L_sq_se_calculator.cpp.i
-
-.PHONY : L_sq_se_calculator.i
-
-# target to preprocess a source file
-L_sq_se_calculator.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.i
-.PHONY : L_sq_se_calculator.cpp.i
-
-L_sq_se_calculator.s: L_sq_se_calculator.cpp.s
-
-.PHONY : L_sq_se_calculator.s
-
-# target to generate assembly for a file
-L_sq_se_calculator.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/L_sq_se_calculator.cpp.s
-.PHONY : L_sq_se_calculator.cpp.s
-
-Mn_generater.o: Mn_generater.cpp.o
-
-.PHONY : Mn_generater.o
-
-# target to build an object file
-Mn_generater.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.o
-.PHONY : Mn_generater.cpp.o
-
-Mn_generater.i: Mn_generater.cpp.i
-
-.PHONY : Mn_generater.i
-
-# target to preprocess a source file
-Mn_generater.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.i
-.PHONY : Mn_generater.cpp.i
-
-Mn_generater.s: Mn_generater.cpp.s
-
-.PHONY : Mn_generater.s
-
-# target to generate assembly for a file
-Mn_generater.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/Mn_generater.cpp.s
-.PHONY : Mn_generater.cpp.s
-
-base_operation.o: base_operation.cpp.o
-
-.PHONY : base_operation.o
-
-# target to build an object file
-base_operation.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/base_operation.cpp.o
-.PHONY : base_operation.cpp.o
-
-base_operation.i: base_operation.cpp.i
-
-.PHONY : base_operation.i
-
-# target to preprocess a source file
-base_operation.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/base_operation.cpp.i
-.PHONY : base_operation.cpp.i
-
-base_operation.s: base_operation.cpp.s
-
-.PHONY : base_operation.s
-
-# target to generate assembly for a file
-base_operation.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/base_operation.cpp.s
-.PHONY : base_operation.cpp.s
-
-delaunay_ext.o: delaunay_ext.cpp.o
-
-.PHONY : delaunay_ext.o
-
-# target to build an object file
-delaunay_ext.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/delaunay_ext.cpp.o
-.PHONY : delaunay_ext.cpp.o
-
-delaunay_ext.i: delaunay_ext.cpp.i
-
-.PHONY : delaunay_ext.i
-
-# target to preprocess a source file
-delaunay_ext.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/delaunay_ext.cpp.i
-.PHONY : delaunay_ext.cpp.i
-
-delaunay_ext.s: delaunay_ext.cpp.s
-
-.PHONY : delaunay_ext.s
-
-# target to generate assembly for a file
-delaunay_ext.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/delaunay_ext.cpp.s
-.PHONY : delaunay_ext.cpp.s
-
 pointid.o: pointid.cpp.o
 
 .PHONY : pointid.o
@@ -258,6 +150,114 @@ pointid.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid.cpp.s
 .PHONY : pointid.cpp.s
 
+single_operation/L_sq_se_calculator.o: single_operation/L_sq_se_calculator.cpp.o
+
+.PHONY : single_operation/L_sq_se_calculator.o
+
+# target to build an object file
+single_operation/L_sq_se_calculator.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o
+.PHONY : single_operation/L_sq_se_calculator.cpp.o
+
+single_operation/L_sq_se_calculator.i: single_operation/L_sq_se_calculator.cpp.i
+
+.PHONY : single_operation/L_sq_se_calculator.i
+
+# target to preprocess a source file
+single_operation/L_sq_se_calculator.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.i
+.PHONY : single_operation/L_sq_se_calculator.cpp.i
+
+single_operation/L_sq_se_calculator.s: single_operation/L_sq_se_calculator.cpp.s
+
+.PHONY : single_operation/L_sq_se_calculator.s
+
+# target to generate assembly for a file
+single_operation/L_sq_se_calculator.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s
+.PHONY : single_operation/L_sq_se_calculator.cpp.s
+
+single_operation/Mn_generater.o: single_operation/Mn_generater.cpp.o
+
+.PHONY : single_operation/Mn_generater.o
+
+# target to build an object file
+single_operation/Mn_generater.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o
+.PHONY : single_operation/Mn_generater.cpp.o
+
+single_operation/Mn_generater.i: single_operation/Mn_generater.cpp.i
+
+.PHONY : single_operation/Mn_generater.i
+
+# target to preprocess a source file
+single_operation/Mn_generater.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.i
+.PHONY : single_operation/Mn_generater.cpp.i
+
+single_operation/Mn_generater.s: single_operation/Mn_generater.cpp.s
+
+.PHONY : single_operation/Mn_generater.s
+
+# target to generate assembly for a file
+single_operation/Mn_generater.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.s
+.PHONY : single_operation/Mn_generater.cpp.s
+
+single_operation/base_operation.o: single_operation/base_operation.cpp.o
+
+.PHONY : single_operation/base_operation.o
+
+# target to build an object file
+single_operation/base_operation.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o
+.PHONY : single_operation/base_operation.cpp.o
+
+single_operation/base_operation.i: single_operation/base_operation.cpp.i
+
+.PHONY : single_operation/base_operation.i
+
+# target to preprocess a source file
+single_operation/base_operation.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.i
+.PHONY : single_operation/base_operation.cpp.i
+
+single_operation/base_operation.s: single_operation/base_operation.cpp.s
+
+.PHONY : single_operation/base_operation.s
+
+# target to generate assembly for a file
+single_operation/base_operation.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.s
+.PHONY : single_operation/base_operation.cpp.s
+
+single_operation/delaunay_ext.o: single_operation/delaunay_ext.cpp.o
+
+.PHONY : single_operation/delaunay_ext.o
+
+# target to build an object file
+single_operation/delaunay_ext.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o
+.PHONY : single_operation/delaunay_ext.cpp.o
+
+single_operation/delaunay_ext.i: single_operation/delaunay_ext.cpp.i
+
+.PHONY : single_operation/delaunay_ext.i
+
+# target to preprocess a source file
+single_operation/delaunay_ext.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.i
+.PHONY : single_operation/delaunay_ext.cpp.i
+
+single_operation/delaunay_ext.s: single_operation/delaunay_ext.cpp.s
+
+.PHONY : single_operation/delaunay_ext.s
+
+# target to generate assembly for a file
+single_operation/delaunay_ext.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.s
+.PHONY : single_operation/delaunay_ext.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,21 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ImageShow"
-	@echo "... L_sq_se_calculator.o"
-	@echo "... L_sq_se_calculator.i"
-	@echo "... L_sq_se_calculator.s"
-	@echo "... Mn_generater.o"
-	@echo "... Mn_generater.i"
-	@echo "... Mn_generater.s"
-	@echo "... base_operation.o"
-	@echo "... base_operation.i"
-	@echo "... base_operation.s"
-	@echo "... delaunay_ext.o"
-	@echo "... delaunay_ext.i"
-	@echo "... delaunay_ext.s"
 	@echo "... pointid.o"
 	@echo "... pointid.i"
 	@echo "... pointid.s"
+	@echo "... single_operation/L_sq_se_calculator.o"
+	@echo "... single_operation/L_sq_se_calculator.i"
+	@echo "... single_operation/L_sq_se_calculator.s"
+	@echo "... single_operation/Mn_generater.o"
+	@echo "... single_operation/Mn_generater.i"
+	@echo "... single_operation/Mn_generater.s"
+	@echo "... single_operation/base_operation.o"
+	@echo "... single_operation/base_operation.i"
+	@echo "... single_operation/base_operation.s"
+	@echo "... single_operation/delaunay_ext.o"
+	@echo "... single_operation/delaunay_ext.i"
+	@echo "... single_operation/delaunay_ext.s"
 .PHONY : help
 
 

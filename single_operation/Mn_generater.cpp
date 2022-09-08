@@ -1,4 +1,4 @@
-#include "Mn_generater.h"
+#include "Mn_generater.hpp"
 
 void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
     for(int i=0;i<Sn.size();i++){//这里的这个Mn的大小实际上是需要我们进行一个优化，但是我还没有考虑好空间的上界，目前先设立成这个大小。

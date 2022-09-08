@@ -1,4 +1,4 @@
-#include "base_operation.h"
+#include "base_operation.hpp"
 
 bool comp(const SN sn_1,const SN sn_2){
     if(sn_1.second>sn_2.second)return true;
@@ -33,4 +33,12 @@ float mod_multi(EdgeID e1,EdgeID e2){
     sub_div.Subdiv2D::edgeDst(e2,&p12);
     Edge n2 = Edge(p11.x,p11.y,p12.x,p12.y);
     return mod_multi(n1,n2);
+}
+
+void cout_paint_line(string s,EdgeID e){
+    Point2f org,dst;
+    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
+    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
+    line(redraw,org,dst,Scalar(0,255,0));
+    cout << s <<":["<<org<<","<<dst<<"]"<<endl;
 }

@@ -1,4 +1,4 @@
-#include "L_sq_se_calculator.h"
+#include "L_sq_se_calculator.hpp"
 
 float L_sq_se_calculator(EdgeID e){
     Point2f p1,p2;

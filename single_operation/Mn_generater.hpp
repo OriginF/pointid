@@ -1,7 +1,7 @@
-#include "def.hpp"
-#include "g_variable.hpp"
-#include "delaunay_ext.h"
-#include "L_sq_se_calculator.h"
+#include "../def.hpp"
+#include "../g_variable.hpp"
+#include "delaunay_ext.hpp"
+#include "L_sq_se_calculator.hpp"
 #include "negMatrix.hpp"
 
 #ifndef _NAME_MN_
