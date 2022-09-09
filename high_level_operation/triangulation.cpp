@@ -4,15 +4,15 @@
 #include "../single_operation/delaunay_ext.hpp"
 #include "../single_operation/Mn_generater.hpp"
 
-NegMatrix<int>* triangulation(vector<Point> clusters){
+NegMatrix<int>* triangulation(){
     //Delaunay三角剖分算法
     Rect rect(0, 0, SP.row, SP.col);
     sub_div.initDelaunay(rect);
-    map<int,int> point2index;
 
     //插入点簇
     for(int i=0;i<clusters.size();i++){
         int pointid = sub_div.insert(clusters[i]);
+        point2index.insert(pair<int,int>(pointid,i));
     }
 
     //拿到所有的边的集合（这里只是视觉呈现，并不必要

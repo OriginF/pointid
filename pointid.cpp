@@ -30,6 +30,13 @@ E_locate LOCATE[6];
 //记录当前相机的一些处理参数
 src_param SP,SP_0;
 
+//记录cluster信息
+vector<Point> clusters;
+vector<int> cluster_size;
+
+//记录点到cluster对应关系
+map<int,int> point2index;
+
 int main()
 {
     //预处理图像参数(来自points.jpg)
@@ -72,11 +79,11 @@ int main()
     vector<Point> connect_points = get_points(nccpmps,stats,centroids);
     
     //根据点集获取点簇集
-    vector<Point> clusters = point2cluster(connect_points);
+    point2cluster(connect_points);
 
 
     //Delaunay三角剖分算法加算法划分得到最终的剖分棋盘
-    NegMatrix<int>* Mn = triangulation(clusters);
+    NegMatrix<int>* Mn = triangulation();
 
     imshow("output",redraw);
 

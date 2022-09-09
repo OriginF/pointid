@@ -2,7 +2,7 @@
 #include "../single_operation/base_operation.hpp"
 
 
-vector<Point> point2cluster(vector<Point> connect_points){
+void point2cluster(vector<Point> connect_points){
     //添加网格分割
     redraw=Mat(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
     int row_num = SP.row/SP.div;
@@ -66,6 +66,7 @@ vector<Point> point2cluster(vector<Point> connect_points){
     vector<Point> grid_points;
     vector<int> point_id;
     vector<Point> temp_clusters;
+    vector<int> temp_counter;
     for(float i=0;i<=row_num;i++){
         for(float j=0;j<=col_num;j++){
             vector<int> grid_q = grid_queue[int(i)][int(j)];
@@ -83,12 +84,15 @@ vector<Point> point2cluster(vector<Point> connect_points){
     }
     for(int i=0;i<point_id.size();i++){
         Point center = cluster_center[point2cluster[point_id[i]]];
+        int counter = cluster_counter[point2cluster[point_id[i]]];
         temp_clusters.push_back(center);
+        temp_counter.push_back(counter);
     }
 
-    vector<Point> clusters;
+
     for(int i=0;i<temp_clusters.size();i++){
         bool new_point=true;
+        if(temp_counter[i]>4)continue;
         for(int j=0;j<i;j++){
             if(temp_clusters[i]==temp_clusters[j]){
                 new_point= false;
@@ -97,6 +101,7 @@ vector<Point> point2cluster(vector<Point> connect_points){
         }
         if(new_point){
             clusters.push_back(temp_clusters[i]);
+            cluster_size.push_back(temp_counter[i]);
         }
     }
 
@@ -112,5 +117,4 @@ vector<Point> point2cluster(vector<Point> connect_points){
     for(Point p:grid_points){
         circle(redraw,p,3,Scalar(0,0,0),1,LINE_8,0);
     }
-    return clusters;
 }

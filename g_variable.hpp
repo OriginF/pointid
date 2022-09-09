@@ -15,4 +15,11 @@ extern E_locate LOCATE[6];
 //记录当前相机的一些处理参数
 extern src_param SP,SP_0;
 
+//记录cluster信息
+extern vector<Point> clusters;
+extern vector<int> cluster_size;
+
+//记录点到cluster对应关系
+extern map<int,int> point2index;
+
 #endif

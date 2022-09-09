@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fqy22/桌面/pointid/pointid.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o"
+  "/home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/base_operation.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o"

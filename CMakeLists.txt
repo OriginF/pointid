@@ -18,7 +18,8 @@ add_executable(ImageShow pointid.cpp
                         single_operation/base_operation.cpp 
                         single_operation/delaunay_ext.cpp 
                         single_operation/L_sq_se_calculator.cpp 
-                        single_operation/Mn_generater.cpp)
+                        single_operation/Mn_generater.cpp
+                        single_operation/Mn2cluster_matrix.cpp)
 
 # Link your application with OpenCV libraries
 target_link_libraries(ImageShow PRIVATE ${OpenCV_LIBS})

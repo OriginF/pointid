@@ -177,6 +177,33 @@ single_operation/L_sq_se_calculator.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s
 .PHONY : single_operation/L_sq_se_calculator.cpp.s
 
+single_operation/Mn2cluster_matrix.o: single_operation/Mn2cluster_matrix.cpp.o
+
+.PHONY : single_operation/Mn2cluster_matrix.o
+
+# target to build an object file
+single_operation/Mn2cluster_matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.o
+.PHONY : single_operation/Mn2cluster_matrix.cpp.o
+
+single_operation/Mn2cluster_matrix.i: single_operation/Mn2cluster_matrix.cpp.i
+
+.PHONY : single_operation/Mn2cluster_matrix.i
+
+# target to preprocess a source file
+single_operation/Mn2cluster_matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.i
+.PHONY : single_operation/Mn2cluster_matrix.cpp.i
+
+single_operation/Mn2cluster_matrix.s: single_operation/Mn2cluster_matrix.cpp.s
+
+.PHONY : single_operation/Mn2cluster_matrix.s
+
+# target to generate assembly for a file
+single_operation/Mn2cluster_matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.s
+.PHONY : single_operation/Mn2cluster_matrix.cpp.s
+
 single_operation/Mn_generater.o: single_operation/Mn_generater.cpp.o
 
 .PHONY : single_operation/Mn_generater.o
@@ -273,6 +300,9 @@ help:
 	@echo "... single_operation/L_sq_se_calculator.o"
 	@echo "... single_operation/L_sq_se_calculator.i"
 	@echo "... single_operation/L_sq_se_calculator.s"
+	@echo "... single_operation/Mn2cluster_matrix.o"
+	@echo "... single_operation/Mn2cluster_matrix.i"
+	@echo "... single_operation/Mn2cluster_matrix.s"
 	@echo "... single_operation/Mn_generater.o"
 	@echo "... single_operation/Mn_generater.i"
 	@echo "... single_operation/Mn_generater.s"

@@ -33,6 +33,9 @@ public:
         }
     }
 
+    int get_x_side(){return x_side;}
+    int get_y_side(){return y_side;}
+
     bool set(int x,int y,T value){
         //这里是否需要避免数据覆盖是一个比较重要的问题
         // if(x_max>x_side+x||y_max+y>y_side)return false;

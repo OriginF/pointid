@@ -80,6 +80,10 @@ high_level_operation/point2cluster.cpp
 high_level_operation/triangulation.cpp
 /home/fqy22/桌面/pointid/high_level_operation/triangulation.cpp
 
+/home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp
+L_sq_se_calculator.hpp
+/home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.hpp
+
 /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.hpp
 ../def.hpp
 /home/fqy22/桌面/pointid/def.hpp
@@ -87,6 +91,18 @@ high_level_operation/triangulation.cpp
 /home/fqy22/桌面/pointid/g_variable.hpp
 base_operation.hpp
 /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
+
+/home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.cpp
+Mn2cluster_matrix.hpp
+/home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.hpp
+
+/home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.hpp
+../def.hpp
+/home/fqy22/桌面/pointid/def.hpp
+../g_variable.hpp
+/home/fqy22/桌面/pointid/g_variable.hpp
+negMatrix.hpp
+/home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
 
 /home/fqy22/桌面/pointid/single_operation/Mn_generater.cpp
 Mn_generater.hpp
@@ -104,9 +120,17 @@ L_sq_se_calculator.hpp
 negMatrix.hpp
 /home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
 
+/home/fqy22/桌面/pointid/single_operation/base_operation.cpp
+base_operation.hpp
+/home/fqy22/桌面/pointid/single_operation/base_operation.hpp
+
 /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
 ../g_variable.hpp
 /home/fqy22/桌面/pointid/g_variable.hpp
+
+/home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp
+delaunay_ext.hpp
+/home/fqy22/桌面/pointid/single_operation/delaunay_ext.hpp
 
 /home/fqy22/桌面/pointid/single_operation/delaunay_ext.hpp
 ../def.hpp

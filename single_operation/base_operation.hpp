@@ -3,8 +3,6 @@
 #ifndef _NAME_BASE_OPERATION_
 #define _NAME_BASE_OPERATION_
 
-extern Mat redraw;
-
 //自定义SN排序算法规则
 bool comp(const SN sn_1,const SN sn_2);
 
