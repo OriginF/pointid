@@ -5,6 +5,6 @@
 
 int get_cluster_size(NegMatrix<int> Mn, int x,int y,int locate);
 
-void cluster_generator();
+void cluster_generator(int n);
 
 #endif

@@ -79,7 +79,7 @@ int get_cluster_size(EdgeID e_id,int locate){
     return -1;
 }
 
-void cluster_generator(){
+void cluster_generator(int n){
     identified_cluster_num = new int*[SP.cluster_side];
     for(int i=0;i<SP.cluster_side;i++){
         identified_cluster_num[i] = new int[SP.cluster_side];
@@ -89,10 +89,10 @@ void cluster_generator(){
     }
     for(int i=0;i<SP.cluster_side-1;i++){
         for(int j=0;j<SP.cluster_side-1;j++){
-            EdgeID e_id = Mn[0].get_normal(i,j);
+            EdgeID e_id = Mn[n].get_normal(i,j);
             // cout_paint_line("(1,1)line:",e_id);
             if(identified_cluster_num[i][j]==-1){
-                int num = get_cluster_size(e_id,0);//获取每个关键边左上的点的点簇大小。
+                int num = get_cluster_size(e_id,0);
                 identified_cluster_num[i][j]=num;
             }
             if(identified_cluster_num[i][j+1]==-1){
