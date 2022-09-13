@@ -5,6 +5,7 @@ CMakeFiles/ImageShow.dir/pointid.cpp.o
  /home/fqy22/桌面/pointid/def.hpp
  /home/fqy22/桌面/pointid/g_variable.hpp
  /home/fqy22/桌面/pointid/high_level_operation/img_preprocess.cpp
+ /home/fqy22/桌面/pointid/high_level_operation/location_voter.cpp
  /home/fqy22/桌面/pointid/high_level_operation/parameter_init.cpp
  /home/fqy22/桌面/pointid/high_level_operation/point2cluster.cpp
  /home/fqy22/桌面/pointid/high_level_operation/triangulation.cpp

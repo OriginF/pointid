@@ -109,5 +109,4 @@ void cluster_generator(){
             }
         }
     }
-    
 }

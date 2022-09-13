@@ -29,6 +29,9 @@ extern NegMatrix<int>* Mn;
 //记录整个图像的点的位置和点簇的数目。
 extern int init_cluster_num[PAPER_SIDE][PAPER_SIDE];
 
+//记录映射
+extern Point L_1[17],L_2[15],L_3[16],L_4[16];
+
 extern int** identified_cluster_num;
 
 #endif

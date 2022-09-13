@@ -4,6 +4,7 @@
 CMakeFiles/ImageShow.dir/pointid.cpp.o: def.hpp
 CMakeFiles/ImageShow.dir/pointid.cpp.o: g_variable.hpp
 CMakeFiles/ImageShow.dir/pointid.cpp.o: high_level_operation/img_preprocess.cpp
+CMakeFiles/ImageShow.dir/pointid.cpp.o: high_level_operation/location_voter.cpp
 CMakeFiles/ImageShow.dir/pointid.cpp.o: high_level_operation/parameter_init.cpp
 CMakeFiles/ImageShow.dir/pointid.cpp.o: high_level_operation/point2cluster.cpp
 CMakeFiles/ImageShow.dir/pointid.cpp.o: high_level_operation/triangulation.cpp

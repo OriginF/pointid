@@ -14,6 +14,10 @@ using namespace cv;
 #define DOWN 3
 
 #define PAPER_SIDE 8
+#define _1_NUM_ 17
+#define _2_NUM_ 15
+#define _3_NUM_ 16
+#define _4_NUM_ 16
 
 typedef int EdgeID;
 typedef Vec4f Edge;
