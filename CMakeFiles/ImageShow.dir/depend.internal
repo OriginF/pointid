@@ -10,6 +10,7 @@ CMakeFiles/ImageShow.dir/pointid.cpp.o
  /home/fqy22/桌面/pointid/high_level_operation/triangulation.cpp
  /home/fqy22/桌面/pointid/pointid.cpp
  /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.hpp
+ /home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.hpp
  /home/fqy22/桌面/pointid/single_operation/Mn_generater.hpp
  /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
  /home/fqy22/桌面/pointid/single_operation/delaunay_ext.hpp
@@ -123,6 +124,7 @@ CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o
  /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp
  /home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.hpp
  /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
+ /home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp
@@ -231,6 +233,7 @@ CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.o
  /home/fqy22/桌面/pointid/g_variable.hpp
  /home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.cpp
  /home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.hpp
+ /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
  /home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -452,6 +455,7 @@ CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o
  /home/fqy22/桌面/pointid/g_variable.hpp
  /home/fqy22/桌面/pointid/single_operation/base_operation.cpp
  /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
+ /home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp
@@ -561,6 +565,7 @@ CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o
  /home/fqy22/桌面/pointid/single_operation/base_operation.hpp
  /home/fqy22/桌面/pointid/single_operation/delaunay_ext.cpp
  /home/fqy22/桌面/pointid/single_operation/delaunay_ext.hpp
+ /home/fqy22/桌面/pointid/single_operation/negMatrix.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
  /usr/local/include/opencv4/opencv2/core/affine.hpp

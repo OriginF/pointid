@@ -1,6 +1,7 @@
 #include "../g_variable.hpp"
 
 void parameter_init(){
+
     //对对照图片进行预设参数
     SP_0.row = 1374.0;
     SP_0.col = 882.0;

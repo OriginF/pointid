@@ -4,7 +4,7 @@
 #include "../single_operation/delaunay_ext.hpp"
 #include "../single_operation/Mn_generater.hpp"
 
-NegMatrix<int>* triangulation(){
+void triangulation(){
     //Delaunay三角剖分算法
     Rect rect(0, 0, SP.row, SP.col);
     sub_div.initDelaunay(rect);
@@ -58,12 +58,12 @@ NegMatrix<int>* triangulation(){
     int ans2 = sub_div.Subdiv2D::edgeOrg(id,&p2);
     line(redraw,p1,p2,Scalar(255,255,0));
 
-    NegMatrix<int>* Mn = new NegMatrix<int>[Sn.size()];
-    getMn(Mn,Sn);
+    NegMatrix<int>* pre_Mn = new NegMatrix<int>[Sn.size()];
+    getMn(pre_Mn,Sn);
 
-    NegMatrix<int>* calibrate_Mn = new NegMatrix<int>[Sn.size()];
+    Mn = new NegMatrix<int>[Sn.size()];
     for(int i=0;i<Sn.size();i++){
-        calibrate_Mn[i] = Mn[i].calibrate(-1);
+        Mn[i] = pre_Mn[i].calibrate(-1);
     }
 
     for(int i=0;i<SP.cluster_side;i++){
@@ -72,7 +72,6 @@ NegMatrix<int>* triangulation(){
             if(e_id == -1)continue;
             Point2f p1,p2;
             int ans1,ans2;
-            // cout << e_id << endl;
             EdgeID AB_id = getNextEdgeID(e_id,E_locate::e_AB);
             ans1 = sub_div.Subdiv2D::edgeDst(AB_id,&p1);
             ans2 = sub_div.Subdiv2D::edgeOrg(AB_id,&p2);
@@ -99,5 +98,5 @@ NegMatrix<int>* triangulation(){
             }
         }
     }
-    return Mn;
+    // return Mn;
 }

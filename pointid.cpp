@@ -8,10 +8,12 @@
 
 #include "def.hpp"
 #include "g_variable.hpp"
+
 #include "single_operation/base_operation.hpp"
 #include "single_operation/negMatrix.hpp"
 #include "single_operation/delaunay_ext.hpp"
 #include "single_operation/Mn_generater.hpp"
+#include "single_operation/Mn2cluster_matrix.hpp"
 
 #include "high_level_operation/parameter_init.cpp"
 #include "high_level_operation/img_preprocess.cpp"
@@ -37,11 +39,27 @@ vector<int> cluster_size;
 //记录点到cluster对应关系
 map<int,int> point2index;
 
+//记录所有的点簇四边形关键边
+NegMatrix<int>* Mn;
+
+//点簇设计
+int init_cluster_num[PAPER_SIDE][PAPER_SIDE] = {
+    {3,4,1,2,3,1,2,4},
+    {2,3,4,3,2,4,1,2},
+    {1,4,1,2,4,1,2,3},
+    {4,2,4,3,1,4,3,2},
+    {2,1,3,4,3,1,4,1},
+    {1,3,4,2,1,4,2,3},
+    {3,1,3,4,2,1,3,1},
+    {2,3,4,1,3,4,1,2}
+};
+
+int** identified_cluster_num;
+
 int main()
 {
     //预处理图像参数(来自points.jpg)
     parameter_init();
-
 
     //图像读取
     Mat src = imread(SP.url,IMREAD_GRAYSCALE);
@@ -83,8 +101,19 @@ int main()
 
 
     //Delaunay三角剖分算法加算法划分得到最终的剖分棋盘
-    NegMatrix<int>* Mn = triangulation();
+    triangulation();
 
+    //生成识别结果的每个位置的点簇结果
+    cluster_generator();
+
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<SP.cluster_side;j++){
+            cout << identified_cluster_num[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    //绘制划分结果
     imshow("output",redraw);
 
     //系统等待

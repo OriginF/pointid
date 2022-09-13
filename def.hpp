@@ -13,6 +13,8 @@ using namespace cv;
 #define LEFT 2
 #define DOWN 3
 
+#define PAPER_SIDE 8
+
 typedef int EdgeID;
 typedef Vec4f Edge;
 typedef pair<int,float> SN;
