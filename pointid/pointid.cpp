@@ -53,14 +53,11 @@ int pointid()
     //这个原文说可以使用hash优化，不过，我暂时感觉hash优化和我的这个深搜差不多，所以我直接用深搜了
     Point origin = location_voter(identified_cluster_num);
 
-    cout << origin << endl;
-
     //绘制划分结果
     imshow("output",redraw);
 
     //系统等待
     waitKey(0);
     system("path");
-    getchar();
     return 0;
 }

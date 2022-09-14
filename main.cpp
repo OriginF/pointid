@@ -1,29 +1,14 @@
-#include <opencv2/opencv.hpp>
-#include <opencv2/imgproc.hpp>
-#include <iostream>
-#include <cmath>
-#include <unordered_set>
-#include <string>
-#include <queue>
+#include <thread>
+#include "pointid/pointid.hpp"
+#include "frame_tracking/frame_tracking.hpp"
 
-#include "def.hpp"
-#include "g_variable.hpp"
-
-#include "single_operation/base_operation.hpp"
-#include "single_operation/negMatrix.hpp"
-#include "single_operation/delaunay_ext.hpp"
-#include "single_operation/Mn_generater.hpp"
-#include "single_operation/Mn2cluster_matrix.hpp"
-
-#include "high_level_operation/parameter_init.hpp"
-#include "high_level_operation/img_preprocess.hpp"
-#include "high_level_operation/point2cluster.hpp"
-#include "high_level_operation/triangulation.hpp"
-#include "high_level_operation/location_voter.hpp"
-
-#include "pointid.hpp"
+using namespace std;
 
 int main(){
-    pointid();
+    thread point_id_thread(pointid),frame_tracking_thread(frame_tracking);
+    point_id_thread.join();
+    frame_tracking_thread.join();
+    //系统等待
+    this_thread::sleep_for(chrono::duration<double>(100000));
     return 0;
 };

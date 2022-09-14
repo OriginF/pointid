@@ -123,167 +123,32 @@ ImageShow/fast:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/build
 .PHONY : ImageShow/fast
 
-g_variable.o: g_variable.cpp.o
+frame_tracking/frame_tracking.o: frame_tracking/frame_tracking.cpp.o
 
-.PHONY : g_variable.o
-
-# target to build an object file
-g_variable.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.o
-.PHONY : g_variable.cpp.o
-
-g_variable.i: g_variable.cpp.i
-
-.PHONY : g_variable.i
-
-# target to preprocess a source file
-g_variable.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.i
-.PHONY : g_variable.cpp.i
-
-g_variable.s: g_variable.cpp.s
-
-.PHONY : g_variable.s
-
-# target to generate assembly for a file
-g_variable.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.s
-.PHONY : g_variable.cpp.s
-
-high_level_operation/img_preprocess.o: high_level_operation/img_preprocess.cpp.o
-
-.PHONY : high_level_operation/img_preprocess.o
+.PHONY : frame_tracking/frame_tracking.o
 
 # target to build an object file
-high_level_operation/img_preprocess.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.o
-.PHONY : high_level_operation/img_preprocess.cpp.o
+frame_tracking/frame_tracking.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o
+.PHONY : frame_tracking/frame_tracking.cpp.o
 
-high_level_operation/img_preprocess.i: high_level_operation/img_preprocess.cpp.i
+frame_tracking/frame_tracking.i: frame_tracking/frame_tracking.cpp.i
 
-.PHONY : high_level_operation/img_preprocess.i
-
-# target to preprocess a source file
-high_level_operation/img_preprocess.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.i
-.PHONY : high_level_operation/img_preprocess.cpp.i
-
-high_level_operation/img_preprocess.s: high_level_operation/img_preprocess.cpp.s
-
-.PHONY : high_level_operation/img_preprocess.s
-
-# target to generate assembly for a file
-high_level_operation/img_preprocess.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.s
-.PHONY : high_level_operation/img_preprocess.cpp.s
-
-high_level_operation/location_voter.o: high_level_operation/location_voter.cpp.o
-
-.PHONY : high_level_operation/location_voter.o
-
-# target to build an object file
-high_level_operation/location_voter.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.o
-.PHONY : high_level_operation/location_voter.cpp.o
-
-high_level_operation/location_voter.i: high_level_operation/location_voter.cpp.i
-
-.PHONY : high_level_operation/location_voter.i
+.PHONY : frame_tracking/frame_tracking.i
 
 # target to preprocess a source file
-high_level_operation/location_voter.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.i
-.PHONY : high_level_operation/location_voter.cpp.i
+frame_tracking/frame_tracking.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.i
+.PHONY : frame_tracking/frame_tracking.cpp.i
 
-high_level_operation/location_voter.s: high_level_operation/location_voter.cpp.s
+frame_tracking/frame_tracking.s: frame_tracking/frame_tracking.cpp.s
 
-.PHONY : high_level_operation/location_voter.s
-
-# target to generate assembly for a file
-high_level_operation/location_voter.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.s
-.PHONY : high_level_operation/location_voter.cpp.s
-
-high_level_operation/parameter_init.o: high_level_operation/parameter_init.cpp.o
-
-.PHONY : high_level_operation/parameter_init.o
-
-# target to build an object file
-high_level_operation/parameter_init.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.o
-.PHONY : high_level_operation/parameter_init.cpp.o
-
-high_level_operation/parameter_init.i: high_level_operation/parameter_init.cpp.i
-
-.PHONY : high_level_operation/parameter_init.i
-
-# target to preprocess a source file
-high_level_operation/parameter_init.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.i
-.PHONY : high_level_operation/parameter_init.cpp.i
-
-high_level_operation/parameter_init.s: high_level_operation/parameter_init.cpp.s
-
-.PHONY : high_level_operation/parameter_init.s
+.PHONY : frame_tracking/frame_tracking.s
 
 # target to generate assembly for a file
-high_level_operation/parameter_init.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.s
-.PHONY : high_level_operation/parameter_init.cpp.s
-
-high_level_operation/point2cluster.o: high_level_operation/point2cluster.cpp.o
-
-.PHONY : high_level_operation/point2cluster.o
-
-# target to build an object file
-high_level_operation/point2cluster.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.o
-.PHONY : high_level_operation/point2cluster.cpp.o
-
-high_level_operation/point2cluster.i: high_level_operation/point2cluster.cpp.i
-
-.PHONY : high_level_operation/point2cluster.i
-
-# target to preprocess a source file
-high_level_operation/point2cluster.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.i
-.PHONY : high_level_operation/point2cluster.cpp.i
-
-high_level_operation/point2cluster.s: high_level_operation/point2cluster.cpp.s
-
-.PHONY : high_level_operation/point2cluster.s
-
-# target to generate assembly for a file
-high_level_operation/point2cluster.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.s
-.PHONY : high_level_operation/point2cluster.cpp.s
-
-high_level_operation/triangulation.o: high_level_operation/triangulation.cpp.o
-
-.PHONY : high_level_operation/triangulation.o
-
-# target to build an object file
-high_level_operation/triangulation.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.o
-.PHONY : high_level_operation/triangulation.cpp.o
-
-high_level_operation/triangulation.i: high_level_operation/triangulation.cpp.i
-
-.PHONY : high_level_operation/triangulation.i
-
-# target to preprocess a source file
-high_level_operation/triangulation.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.i
-.PHONY : high_level_operation/triangulation.cpp.i
-
-high_level_operation/triangulation.s: high_level_operation/triangulation.cpp.s
-
-.PHONY : high_level_operation/triangulation.s
-
-# target to generate assembly for a file
-high_level_operation/triangulation.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.s
-.PHONY : high_level_operation/triangulation.cpp.s
+frame_tracking/frame_tracking.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.s
+.PHONY : frame_tracking/frame_tracking.cpp.s
 
 main.o: main.cpp.o
 
@@ -312,167 +177,329 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-pointid.o: pointid.cpp.o
+pointid/g_variable.o: pointid/g_variable.cpp.o
 
-.PHONY : pointid.o
-
-# target to build an object file
-pointid.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid.cpp.o
-.PHONY : pointid.cpp.o
-
-pointid.i: pointid.cpp.i
-
-.PHONY : pointid.i
-
-# target to preprocess a source file
-pointid.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid.cpp.i
-.PHONY : pointid.cpp.i
-
-pointid.s: pointid.cpp.s
-
-.PHONY : pointid.s
-
-# target to generate assembly for a file
-pointid.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid.cpp.s
-.PHONY : pointid.cpp.s
-
-single_operation/L_sq_se_calculator.o: single_operation/L_sq_se_calculator.cpp.o
-
-.PHONY : single_operation/L_sq_se_calculator.o
+.PHONY : pointid/g_variable.o
 
 # target to build an object file
-single_operation/L_sq_se_calculator.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o
-.PHONY : single_operation/L_sq_se_calculator.cpp.o
+pointid/g_variable.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o
+.PHONY : pointid/g_variable.cpp.o
 
-single_operation/L_sq_se_calculator.i: single_operation/L_sq_se_calculator.cpp.i
+pointid/g_variable.i: pointid/g_variable.cpp.i
 
-.PHONY : single_operation/L_sq_se_calculator.i
+.PHONY : pointid/g_variable.i
 
 # target to preprocess a source file
-single_operation/L_sq_se_calculator.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.i
-.PHONY : single_operation/L_sq_se_calculator.cpp.i
+pointid/g_variable.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.i
+.PHONY : pointid/g_variable.cpp.i
 
-single_operation/L_sq_se_calculator.s: single_operation/L_sq_se_calculator.cpp.s
+pointid/g_variable.s: pointid/g_variable.cpp.s
 
-.PHONY : single_operation/L_sq_se_calculator.s
+.PHONY : pointid/g_variable.s
 
 # target to generate assembly for a file
-single_operation/L_sq_se_calculator.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.s
-.PHONY : single_operation/L_sq_se_calculator.cpp.s
+pointid/g_variable.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.s
+.PHONY : pointid/g_variable.cpp.s
 
-single_operation/Mn2cluster_matrix.o: single_operation/Mn2cluster_matrix.cpp.o
+pointid/high_level_operation/img_preprocess.o: pointid/high_level_operation/img_preprocess.cpp.o
 
-.PHONY : single_operation/Mn2cluster_matrix.o
+.PHONY : pointid/high_level_operation/img_preprocess.o
 
 # target to build an object file
-single_operation/Mn2cluster_matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.o
-.PHONY : single_operation/Mn2cluster_matrix.cpp.o
+pointid/high_level_operation/img_preprocess.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o
+.PHONY : pointid/high_level_operation/img_preprocess.cpp.o
 
-single_operation/Mn2cluster_matrix.i: single_operation/Mn2cluster_matrix.cpp.i
+pointid/high_level_operation/img_preprocess.i: pointid/high_level_operation/img_preprocess.cpp.i
 
-.PHONY : single_operation/Mn2cluster_matrix.i
+.PHONY : pointid/high_level_operation/img_preprocess.i
 
 # target to preprocess a source file
-single_operation/Mn2cluster_matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.i
-.PHONY : single_operation/Mn2cluster_matrix.cpp.i
+pointid/high_level_operation/img_preprocess.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.i
+.PHONY : pointid/high_level_operation/img_preprocess.cpp.i
 
-single_operation/Mn2cluster_matrix.s: single_operation/Mn2cluster_matrix.cpp.s
+pointid/high_level_operation/img_preprocess.s: pointid/high_level_operation/img_preprocess.cpp.s
 
-.PHONY : single_operation/Mn2cluster_matrix.s
+.PHONY : pointid/high_level_operation/img_preprocess.s
 
 # target to generate assembly for a file
-single_operation/Mn2cluster_matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.s
-.PHONY : single_operation/Mn2cluster_matrix.cpp.s
+pointid/high_level_operation/img_preprocess.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.s
+.PHONY : pointid/high_level_operation/img_preprocess.cpp.s
 
-single_operation/Mn_generater.o: single_operation/Mn_generater.cpp.o
+pointid/high_level_operation/location_voter.o: pointid/high_level_operation/location_voter.cpp.o
 
-.PHONY : single_operation/Mn_generater.o
+.PHONY : pointid/high_level_operation/location_voter.o
 
 # target to build an object file
-single_operation/Mn_generater.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.o
-.PHONY : single_operation/Mn_generater.cpp.o
+pointid/high_level_operation/location_voter.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o
+.PHONY : pointid/high_level_operation/location_voter.cpp.o
 
-single_operation/Mn_generater.i: single_operation/Mn_generater.cpp.i
+pointid/high_level_operation/location_voter.i: pointid/high_level_operation/location_voter.cpp.i
 
-.PHONY : single_operation/Mn_generater.i
+.PHONY : pointid/high_level_operation/location_voter.i
 
 # target to preprocess a source file
-single_operation/Mn_generater.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.i
-.PHONY : single_operation/Mn_generater.cpp.i
+pointid/high_level_operation/location_voter.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.i
+.PHONY : pointid/high_level_operation/location_voter.cpp.i
 
-single_operation/Mn_generater.s: single_operation/Mn_generater.cpp.s
+pointid/high_level_operation/location_voter.s: pointid/high_level_operation/location_voter.cpp.s
 
-.PHONY : single_operation/Mn_generater.s
+.PHONY : pointid/high_level_operation/location_voter.s
 
 # target to generate assembly for a file
-single_operation/Mn_generater.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/Mn_generater.cpp.s
-.PHONY : single_operation/Mn_generater.cpp.s
+pointid/high_level_operation/location_voter.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.s
+.PHONY : pointid/high_level_operation/location_voter.cpp.s
 
-single_operation/base_operation.o: single_operation/base_operation.cpp.o
+pointid/high_level_operation/parameter_init.o: pointid/high_level_operation/parameter_init.cpp.o
 
-.PHONY : single_operation/base_operation.o
+.PHONY : pointid/high_level_operation/parameter_init.o
 
 # target to build an object file
-single_operation/base_operation.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.o
-.PHONY : single_operation/base_operation.cpp.o
+pointid/high_level_operation/parameter_init.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o
+.PHONY : pointid/high_level_operation/parameter_init.cpp.o
 
-single_operation/base_operation.i: single_operation/base_operation.cpp.i
+pointid/high_level_operation/parameter_init.i: pointid/high_level_operation/parameter_init.cpp.i
 
-.PHONY : single_operation/base_operation.i
+.PHONY : pointid/high_level_operation/parameter_init.i
 
 # target to preprocess a source file
-single_operation/base_operation.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.i
-.PHONY : single_operation/base_operation.cpp.i
+pointid/high_level_operation/parameter_init.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.i
+.PHONY : pointid/high_level_operation/parameter_init.cpp.i
 
-single_operation/base_operation.s: single_operation/base_operation.cpp.s
+pointid/high_level_operation/parameter_init.s: pointid/high_level_operation/parameter_init.cpp.s
 
-.PHONY : single_operation/base_operation.s
+.PHONY : pointid/high_level_operation/parameter_init.s
 
 # target to generate assembly for a file
-single_operation/base_operation.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/base_operation.cpp.s
-.PHONY : single_operation/base_operation.cpp.s
+pointid/high_level_operation/parameter_init.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.s
+.PHONY : pointid/high_level_operation/parameter_init.cpp.s
 
-single_operation/delaunay_ext.o: single_operation/delaunay_ext.cpp.o
+pointid/high_level_operation/point2cluster.o: pointid/high_level_operation/point2cluster.cpp.o
 
-.PHONY : single_operation/delaunay_ext.o
+.PHONY : pointid/high_level_operation/point2cluster.o
 
 # target to build an object file
-single_operation/delaunay_ext.cpp.o:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.o
-.PHONY : single_operation/delaunay_ext.cpp.o
+pointid/high_level_operation/point2cluster.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o
+.PHONY : pointid/high_level_operation/point2cluster.cpp.o
 
-single_operation/delaunay_ext.i: single_operation/delaunay_ext.cpp.i
+pointid/high_level_operation/point2cluster.i: pointid/high_level_operation/point2cluster.cpp.i
 
-.PHONY : single_operation/delaunay_ext.i
+.PHONY : pointid/high_level_operation/point2cluster.i
 
 # target to preprocess a source file
-single_operation/delaunay_ext.cpp.i:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.i
-.PHONY : single_operation/delaunay_ext.cpp.i
+pointid/high_level_operation/point2cluster.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.i
+.PHONY : pointid/high_level_operation/point2cluster.cpp.i
 
-single_operation/delaunay_ext.s: single_operation/delaunay_ext.cpp.s
+pointid/high_level_operation/point2cluster.s: pointid/high_level_operation/point2cluster.cpp.s
 
-.PHONY : single_operation/delaunay_ext.s
+.PHONY : pointid/high_level_operation/point2cluster.s
 
 # target to generate assembly for a file
-single_operation/delaunay_ext.cpp.s:
-	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/single_operation/delaunay_ext.cpp.s
-.PHONY : single_operation/delaunay_ext.cpp.s
+pointid/high_level_operation/point2cluster.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.s
+.PHONY : pointid/high_level_operation/point2cluster.cpp.s
+
+pointid/high_level_operation/triangulation.o: pointid/high_level_operation/triangulation.cpp.o
+
+.PHONY : pointid/high_level_operation/triangulation.o
+
+# target to build an object file
+pointid/high_level_operation/triangulation.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o
+.PHONY : pointid/high_level_operation/triangulation.cpp.o
+
+pointid/high_level_operation/triangulation.i: pointid/high_level_operation/triangulation.cpp.i
+
+.PHONY : pointid/high_level_operation/triangulation.i
+
+# target to preprocess a source file
+pointid/high_level_operation/triangulation.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.i
+.PHONY : pointid/high_level_operation/triangulation.cpp.i
+
+pointid/high_level_operation/triangulation.s: pointid/high_level_operation/triangulation.cpp.s
+
+.PHONY : pointid/high_level_operation/triangulation.s
+
+# target to generate assembly for a file
+pointid/high_level_operation/triangulation.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.s
+.PHONY : pointid/high_level_operation/triangulation.cpp.s
+
+pointid/pointid.o: pointid/pointid.cpp.o
+
+.PHONY : pointid/pointid.o
+
+# target to build an object file
+pointid/pointid.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o
+.PHONY : pointid/pointid.cpp.o
+
+pointid/pointid.i: pointid/pointid.cpp.i
+
+.PHONY : pointid/pointid.i
+
+# target to preprocess a source file
+pointid/pointid.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/pointid.cpp.i
+.PHONY : pointid/pointid.cpp.i
+
+pointid/pointid.s: pointid/pointid.cpp.s
+
+.PHONY : pointid/pointid.s
+
+# target to generate assembly for a file
+pointid/pointid.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/pointid.cpp.s
+.PHONY : pointid/pointid.cpp.s
+
+pointid/single_operation/L_sq_se_calculator.o: pointid/single_operation/L_sq_se_calculator.cpp.o
+
+.PHONY : pointid/single_operation/L_sq_se_calculator.o
+
+# target to build an object file
+pointid/single_operation/L_sq_se_calculator.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o
+.PHONY : pointid/single_operation/L_sq_se_calculator.cpp.o
+
+pointid/single_operation/L_sq_se_calculator.i: pointid/single_operation/L_sq_se_calculator.cpp.i
+
+.PHONY : pointid/single_operation/L_sq_se_calculator.i
+
+# target to preprocess a source file
+pointid/single_operation/L_sq_se_calculator.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.i
+.PHONY : pointid/single_operation/L_sq_se_calculator.cpp.i
+
+pointid/single_operation/L_sq_se_calculator.s: pointid/single_operation/L_sq_se_calculator.cpp.s
+
+.PHONY : pointid/single_operation/L_sq_se_calculator.s
+
+# target to generate assembly for a file
+pointid/single_operation/L_sq_se_calculator.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.s
+.PHONY : pointid/single_operation/L_sq_se_calculator.cpp.s
+
+pointid/single_operation/Mn2cluster_matrix.o: pointid/single_operation/Mn2cluster_matrix.cpp.o
+
+.PHONY : pointid/single_operation/Mn2cluster_matrix.o
+
+# target to build an object file
+pointid/single_operation/Mn2cluster_matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o
+.PHONY : pointid/single_operation/Mn2cluster_matrix.cpp.o
+
+pointid/single_operation/Mn2cluster_matrix.i: pointid/single_operation/Mn2cluster_matrix.cpp.i
+
+.PHONY : pointid/single_operation/Mn2cluster_matrix.i
+
+# target to preprocess a source file
+pointid/single_operation/Mn2cluster_matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.i
+.PHONY : pointid/single_operation/Mn2cluster_matrix.cpp.i
+
+pointid/single_operation/Mn2cluster_matrix.s: pointid/single_operation/Mn2cluster_matrix.cpp.s
+
+.PHONY : pointid/single_operation/Mn2cluster_matrix.s
+
+# target to generate assembly for a file
+pointid/single_operation/Mn2cluster_matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.s
+.PHONY : pointid/single_operation/Mn2cluster_matrix.cpp.s
+
+pointid/single_operation/Mn_generater.o: pointid/single_operation/Mn_generater.cpp.o
+
+.PHONY : pointid/single_operation/Mn_generater.o
+
+# target to build an object file
+pointid/single_operation/Mn_generater.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o
+.PHONY : pointid/single_operation/Mn_generater.cpp.o
+
+pointid/single_operation/Mn_generater.i: pointid/single_operation/Mn_generater.cpp.i
+
+.PHONY : pointid/single_operation/Mn_generater.i
+
+# target to preprocess a source file
+pointid/single_operation/Mn_generater.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.i
+.PHONY : pointid/single_operation/Mn_generater.cpp.i
+
+pointid/single_operation/Mn_generater.s: pointid/single_operation/Mn_generater.cpp.s
+
+.PHONY : pointid/single_operation/Mn_generater.s
+
+# target to generate assembly for a file
+pointid/single_operation/Mn_generater.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.s
+.PHONY : pointid/single_operation/Mn_generater.cpp.s
+
+pointid/single_operation/base_operation.o: pointid/single_operation/base_operation.cpp.o
+
+.PHONY : pointid/single_operation/base_operation.o
+
+# target to build an object file
+pointid/single_operation/base_operation.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o
+.PHONY : pointid/single_operation/base_operation.cpp.o
+
+pointid/single_operation/base_operation.i: pointid/single_operation/base_operation.cpp.i
+
+.PHONY : pointid/single_operation/base_operation.i
+
+# target to preprocess a source file
+pointid/single_operation/base_operation.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.i
+.PHONY : pointid/single_operation/base_operation.cpp.i
+
+pointid/single_operation/base_operation.s: pointid/single_operation/base_operation.cpp.s
+
+.PHONY : pointid/single_operation/base_operation.s
+
+# target to generate assembly for a file
+pointid/single_operation/base_operation.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.s
+.PHONY : pointid/single_operation/base_operation.cpp.s
+
+pointid/single_operation/delaunay_ext.o: pointid/single_operation/delaunay_ext.cpp.o
+
+.PHONY : pointid/single_operation/delaunay_ext.o
+
+# target to build an object file
+pointid/single_operation/delaunay_ext.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o
+.PHONY : pointid/single_operation/delaunay_ext.cpp.o
+
+pointid/single_operation/delaunay_ext.i: pointid/single_operation/delaunay_ext.cpp.i
+
+.PHONY : pointid/single_operation/delaunay_ext.i
+
+# target to preprocess a source file
+pointid/single_operation/delaunay_ext.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.i
+.PHONY : pointid/single_operation/delaunay_ext.cpp.i
+
+pointid/single_operation/delaunay_ext.s: pointid/single_operation/delaunay_ext.cpp.s
+
+.PHONY : pointid/single_operation/delaunay_ext.s
+
+# target to generate assembly for a file
+pointid/single_operation/delaunay_ext.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.s
+.PHONY : pointid/single_operation/delaunay_ext.cpp.s
 
 # Help Target
 help:
@@ -483,45 +510,48 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ImageShow"
-	@echo "... g_variable.o"
-	@echo "... g_variable.i"
-	@echo "... g_variable.s"
-	@echo "... high_level_operation/img_preprocess.o"
-	@echo "... high_level_operation/img_preprocess.i"
-	@echo "... high_level_operation/img_preprocess.s"
-	@echo "... high_level_operation/location_voter.o"
-	@echo "... high_level_operation/location_voter.i"
-	@echo "... high_level_operation/location_voter.s"
-	@echo "... high_level_operation/parameter_init.o"
-	@echo "... high_level_operation/parameter_init.i"
-	@echo "... high_level_operation/parameter_init.s"
-	@echo "... high_level_operation/point2cluster.o"
-	@echo "... high_level_operation/point2cluster.i"
-	@echo "... high_level_operation/point2cluster.s"
-	@echo "... high_level_operation/triangulation.o"
-	@echo "... high_level_operation/triangulation.i"
-	@echo "... high_level_operation/triangulation.s"
+	@echo "... frame_tracking/frame_tracking.o"
+	@echo "... frame_tracking/frame_tracking.i"
+	@echo "... frame_tracking/frame_tracking.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... pointid.o"
-	@echo "... pointid.i"
-	@echo "... pointid.s"
-	@echo "... single_operation/L_sq_se_calculator.o"
-	@echo "... single_operation/L_sq_se_calculator.i"
-	@echo "... single_operation/L_sq_se_calculator.s"
-	@echo "... single_operation/Mn2cluster_matrix.o"
-	@echo "... single_operation/Mn2cluster_matrix.i"
-	@echo "... single_operation/Mn2cluster_matrix.s"
-	@echo "... single_operation/Mn_generater.o"
-	@echo "... single_operation/Mn_generater.i"
-	@echo "... single_operation/Mn_generater.s"
-	@echo "... single_operation/base_operation.o"
-	@echo "... single_operation/base_operation.i"
-	@echo "... single_operation/base_operation.s"
-	@echo "... single_operation/delaunay_ext.o"
-	@echo "... single_operation/delaunay_ext.i"
-	@echo "... single_operation/delaunay_ext.s"
+	@echo "... pointid/g_variable.o"
+	@echo "... pointid/g_variable.i"
+	@echo "... pointid/g_variable.s"
+	@echo "... pointid/high_level_operation/img_preprocess.o"
+	@echo "... pointid/high_level_operation/img_preprocess.i"
+	@echo "... pointid/high_level_operation/img_preprocess.s"
+	@echo "... pointid/high_level_operation/location_voter.o"
+	@echo "... pointid/high_level_operation/location_voter.i"
+	@echo "... pointid/high_level_operation/location_voter.s"
+	@echo "... pointid/high_level_operation/parameter_init.o"
+	@echo "... pointid/high_level_operation/parameter_init.i"
+	@echo "... pointid/high_level_operation/parameter_init.s"
+	@echo "... pointid/high_level_operation/point2cluster.o"
+	@echo "... pointid/high_level_operation/point2cluster.i"
+	@echo "... pointid/high_level_operation/point2cluster.s"
+	@echo "... pointid/high_level_operation/triangulation.o"
+	@echo "... pointid/high_level_operation/triangulation.i"
+	@echo "... pointid/high_level_operation/triangulation.s"
+	@echo "... pointid/pointid.o"
+	@echo "... pointid/pointid.i"
+	@echo "... pointid/pointid.s"
+	@echo "... pointid/single_operation/L_sq_se_calculator.o"
+	@echo "... pointid/single_operation/L_sq_se_calculator.i"
+	@echo "... pointid/single_operation/L_sq_se_calculator.s"
+	@echo "... pointid/single_operation/Mn2cluster_matrix.o"
+	@echo "... pointid/single_operation/Mn2cluster_matrix.i"
+	@echo "... pointid/single_operation/Mn2cluster_matrix.s"
+	@echo "... pointid/single_operation/Mn_generater.o"
+	@echo "... pointid/single_operation/Mn_generater.i"
+	@echo "... pointid/single_operation/Mn_generater.s"
+	@echo "... pointid/single_operation/base_operation.o"
+	@echo "... pointid/single_operation/base_operation.i"
+	@echo "... pointid/single_operation/base_operation.s"
+	@echo "... pointid/single_operation/delaunay_ext.o"
+	@echo "... pointid/single_operation/delaunay_ext.i"
+	@echo "... pointid/single_operation/delaunay_ext.s"
 .PHONY : help
 
 
