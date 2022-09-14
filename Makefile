@@ -123,6 +123,195 @@ ImageShow/fast:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/build
 .PHONY : ImageShow/fast
 
+g_variable.o: g_variable.cpp.o
+
+.PHONY : g_variable.o
+
+# target to build an object file
+g_variable.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.o
+.PHONY : g_variable.cpp.o
+
+g_variable.i: g_variable.cpp.i
+
+.PHONY : g_variable.i
+
+# target to preprocess a source file
+g_variable.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.i
+.PHONY : g_variable.cpp.i
+
+g_variable.s: g_variable.cpp.s
+
+.PHONY : g_variable.s
+
+# target to generate assembly for a file
+g_variable.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/g_variable.cpp.s
+.PHONY : g_variable.cpp.s
+
+high_level_operation/img_preprocess.o: high_level_operation/img_preprocess.cpp.o
+
+.PHONY : high_level_operation/img_preprocess.o
+
+# target to build an object file
+high_level_operation/img_preprocess.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.o
+.PHONY : high_level_operation/img_preprocess.cpp.o
+
+high_level_operation/img_preprocess.i: high_level_operation/img_preprocess.cpp.i
+
+.PHONY : high_level_operation/img_preprocess.i
+
+# target to preprocess a source file
+high_level_operation/img_preprocess.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.i
+.PHONY : high_level_operation/img_preprocess.cpp.i
+
+high_level_operation/img_preprocess.s: high_level_operation/img_preprocess.cpp.s
+
+.PHONY : high_level_operation/img_preprocess.s
+
+# target to generate assembly for a file
+high_level_operation/img_preprocess.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.s
+.PHONY : high_level_operation/img_preprocess.cpp.s
+
+high_level_operation/location_voter.o: high_level_operation/location_voter.cpp.o
+
+.PHONY : high_level_operation/location_voter.o
+
+# target to build an object file
+high_level_operation/location_voter.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.o
+.PHONY : high_level_operation/location_voter.cpp.o
+
+high_level_operation/location_voter.i: high_level_operation/location_voter.cpp.i
+
+.PHONY : high_level_operation/location_voter.i
+
+# target to preprocess a source file
+high_level_operation/location_voter.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.i
+.PHONY : high_level_operation/location_voter.cpp.i
+
+high_level_operation/location_voter.s: high_level_operation/location_voter.cpp.s
+
+.PHONY : high_level_operation/location_voter.s
+
+# target to generate assembly for a file
+high_level_operation/location_voter.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.s
+.PHONY : high_level_operation/location_voter.cpp.s
+
+high_level_operation/parameter_init.o: high_level_operation/parameter_init.cpp.o
+
+.PHONY : high_level_operation/parameter_init.o
+
+# target to build an object file
+high_level_operation/parameter_init.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.o
+.PHONY : high_level_operation/parameter_init.cpp.o
+
+high_level_operation/parameter_init.i: high_level_operation/parameter_init.cpp.i
+
+.PHONY : high_level_operation/parameter_init.i
+
+# target to preprocess a source file
+high_level_operation/parameter_init.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.i
+.PHONY : high_level_operation/parameter_init.cpp.i
+
+high_level_operation/parameter_init.s: high_level_operation/parameter_init.cpp.s
+
+.PHONY : high_level_operation/parameter_init.s
+
+# target to generate assembly for a file
+high_level_operation/parameter_init.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.s
+.PHONY : high_level_operation/parameter_init.cpp.s
+
+high_level_operation/point2cluster.o: high_level_operation/point2cluster.cpp.o
+
+.PHONY : high_level_operation/point2cluster.o
+
+# target to build an object file
+high_level_operation/point2cluster.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.o
+.PHONY : high_level_operation/point2cluster.cpp.o
+
+high_level_operation/point2cluster.i: high_level_operation/point2cluster.cpp.i
+
+.PHONY : high_level_operation/point2cluster.i
+
+# target to preprocess a source file
+high_level_operation/point2cluster.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.i
+.PHONY : high_level_operation/point2cluster.cpp.i
+
+high_level_operation/point2cluster.s: high_level_operation/point2cluster.cpp.s
+
+.PHONY : high_level_operation/point2cluster.s
+
+# target to generate assembly for a file
+high_level_operation/point2cluster.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.s
+.PHONY : high_level_operation/point2cluster.cpp.s
+
+high_level_operation/triangulation.o: high_level_operation/triangulation.cpp.o
+
+.PHONY : high_level_operation/triangulation.o
+
+# target to build an object file
+high_level_operation/triangulation.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.o
+.PHONY : high_level_operation/triangulation.cpp.o
+
+high_level_operation/triangulation.i: high_level_operation/triangulation.cpp.i
+
+.PHONY : high_level_operation/triangulation.i
+
+# target to preprocess a source file
+high_level_operation/triangulation.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.i
+.PHONY : high_level_operation/triangulation.cpp.i
+
+high_level_operation/triangulation.s: high_level_operation/triangulation.cpp.s
+
+.PHONY : high_level_operation/triangulation.s
+
+# target to generate assembly for a file
+high_level_operation/triangulation.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.s
+.PHONY : high_level_operation/triangulation.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 pointid.o: pointid.cpp.o
 
 .PHONY : pointid.o
@@ -294,6 +483,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ImageShow"
+	@echo "... g_variable.o"
+	@echo "... g_variable.i"
+	@echo "... g_variable.s"
+	@echo "... high_level_operation/img_preprocess.o"
+	@echo "... high_level_operation/img_preprocess.i"
+	@echo "... high_level_operation/img_preprocess.s"
+	@echo "... high_level_operation/location_voter.o"
+	@echo "... high_level_operation/location_voter.i"
+	@echo "... high_level_operation/location_voter.s"
+	@echo "... high_level_operation/parameter_init.o"
+	@echo "... high_level_operation/parameter_init.i"
+	@echo "... high_level_operation/parameter_init.s"
+	@echo "... high_level_operation/point2cluster.o"
+	@echo "... high_level_operation/point2cluster.i"
+	@echo "... high_level_operation/point2cluster.s"
+	@echo "... high_level_operation/triangulation.o"
+	@echo "... high_level_operation/triangulation.i"
+	@echo "... high_level_operation/triangulation.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... pointid.o"
 	@echo "... pointid.i"
 	@echo "... pointid.s"

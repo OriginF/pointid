@@ -1,4 +1,4 @@
-#include "../g_variable.hpp"
+#include "img_preprocess.hpp"
 
 vector<Point> get_points(int nccpmps,Mat stats,Mat centroids){
     vector<Point> connect_points;

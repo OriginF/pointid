@@ -1,5 +1,4 @@
-#include "../def.hpp"
-#include "../g_variable.hpp"
+#include "location_voter.hpp"
 
 int vote_num(Point init_p,Point id_p,int** cluster_location,bool** read_mark){
     if(id_p.x>=SP.cluster_side||id_p.y>=SP.cluster_side||id_p.x<0||id_p.y<0){return 0;}

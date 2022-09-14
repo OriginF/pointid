@@ -1,4 +1,4 @@
-#include "../g_variable.hpp"
+#include "parameter_init.hpp"
 
 void parameter_init(){
 

@@ -1,6 +1,4 @@
-#include "../g_variable.hpp"
-#include "../single_operation/base_operation.hpp"
-
+#include "point2cluster.hpp"
 
 void point2cluster(vector<Point> connect_points){
     //添加网格分割

@@ -4,6 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/fqy22/桌面/pointid/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/g_variable.cpp.o"
+  "/home/fqy22/桌面/pointid/high_level_operation/img_preprocess.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/high_level_operation/img_preprocess.cpp.o"
+  "/home/fqy22/桌面/pointid/high_level_operation/location_voter.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/high_level_operation/location_voter.cpp.o"
+  "/home/fqy22/桌面/pointid/high_level_operation/parameter_init.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/high_level_operation/parameter_init.cpp.o"
+  "/home/fqy22/桌面/pointid/high_level_operation/point2cluster.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/high_level_operation/point2cluster.cpp.o"
+  "/home/fqy22/桌面/pointid/high_level_operation/triangulation.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/high_level_operation/triangulation.cpp.o"
+  "/home/fqy22/桌面/pointid/main.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/main.cpp.o"
   "/home/fqy22/桌面/pointid/pointid.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/L_sq_se_calculator.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/L_sq_se_calculator.cpp.o"
   "/home/fqy22/桌面/pointid/single_operation/Mn2cluster_matrix.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/single_operation/Mn2cluster_matrix.cpp.o"
