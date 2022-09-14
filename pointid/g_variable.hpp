@@ -1,8 +1,8 @@
 #include "def.hpp"
 #include "./single_operation/negMatrix.hpp"
 
-#ifndef _NAME_GLOBAL_VAR_
-#define _NAME_GLOBAL_VAR_
+#ifndef _POINT_ID_GLOBAL_VAR_
+#define _POINT_ID_GLOBAL_VAR_
 
 //画布
 extern Mat redraw;

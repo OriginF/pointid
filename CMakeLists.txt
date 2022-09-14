@@ -30,7 +30,9 @@ add_executable(ImageShow main.cpp
                         pointid/high_level_operation/parameter_init.cpp 
                         pointid/high_level_operation/point2cluster.cpp 
                         pointid/high_level_operation/triangulation.cpp 
-                        frame_tracking/frame_tracking.cpp)
+                        frame_tracking/frame_tracking.cpp 
+                        frame_tracking/g_variable.cpp 
+                        )
 
 # Link your application with OpenCV libraries
 target_link_libraries(ImageShow PRIVATE ${OpenCV_LIBS})

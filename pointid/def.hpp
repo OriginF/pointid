@@ -5,8 +5,8 @@
 using namespace std;
 using namespace cv;
 
-#ifndef _NAME_DEF_
-#define _NAME_DEF_
+#ifndef _POINT_ID_DEF_
+#define _POINT_ID_DEF_
 
 #define RIGHT 0
 #define UP 1
