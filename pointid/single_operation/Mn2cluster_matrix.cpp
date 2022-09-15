@@ -1,7 +1,7 @@
 #include "Mn2cluster_matrix.hpp"
 #include "base_operation.hpp"
 
-int get_cluster_size(EdgeID e_id,int locate){
+int get_cluster_index(EdgeID e_id,int locate){
     int pointid[4];
     EdgeID to_1 = sub_div.Subdiv2D::getEdge(e_id,Subdiv2D::NEXT_AROUND_LEFT);
     EdgeID to_2 = sub_div.Subdiv2D::getEdge(e_id,Subdiv2D::PREV_AROUND_RIGHT);
@@ -37,7 +37,7 @@ int get_cluster_size(EdgeID e_id,int locate){
                     narrow_slope_delta = slope_delta;
                 }
             }
-            return cluster_size[point2index[pointid[narrow_id]]];
+            return point2index[pointid[narrow_id]];
         }break;
         case 1:{//右上
             int narrow_id = 0;
@@ -49,7 +49,7 @@ int get_cluster_size(EdgeID e_id,int locate){
                     narrow_slope_delta = slope_delta;
                 }
             }
-            return cluster_size[point2index[pointid[narrow_id]]];
+            return point2index[pointid[narrow_id]];
         }break;
         case 2:{//左下
             int narrow_id = 0;
@@ -61,7 +61,7 @@ int get_cluster_size(EdgeID e_id,int locate){
                     narrow_slope_delta = slope_delta;
                 }
             }
-            return cluster_size[point2index[pointid[narrow_id]]];
+            return pointid[narrow_id];
         }break;
         case 3:{//右下
             int narrow_id = 0;
@@ -73,7 +73,7 @@ int get_cluster_size(EdgeID e_id,int locate){
                     narrow_slope_delta = slope_delta;
                 }
             }
-            return cluster_size[point2index[pointid[narrow_id]]];
+            return point2index[pointid[narrow_id]];
         }break;
     }
     return -1;
@@ -81,8 +81,10 @@ int get_cluster_size(EdgeID e_id,int locate){
 
 void cluster_generator(int n){
     identified_cluster_num = new int*[SP.cluster_side];
+    identified_cluster_location = new Point*[SP.cluster_side];
     for(int i=0;i<SP.cluster_side;i++){
         identified_cluster_num[i] = new int[SP.cluster_side];
+        identified_cluster_location[i] = new Point[SP.cluster_side];
         for(int j=0;j<SP.cluster_side;j++){
             identified_cluster_num[i][j] = -1;
         }
@@ -90,22 +92,33 @@ void cluster_generator(int n){
     for(int i=0;i<SP.cluster_side-1;i++){
         for(int j=0;j<SP.cluster_side-1;j++){
             EdgeID e_id = Mn[n].get_normal(i,j);
-            // cout_paint_line("(1,1)line:",e_id);
             if(identified_cluster_num[i][j]==-1){
-                int num = get_cluster_size(e_id,0);
-                identified_cluster_num[i][j]=num;
+                int num = get_cluster_index(e_id,0);
+                if(num!=-1){
+                    identified_cluster_num[i][j]=cluster_size[num];
+                    identified_cluster_location[i][j]=clusters[num];
+                }
             }
             if(identified_cluster_num[i][j+1]==-1){
-                int num = get_cluster_size(e_id,1);
-                identified_cluster_num[i][j+1] = num;
+                int num = get_cluster_index(e_id,1);
+                if(num!=-1){
+                    identified_cluster_num[i][j+1]=cluster_size[num];
+                    identified_cluster_location[i][j+1]=clusters[num];
+                }
             }
             if(identified_cluster_num[i+1][j]==-1){
-                int num = get_cluster_size(e_id,2);
-                identified_cluster_num[i+1][j] = num;
+                int num = get_cluster_index(e_id,2);
+                if(num!=-1){
+                    identified_cluster_num[i+1][j] = cluster_size[num];
+                    identified_cluster_location[i+1][j]=clusters[num];
+                }
             }
             if(identified_cluster_num[i+1][j+1]==-1){
-                int num = get_cluster_size(e_id,3);
-                identified_cluster_num[i+1][j+1] = num;
+                int num = get_cluster_index(e_id,3);
+                if(num!=-1){
+                    identified_cluster_num[i+1][j+1] = cluster_size[num];
+                    identified_cluster_location[i+1][j+1]=clusters[num];
+                }
             }
         }
     }

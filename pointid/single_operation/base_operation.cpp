@@ -42,3 +42,16 @@ void cout_paint_line(string s,EdgeID e){
     line(redraw,org,dst,Scalar(0,255,0));
     cout << s <<":["<<org<<","<<dst<<"]"<<endl;
 }
+
+int** reset_matrix(Point origin,int** matrix,int x_side,int y_side){
+    int** ans_matrix = new int*[x_side];
+    for(int x=0;x<x_side;x++){
+        ans_matrix[x] = new int[y_side];
+        for(int y=0;y<y_side;y++){
+            int _x = x-origin.x>=0?x-origin.x:x+x_side-origin.x;
+            int _y = y-origin.y>=0?y-origin.y:y+y_side-origin.y;
+            ans_matrix[_x][_y] = matrix[x][y];
+        }
+    }
+    return ans_matrix;
+}

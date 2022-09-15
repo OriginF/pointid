@@ -150,6 +150,33 @@ frame_tracking/frame_tracking.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.s
 .PHONY : frame_tracking/frame_tracking.cpp.s
 
+frame_tracking/g_variable.o: frame_tracking/g_variable.cpp.o
+
+.PHONY : frame_tracking/g_variable.o
+
+# target to build an object file
+frame_tracking/g_variable.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o
+.PHONY : frame_tracking/g_variable.cpp.o
+
+frame_tracking/g_variable.i: frame_tracking/g_variable.cpp.i
+
+.PHONY : frame_tracking/g_variable.i
+
+# target to preprocess a source file
+frame_tracking/g_variable.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.i
+.PHONY : frame_tracking/g_variable.cpp.i
+
+frame_tracking/g_variable.s: frame_tracking/g_variable.cpp.s
+
+.PHONY : frame_tracking/g_variable.s
+
+# target to generate assembly for a file
+frame_tracking/g_variable.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.s
+.PHONY : frame_tracking/g_variable.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -513,6 +540,9 @@ help:
 	@echo "... frame_tracking/frame_tracking.o"
 	@echo "... frame_tracking/frame_tracking.i"
 	@echo "... frame_tracking/frame_tracking.s"
+	@echo "... frame_tracking/g_variable.o"
+	@echo "... frame_tracking/g_variable.i"
+	@echo "... frame_tracking/g_variable.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

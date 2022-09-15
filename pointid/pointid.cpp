@@ -53,6 +53,15 @@ int pointid()
     //这个原文说可以使用hash优化，不过，我暂时感觉hash优化和我的这个深搜差不多，所以我直接用深搜了
     Point origin = location_voter(identified_cluster_num);
 
+    identified_cluster_num = reset_matrix(origin,identified_cluster_num,SP.cluster_side,SP.cluster_side);
+
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<SP.cluster_side;j++){
+            cout <<identified_cluster_num[i][j]<<"("<<identified_cluster_location[i][j]<<")"<< " ";
+        }
+        cout << endl;
+    }
+
     //绘制划分结果
     imshow("output",redraw);
 

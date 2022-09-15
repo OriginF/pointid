@@ -47,3 +47,4 @@ NegMatrix<int>* Mn;
 
 //识别点集结果
 int** identified_cluster_num;
+Point** identified_cluster_location;

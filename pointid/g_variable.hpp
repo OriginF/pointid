@@ -33,5 +33,6 @@ extern int init_cluster_num[PAPER_SIDE][PAPER_SIDE];
 extern Point L_1[17],L_2[15],L_3[16],L_4[16];
 
 extern int** identified_cluster_num;
+extern Point** identified_cluster_location;
 
 #endif

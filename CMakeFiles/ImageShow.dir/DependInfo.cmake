@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fqy22/桌面/pointid/frame_tracking/frame_tracking.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
+  "/home/fqy22/桌面/pointid/frame_tracking/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
   "/home/fqy22/桌面/pointid/main.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/main.cpp.o"
   "/home/fqy22/桌面/pointid/pointid/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
   "/home/fqy22/桌面/pointid/pointid/high_level_operation/img_preprocess.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"

@@ -19,4 +19,7 @@ float mod_multi(EdgeID e1,EdgeID e2);
 //输出线段并绘制
 void cout_paint_line(string s,EdgeID e);
 
+//调整点阵位置
+int** reset_matrix(Point origin,int** reset_matrix,int x_side,int y_side);
+
 #endif

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
+  "CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
   "CMakeFiles/ImageShow.dir/main.cpp.o"
   "CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
   "CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"

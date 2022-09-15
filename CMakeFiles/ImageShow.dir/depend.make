@@ -4,6 +4,9 @@
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: frame_tracking/frame_tracking.cpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: frame_tracking/frame_tracking.hpp
 
+CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o: frame_tracking/g_variable.cpp
+CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o: frame_tracking/g_variable.hpp
+
 CMakeFiles/ImageShow.dir/main.cpp.o: frame_tracking/frame_tracking.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: main.cpp
 CMakeFiles/ImageShow.dir/main.cpp.o: pointid/def.hpp
