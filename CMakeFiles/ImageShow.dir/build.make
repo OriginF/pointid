@@ -70,9 +70,22 @@ CMakeFiles/ImageShow.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/main.cpp -o CMakeFiles/ImageShow.dir/main.cpp.s
 
+CMakeFiles/ImageShow.dir/message_send.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/message_send.cpp.o: message_send.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ImageShow.dir/message_send.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/message_send.cpp.o -c /home/fqy22/桌面/pointid/message_send.cpp
+
+CMakeFiles/ImageShow.dir/message_send.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/message_send.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/message_send.cpp > CMakeFiles/ImageShow.dir/message_send.cpp.i
+
+CMakeFiles/ImageShow.dir/message_send.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/message_send.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/message_send.cpp -o CMakeFiles/ImageShow.dir/message_send.cpp.s
+
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: pointid/pointid.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o -c /home/fqy22/桌面/pointid/pointid/pointid.cpp
 
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.i: cmake_force
@@ -85,7 +98,7 @@ CMakeFiles/ImageShow.dir/pointid/pointid.cpp.s: cmake_force
 
 CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o: pointid/g_variable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o -c /home/fqy22/桌面/pointid/pointid/g_variable.cpp
 
 CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.s: cmake_force
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o: pointid/single_operation/base_operation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o -c /home/fqy22/桌面/pointid/pointid/single_operation/base_operation.cpp
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.i: cmake_force
@@ -111,7 +124,7 @@ CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.s: cmake_fo
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o: pointid/single_operation/delaunay_ext.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.o -c /home/fqy22/桌面/pointid/pointid/single_operation/delaunay_ext.cpp
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/ImageShow.dir/pointid/single_operation/delaunay_ext.cpp.s: cmake_forc
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o: pointid/single_operation/L_sq_se_calculator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.o -c /home/fqy22/桌面/pointid/pointid/single_operation/L_sq_se_calculator.cpp
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/ImageShow.dir/pointid/single_operation/L_sq_se_calculator.cpp.s: cmak
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o: pointid/single_operation/Mn_generater.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.o -c /home/fqy22/桌面/pointid/pointid/single_operation/Mn_generater.cpp
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/ImageShow.dir/pointid/single_operation/Mn_generater.cpp.s: cmake_forc
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o: pointid/single_operation/Mn2cluster_matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.o -c /home/fqy22/桌面/pointid/pointid/single_operation/Mn2cluster_matrix.cpp
 
 CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/ImageShow.dir/pointid/single_operation/Mn2cluster_matrix.cpp.s: cmake
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o: pointid/high_level_operation/img_preprocess.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o -c /home/fqy22/桌面/pointid/pointid/high_level_operation/img_preprocess.cpp
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.s: cmak
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o: pointid/high_level_operation/location_voter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o -c /home/fqy22/桌面/pointid/pointid/high_level_operation/location_voter.cpp
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.i: cmake_force
@@ -189,7 +202,7 @@ CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.s: cmak
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o: pointid/high_level_operation/parameter_init.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.o -c /home/fqy22/桌面/pointid/pointid/high_level_operation/parameter_init.cpp
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.i: cmake_force
@@ -202,7 +215,7 @@ CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.cpp.s: cmak
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o: pointid/high_level_operation/point2cluster.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o -c /home/fqy22/桌面/pointid/pointid/high_level_operation/point2cluster.cpp
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.i: cmake_force
@@ -215,7 +228,7 @@ CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.s: cmake
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o: pointid/high_level_operation/triangulation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o -c /home/fqy22/桌面/pointid/pointid/high_level_operation/triangulation.cpp
 
 CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.i: cmake_force
@@ -228,7 +241,7 @@ CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.s: cmake
 
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: frame_tracking/frame_tracking.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o -c /home/fqy22/桌面/pointid/frame_tracking/frame_tracking.cpp
 
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.i: cmake_force
@@ -239,9 +252,35 @@ CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/frame_tracking/frame_tracking.cpp -o CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.s
 
+CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o: frame_tracking/update_tracked.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o -c /home/fqy22/桌面/pointid/frame_tracking/update_tracked.cpp
+
+CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/frame_tracking/update_tracked.cpp > CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.i
+
+CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/frame_tracking/update_tracked.cpp -o CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.s
+
+CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o: CMakeFiles/ImageShow.dir/flags.make
+CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o: frame_tracking/tr_parameter_init.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o -c /home/fqy22/桌面/pointid/frame_tracking/tr_parameter_init.cpp
+
+CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fqy22/桌面/pointid/frame_tracking/tr_parameter_init.cpp > CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.i
+
+CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fqy22/桌面/pointid/frame_tracking/tr_parameter_init.cpp -o CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.s
+
 CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o: CMakeFiles/ImageShow.dir/flags.make
 CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o: frame_tracking/g_variable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o -c /home/fqy22/桌面/pointid/frame_tracking/g_variable.cpp
 
 CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.i: cmake_force
@@ -255,6 +294,7 @@ CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.s: cmake_force
 # Object files for target ImageShow
 ImageShow_OBJECTS = \
 "CMakeFiles/ImageShow.dir/main.cpp.o" \
+"CMakeFiles/ImageShow.dir/message_send.cpp.o" \
 "CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o" \
 "CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o" \
 "CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o" \
@@ -268,12 +308,15 @@ ImageShow_OBJECTS = \
 "CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o" \
 "CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o" \
 "CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o" \
+"CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o" \
+"CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o" \
 "CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
 
 # External object files for target ImageShow
 ImageShow_EXTERNAL_OBJECTS =
 
 ImageShow: CMakeFiles/ImageShow.dir/main.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/message_send.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/pointid/single_operation/base_operation.cpp.o
@@ -287,6 +330,8 @@ ImageShow: CMakeFiles/ImageShow.dir/pointid/high_level_operation/parameter_init.
 ImageShow: CMakeFiles/ImageShow.dir/pointid/high_level_operation/point2cluster.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/pointid/high_level_operation/triangulation.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o
+ImageShow: CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o
 ImageShow: CMakeFiles/ImageShow.dir/build.make
 ImageShow: /usr/local/lib/libopencv_gapi.so.4.6.0
@@ -305,7 +350,7 @@ ImageShow: /usr/local/lib/libopencv_flann.so.4.6.0
 ImageShow: /usr/local/lib/libopencv_imgproc.so.4.6.0
 ImageShow: /usr/local/lib/libopencv_core.so.4.6.0
 ImageShow: CMakeFiles/ImageShow.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable ImageShow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fqy22/桌面/pointid/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable ImageShow"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ImageShow.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

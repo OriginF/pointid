@@ -18,6 +18,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 # Declare the executable target built from your sources
 add_executable(ImageShow main.cpp
+                        message_send.cpp
                         pointid/pointid.cpp 
                         pointid/g_variable.cpp
                         pointid/single_operation/base_operation.cpp 
@@ -31,6 +32,8 @@ add_executable(ImageShow main.cpp
                         pointid/high_level_operation/point2cluster.cpp 
                         pointid/high_level_operation/triangulation.cpp 
                         frame_tracking/frame_tracking.cpp 
+                        frame_tracking/update_tracked.cpp
+                        frame_tracking/tr_parameter_init.cpp
                         frame_tracking/g_variable.cpp 
                         )
 

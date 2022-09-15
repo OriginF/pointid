@@ -1,5 +1,6 @@
 #include "Mn2cluster_matrix.hpp"
 #include "base_operation.hpp"
+#include "../../frame_tracking/g_variable.hpp"
 
 int get_cluster_index(EdgeID e_id,int locate){
     int pointid[4];
@@ -95,29 +96,37 @@ void cluster_generator(int n){
             if(identified_cluster_num[i][j]==-1){
                 int num = get_cluster_index(e_id,0);
                 if(num!=-1){
+                    g_lock.lock();
                     identified_cluster_num[i][j]=cluster_size[num];
                     identified_cluster_location[i][j]=clusters[num];
+                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i][j+1]==-1){
                 int num = get_cluster_index(e_id,1);
                 if(num!=-1){
+                    g_lock.lock();
                     identified_cluster_num[i][j+1]=cluster_size[num];
                     identified_cluster_location[i][j+1]=clusters[num];
+                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i+1][j]==-1){
                 int num = get_cluster_index(e_id,2);
                 if(num!=-1){
+                    g_lock.lock();
                     identified_cluster_num[i+1][j] = cluster_size[num];
                     identified_cluster_location[i+1][j]=clusters[num];
+                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i+1][j+1]==-1){
                 int num = get_cluster_index(e_id,3);
                 if(num!=-1){
+                    g_lock.lock();
                     identified_cluster_num[i+1][j+1] = cluster_size[num];
                     identified_cluster_location[i+1][j+1]=clusters[num];
+                    g_lock.unlock();
                 }
             }
         }

@@ -5,6 +5,7 @@
 #include <unordered_set>
 #include <string>
 #include <queue>
+#include <thread>
 
 #include "def.hpp"
 #include "g_variable.hpp"
@@ -26,6 +27,8 @@ using namespace cv;
 
 #ifndef _POINT_ID_
 #define _POINT_ID_
+
+void pointid_run();
 
 int pointid();
 

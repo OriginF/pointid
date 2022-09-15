@@ -177,6 +177,60 @@ frame_tracking/g_variable.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.s
 .PHONY : frame_tracking/g_variable.cpp.s
 
+frame_tracking/tr_parameter_init.o: frame_tracking/tr_parameter_init.cpp.o
+
+.PHONY : frame_tracking/tr_parameter_init.o
+
+# target to build an object file
+frame_tracking/tr_parameter_init.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o
+.PHONY : frame_tracking/tr_parameter_init.cpp.o
+
+frame_tracking/tr_parameter_init.i: frame_tracking/tr_parameter_init.cpp.i
+
+.PHONY : frame_tracking/tr_parameter_init.i
+
+# target to preprocess a source file
+frame_tracking/tr_parameter_init.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.i
+.PHONY : frame_tracking/tr_parameter_init.cpp.i
+
+frame_tracking/tr_parameter_init.s: frame_tracking/tr_parameter_init.cpp.s
+
+.PHONY : frame_tracking/tr_parameter_init.s
+
+# target to generate assembly for a file
+frame_tracking/tr_parameter_init.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.s
+.PHONY : frame_tracking/tr_parameter_init.cpp.s
+
+frame_tracking/update_tracked.o: frame_tracking/update_tracked.cpp.o
+
+.PHONY : frame_tracking/update_tracked.o
+
+# target to build an object file
+frame_tracking/update_tracked.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o
+.PHONY : frame_tracking/update_tracked.cpp.o
+
+frame_tracking/update_tracked.i: frame_tracking/update_tracked.cpp.i
+
+.PHONY : frame_tracking/update_tracked.i
+
+# target to preprocess a source file
+frame_tracking/update_tracked.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.i
+.PHONY : frame_tracking/update_tracked.cpp.i
+
+frame_tracking/update_tracked.s: frame_tracking/update_tracked.cpp.s
+
+.PHONY : frame_tracking/update_tracked.s
+
+# target to generate assembly for a file
+frame_tracking/update_tracked.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.s
+.PHONY : frame_tracking/update_tracked.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -203,6 +257,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+message_send.o: message_send.cpp.o
+
+.PHONY : message_send.o
+
+# target to build an object file
+message_send.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/message_send.cpp.o
+.PHONY : message_send.cpp.o
+
+message_send.i: message_send.cpp.i
+
+.PHONY : message_send.i
+
+# target to preprocess a source file
+message_send.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/message_send.cpp.i
+.PHONY : message_send.cpp.i
+
+message_send.s: message_send.cpp.s
+
+.PHONY : message_send.s
+
+# target to generate assembly for a file
+message_send.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/message_send.cpp.s
+.PHONY : message_send.cpp.s
 
 pointid/g_variable.o: pointid/g_variable.cpp.o
 
@@ -543,9 +624,18 @@ help:
 	@echo "... frame_tracking/g_variable.o"
 	@echo "... frame_tracking/g_variable.i"
 	@echo "... frame_tracking/g_variable.s"
+	@echo "... frame_tracking/tr_parameter_init.o"
+	@echo "... frame_tracking/tr_parameter_init.i"
+	@echo "... frame_tracking/tr_parameter_init.s"
+	@echo "... frame_tracking/update_tracked.o"
+	@echo "... frame_tracking/update_tracked.i"
+	@echo "... frame_tracking/update_tracked.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... message_send.o"
+	@echo "... message_send.i"
+	@echo "... message_send.s"
 	@echo "... pointid/g_variable.o"
 	@echo "... pointid/g_variable.i"
 	@echo "... pointid/g_variable.s"

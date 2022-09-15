@@ -45,6 +45,8 @@ map<int,int> point2index;
 //记录所有的点簇四边形关键边
 NegMatrix<int>* Mn;
 
+//得到结果的标记
+bool identified = false;
 //识别点集结果
 int** identified_cluster_num;
 Point** identified_cluster_location;

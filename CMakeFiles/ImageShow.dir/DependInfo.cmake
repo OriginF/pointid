@@ -6,7 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fqy22/桌面/pointid/frame_tracking/frame_tracking.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
   "/home/fqy22/桌面/pointid/frame_tracking/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
+  "/home/fqy22/桌面/pointid/frame_tracking/tr_parameter_init.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o"
+  "/home/fqy22/桌面/pointid/frame_tracking/update_tracked.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o"
   "/home/fqy22/桌面/pointid/main.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/main.cpp.o"
+  "/home/fqy22/桌面/pointid/message_send.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/message_send.cpp.o"
   "/home/fqy22/桌面/pointid/pointid/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
   "/home/fqy22/桌面/pointid/pointid/high_level_operation/img_preprocess.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"
   "/home/fqy22/桌面/pointid/pointid/high_level_operation/location_voter.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o"

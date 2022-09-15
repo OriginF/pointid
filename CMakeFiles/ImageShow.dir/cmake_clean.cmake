@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
   "CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
+  "CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o"
+  "CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o"
   "CMakeFiles/ImageShow.dir/main.cpp.o"
+  "CMakeFiles/ImageShow.dir/message_send.cpp.o"
   "CMakeFiles/ImageShow.dir/pointid/g_variable.cpp.o"
   "CMakeFiles/ImageShow.dir/pointid/high_level_operation/img_preprocess.cpp.o"
   "CMakeFiles/ImageShow.dir/pointid/high_level_operation/location_voter.cpp.o"

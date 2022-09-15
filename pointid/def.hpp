@@ -14,6 +14,7 @@ using namespace cv;
 #define DOWN 3
 
 #define PAPER_SIDE 8
+#define CLUSTER_SIDE 10
 #define _1_NUM_ 17
 #define _2_NUM_ 15
 #define _3_NUM_ 16

@@ -20,17 +20,11 @@ def.hpp
 ./single_operation/negMatrix.hpp
 /home/fqy22/桌面/pointid/pointid/single_operation/negMatrix.hpp
 
-/home/fqy22/桌面/pointid/pointid/single_operation/Mn2cluster_matrix.cpp
-Mn2cluster_matrix.hpp
-/home/fqy22/桌面/pointid/pointid/single_operation/Mn2cluster_matrix.hpp
-base_operation.hpp
-/home/fqy22/桌面/pointid/pointid/single_operation/base_operation.hpp
+/home/fqy22/桌面/pointid/pointid/high_level_operation/parameter_init.cpp
+parameter_init.hpp
+/home/fqy22/桌面/pointid/pointid/high_level_operation/parameter_init.hpp
 
-/home/fqy22/桌面/pointid/pointid/single_operation/Mn2cluster_matrix.hpp
-../g_variable.hpp
-/home/fqy22/桌面/pointid/pointid/g_variable.hpp
-
-/home/fqy22/桌面/pointid/pointid/single_operation/base_operation.hpp
+/home/fqy22/桌面/pointid/pointid/high_level_operation/parameter_init.hpp
 ../g_variable.hpp
 /home/fqy22/桌面/pointid/pointid/g_variable.hpp
 

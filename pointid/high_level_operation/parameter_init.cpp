@@ -13,7 +13,7 @@ void parameter_init(){
     SP_0.LSE = 0.1;//LSE threshold
     SP_0.thet_par = 0.55;
     SP_0.thet_ver = 0.55;
-    SP_0.cluster_side = 10;
+    SP_0.cluster_side = CLUSTER_SIDE;
 
     SP.url = "./realimage/real2.jpg";
     // SP.url = "./points.jpg";
