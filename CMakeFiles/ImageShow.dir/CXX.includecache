@@ -10,6 +10,18 @@
 ../pointid/single_operation/negMatrix.hpp
 /home/fqy22/桌面/pointid/pointid/single_operation/negMatrix.hpp
 
+/home/fqy22/桌面/pointid/frame_tracking/false_position_tracking.cpp
+false_position_tracking.hpp
+/home/fqy22/桌面/pointid/frame_tracking/false_position_tracking.hpp
+
+/home/fqy22/桌面/pointid/frame_tracking/false_position_tracking.hpp
+cmath
+-
+def.hpp
+/home/fqy22/桌面/pointid/frame_tracking/def.hpp
+g_variable.hpp
+/home/fqy22/桌面/pointid/frame_tracking/g_variable.hpp
+
 /home/fqy22/桌面/pointid/frame_tracking/g_variable.hpp
 opencv2/opencv.hpp
 -
@@ -19,14 +31,6 @@ def.hpp
 /home/fqy22/桌面/pointid/frame_tracking/def.hpp
 ../pointid/def.hpp
 /home/fqy22/桌面/pointid/pointid/def.hpp
-
-/home/fqy22/桌面/pointid/frame_tracking/interpolation_lost.cpp
-interpolation_lost.hpp
-/home/fqy22/桌面/pointid/frame_tracking/interpolation_lost.hpp
-
-/home/fqy22/桌面/pointid/frame_tracking/interpolation_lost.hpp
-g_variable.hpp
-/home/fqy22/桌面/pointid/frame_tracking/g_variable.hpp
 
 /home/fqy22/桌面/pointid/pointid/def.hpp
 opencv2/opencv.hpp

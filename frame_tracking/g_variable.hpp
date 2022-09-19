@@ -32,4 +32,7 @@ extern Point** cluster_location;
 extern S_TRACK** cluster_track;
 extern Point** tracked_location;
 
+//测试画布
+extern Mat drawing;
+
 #endif

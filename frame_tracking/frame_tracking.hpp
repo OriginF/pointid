@@ -1,5 +1,7 @@
 #include <iostream>
 #include <thread>
+#include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
 
 #include "tr_parameter_init.hpp"
 #include "../message_send.hpp"
@@ -9,6 +11,7 @@
 #include "interpolation_lost.hpp"
 
 using namespace std;
+using namespace cv;
 
 #ifndef _FRAME_TRACKING_
 #define _FRAME_TRACKING_

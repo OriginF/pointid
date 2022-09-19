@@ -2,9 +2,10 @@
 
 float dBar_calculator(int& count, int i0,int j0,int i1,int j1){
     if(cluster_track[i1][j1]==S_TRACK::lost)return 0.0;
-    float ans_x, ans_y;
+    float ans_x=0, ans_y=0;
     ans_x += (tracked_location[i0][j0].x - tracked_location[i1][j1].x);
     ans_y += (tracked_location[i0][j0].y - tracked_location[i1][j1].y);
+    cout << ans_x << " " << ans_y << endl;
     float ans = sqrt(pow(ans_x,2)+pow(ans_y,2));
     count++;
     return ans;
@@ -27,14 +28,15 @@ void false_position_tracking(){
             if(j>0)d_average[i][j]+=dBar_calculator(N_1[i][j],i,j,i,j-1);
             if(j<g_side-1)d_average[i][j]+=dBar_calculator(N_1[i][j],i,j,i,j+1);
             d_sum += d_average[i][j];
-            if(d_average!=0)test_num++;
+            if(d_average[i][j]!=0)test_num++;
         }
     }
     d_sum /= test_num;
     for(int i=0;i<g_side;i++){
         for(int j=0;j<g_side;j++){
+            cout << d_average[i][j] << " " << d_sum << " "<<N_1[i][j] << endl;
             float dBar = d_average[i][j]/(d_sum*float(N_1[i][j]));
-            if(dBar>_D_BAR){cluster_track[i][j] = S_TRACK::lost;};
+            if(dBar>_D_BAR&&N_1[i][j]!=0){cluster_track[i][j] = S_TRACK::lost;};
         }
     }
 }

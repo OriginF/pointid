@@ -26,3 +26,5 @@ Point** cluster_location;
 
 S_TRACK** cluster_track;
 Point** tracked_location;
+
+Mat drawing;

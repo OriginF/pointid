@@ -53,8 +53,18 @@ int frame_tracking(){
         cout << endl;
     }
 
-
-
+    //最后绘制一下所有的点簇的点，用来比较
+    drawing=Mat(SP.row,SP.col,CV_8UC3,Scalar(255,255,255));
+    for(int i=0;i<g_side;i++){
+        for(int j=0;j<g_side;j++){
+            circle(drawing,tracked_location[i][j],3,Scalar(0,0,0),1,LINE_8,0);
+        }
+    }
+    //绘制划分结果
+    imshow("output",drawing);
+    //系统等待
+    waitKey(0);
+    // system("path");
 
     //循环等待程序结束
     this_thread::sleep_for(chrono::duration<double>(100000));
