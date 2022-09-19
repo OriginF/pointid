@@ -204,6 +204,33 @@ frame_tracking/g_variable.cpp.s:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.s
 .PHONY : frame_tracking/g_variable.cpp.s
 
+frame_tracking/interpolation_lost.o: frame_tracking/interpolation_lost.cpp.o
+
+.PHONY : frame_tracking/interpolation_lost.o
+
+# target to build an object file
+frame_tracking/interpolation_lost.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/interpolation_lost.cpp.o
+.PHONY : frame_tracking/interpolation_lost.cpp.o
+
+frame_tracking/interpolation_lost.i: frame_tracking/interpolation_lost.cpp.i
+
+.PHONY : frame_tracking/interpolation_lost.i
+
+# target to preprocess a source file
+frame_tracking/interpolation_lost.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/interpolation_lost.cpp.i
+.PHONY : frame_tracking/interpolation_lost.cpp.i
+
+frame_tracking/interpolation_lost.s: frame_tracking/interpolation_lost.cpp.s
+
+.PHONY : frame_tracking/interpolation_lost.s
+
+# target to generate assembly for a file
+frame_tracking/interpolation_lost.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/interpolation_lost.cpp.s
+.PHONY : frame_tracking/interpolation_lost.cpp.s
+
 frame_tracking/tr_parameter_init.o: frame_tracking/tr_parameter_init.cpp.o
 
 .PHONY : frame_tracking/tr_parameter_init.o
@@ -654,6 +681,9 @@ help:
 	@echo "... frame_tracking/g_variable.o"
 	@echo "... frame_tracking/g_variable.i"
 	@echo "... frame_tracking/g_variable.s"
+	@echo "... frame_tracking/interpolation_lost.o"
+	@echo "... frame_tracking/interpolation_lost.i"
+	@echo "... frame_tracking/interpolation_lost.s"
 	@echo "... frame_tracking/tr_parameter_init.o"
 	@echo "... frame_tracking/tr_parameter_init.i"
 	@echo "... frame_tracking/tr_parameter_init.s"

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fqy22/桌面/pointid/frame_tracking/false_position_tracking.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/false_position_tracking.cpp.o"
   "/home/fqy22/桌面/pointid/frame_tracking/frame_tracking.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o"
   "/home/fqy22/桌面/pointid/frame_tracking/g_variable.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/g_variable.cpp.o"
+  "/home/fqy22/桌面/pointid/frame_tracking/interpolation_lost.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/interpolation_lost.cpp.o"
   "/home/fqy22/桌面/pointid/frame_tracking/tr_parameter_init.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/tr_parameter_init.cpp.o"
   "/home/fqy22/桌面/pointid/frame_tracking/update_tracked.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/frame_tracking/update_tracked.cpp.o"
   "/home/fqy22/桌面/pointid/main.cpp" "/home/fqy22/桌面/pointid/CMakeFiles/ImageShow.dir/main.cpp.o"

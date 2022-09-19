@@ -6,6 +6,7 @@
 #include "g_variable.hpp"
 #include "update_tracked.hpp"
 #include "false_position_tracking.hpp"
+#include "interpolation_lost.hpp"
 
 using namespace std;
 

@@ -37,10 +37,23 @@ int frame_tracking(){
     //输出结果测试
     for(int i=0;i<g_side;i++){
         for(int j=0;j<g_side;j++){
-            cout << cluster_num[i][j] << "("<<cluster_location[i][j] << "):"<<(cluster_track[i][j]==S_TRACK::tracked?"tracked":"lost")<<" ";
+            cout << cluster_num[i][j] << "("<<tracked_location[i][j] << "):"<<(cluster_track[i][j]==S_TRACK::tracked?"tracked":"lost")<<" ";
         }
         cout << endl;
     }
+
+    //预测未知点的位置
+    interpolation_lost();
+
+    //输出结果测试
+    for(int i=0;i<g_side;i++){
+        for(int j=0;j<g_side;j++){
+            cout << cluster_num[i][j] << "("<<tracked_location[i][j] << "):"<<(cluster_track[i][j]==S_TRACK::tracked?"tracked":"lost")<<" ";
+        }
+        cout << endl;
+    }
+
+
 
 
     //循环等待程序结束

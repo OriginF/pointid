@@ -56,6 +56,14 @@ int pointid()
     //生成识别结果的每个位置的点簇结果
     cluster_generator(0);
 
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<SP.cluster_side;j++){
+            cout << identified_cluster_num[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
     //矩阵转置
     transpose();
 
