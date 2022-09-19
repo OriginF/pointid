@@ -3,6 +3,8 @@
 
 #include "tr_parameter_init.hpp"
 #include "../message_send.hpp"
+#include "g_variable.hpp"
+#include "update_tracked.hpp"
 
 using namespace std;
 

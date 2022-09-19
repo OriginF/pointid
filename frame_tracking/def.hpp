@@ -8,6 +8,4 @@ enum S_TRACK{
     lost
 };
 
-NegMatrix frame_Mn;
-
 #endif

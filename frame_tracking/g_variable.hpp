@@ -1,6 +1,9 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 
+#include "def.hpp"
+#include "../pointid/def.hpp"
+
 using namespace std;
 using namespace cv;
 
@@ -13,6 +16,11 @@ extern int W_ROI;
 
 extern int paper_side;
 
+
+//全局结果
+extern int g_side;
+extern int paper_cluster_num[PAPER_SIDE][PAPER_SIDE];
+
 //点簇识别传递互斥
 extern mutex** locks;
 extern mutex g_lock;
@@ -20,5 +28,8 @@ extern mutex g_lock;
 //点簇识别结果存储
 extern int** cluster_num;
 extern Point** cluster_location;
+
+extern S_TRACK** cluster_track;
+extern Point** tracked_location;
 
 #endif
