@@ -43,6 +43,23 @@ void cout_paint_line(string s,EdgeID e){
     cout << s <<":["<<org<<","<<dst<<"]"<<endl;
 }
 
+void transpose(){
+    int num_temp;
+    Point p_temp;
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<=i;j++){
+            num_temp = identified_cluster_num[i][j];
+            p_temp = identified_cluster_location[i][j];
+
+            identified_cluster_num[i][j] = identified_cluster_num[j][i];
+            identified_cluster_location[i][j] = identified_cluster_location[j][i];
+
+            identified_cluster_num[j][i] = num_temp;
+            identified_cluster_location[j][i] = p_temp;
+        }
+    }
+}
+
 int** reset_matrix(Point origin,int** matrix,int x_side,int y_side){
     int** ans_matrix = new int*[x_side];
     for(int x=0;x<x_side;x++){

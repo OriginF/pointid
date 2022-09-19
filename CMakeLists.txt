@@ -35,6 +35,7 @@ add_executable(ImageShow main.cpp
                         frame_tracking/update_tracked.cpp
                         frame_tracking/tr_parameter_init.cpp
                         frame_tracking/g_variable.cpp 
+                        frame_tracking/false_position_tracking.cpp 
                         )
 
 # Link your application with OpenCV libraries

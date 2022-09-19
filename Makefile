@@ -123,6 +123,33 @@ ImageShow/fast:
 	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/build
 .PHONY : ImageShow/fast
 
+frame_tracking/false_position_tracking.o: frame_tracking/false_position_tracking.cpp.o
+
+.PHONY : frame_tracking/false_position_tracking.o
+
+# target to build an object file
+frame_tracking/false_position_tracking.cpp.o:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/false_position_tracking.cpp.o
+.PHONY : frame_tracking/false_position_tracking.cpp.o
+
+frame_tracking/false_position_tracking.i: frame_tracking/false_position_tracking.cpp.i
+
+.PHONY : frame_tracking/false_position_tracking.i
+
+# target to preprocess a source file
+frame_tracking/false_position_tracking.cpp.i:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/false_position_tracking.cpp.i
+.PHONY : frame_tracking/false_position_tracking.cpp.i
+
+frame_tracking/false_position_tracking.s: frame_tracking/false_position_tracking.cpp.s
+
+.PHONY : frame_tracking/false_position_tracking.s
+
+# target to generate assembly for a file
+frame_tracking/false_position_tracking.cpp.s:
+	$(MAKE) -f CMakeFiles/ImageShow.dir/build.make CMakeFiles/ImageShow.dir/frame_tracking/false_position_tracking.cpp.s
+.PHONY : frame_tracking/false_position_tracking.cpp.s
+
 frame_tracking/frame_tracking.o: frame_tracking/frame_tracking.cpp.o
 
 .PHONY : frame_tracking/frame_tracking.o
@@ -618,6 +645,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ImageShow"
+	@echo "... frame_tracking/false_position_tracking.o"
+	@echo "... frame_tracking/false_position_tracking.i"
+	@echo "... frame_tracking/false_position_tracking.s"
 	@echo "... frame_tracking/frame_tracking.o"
 	@echo "... frame_tracking/frame_tracking.i"
 	@echo "... frame_tracking/frame_tracking.s"

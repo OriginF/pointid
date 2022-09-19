@@ -56,16 +56,28 @@ int pointid()
     //生成识别结果的每个位置的点簇结果
     cluster_generator(0);
 
+    //矩阵转置
+    transpose();
+
     //这个原文说可以使用hash优化，不过，我暂时感觉hash优化和我的这个深搜差不多，所以我直接用深搜了
     Point origin = location_voter(identified_cluster_num);
 
+    //这一步实现了转置和重定位
     g_lock.lock();
     identified_cluster_num = reset_matrix(origin,identified_cluster_num,SP.cluster_side,SP.cluster_side);
     g_lock.unlock();
 
+    for(int i=0;i<SP.cluster_side;i++){
+        for(int j=0;j<SP.cluster_side;j++){
+            cout << identified_cluster_num[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
     identified = true;
 
-    cout << "pointid done!" << endl;
+    // cout << "pointid done!" << endl;
 
     //绘制划分结果
     imshow("output",redraw);
