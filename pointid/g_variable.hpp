@@ -40,5 +40,6 @@ extern bool identified;
 extern int** identified_cluster_num;
 extern int** final_cluster_num;
 extern Point** identified_cluster_location;
+extern Point** final_cluster_location;
 
 #endif

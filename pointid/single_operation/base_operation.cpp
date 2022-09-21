@@ -64,14 +64,19 @@ int** reset_matrix(Point origin,int** matrix,int x_side,int y_side){
     if(final_cluster_num!=NULL){
         for(int i=0;i<SP.cluster_side;i++){
             delete[] final_cluster_num[i];
+            delete[] final_cluster_location[i];
         }
         delete[] final_cluster_num;
+        delete[] final_cluster_location;
     }
     final_cluster_num = new int*[SP.cluster_side];
+    final_cluster_location = new Point*[SP.cluster_side];
     for(int i=0;i<SP.cluster_side;i++){
         final_cluster_num[i] = new int[SP.cluster_side];
+        final_cluster_location[i] = new Point[SP.cluster_side];
         for(int j=0;j<SP.cluster_side;j++){
             final_cluster_num[i][j] = -1;
+            final_cluster_location[i][j] = Point(0,0);
         }
     }
     for(int x = 0;x<SP.cluster_side;x++){
@@ -82,13 +87,8 @@ int** reset_matrix(Point origin,int** matrix,int x_side,int y_side){
             if(y>=origin.y){y_ = y-origin.y;}
             else{y_ = y+SP.cluster_side-origin.y;}
             final_cluster_num[x_][y_] = identified_cluster_num[x][y];
+            final_cluster_location[x_][y_] = identified_cluster_location[x][y];
         }
     }
-    // cout << "done!" << endl;
-    // for(int i=0;i<x_side;i++){
-    //     delete[] matrix[i];
-    // }
-    // delete[] matrix;
-    // matrix = ans_matrix;
     return final_cluster_num;
 }

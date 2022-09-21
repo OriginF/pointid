@@ -84,7 +84,7 @@ int pointid(Mat src)
     reset_matrix(origin,identified_cluster_num,SP.cluster_side,SP.cluster_side);
     g_lock.unlock();
     cout << 11 << endl;
-    
+
     for(int i=0;i<SP.cluster_side;i++){
         for(int j=0;j<SP.cluster_side;j++){
             cout << final_cluster_num[i][j] << " ";
@@ -98,10 +98,10 @@ int pointid(Mat src)
     cout << "pointid done!" << endl;
 
     //绘制划分结果
-    imshow("output",redraw);
+    // imshow("output",redraw);
     // this_thread::sleep_for(chrono::duration<double>(10));
     //系统等待
-    waitKey(0);
-    system("path");
+    // waitKey(0);
+    // system("path");
     return 0;
 }
