@@ -15,16 +15,14 @@ int g_side;
 
 int W_ROI = 5;
 
-mutex** locks;
-
 mutex g_lock;
 
 int paper_side;
 
-int** cluster_num;
-Point** cluster_location;
+int** cluster_num=NULL;
+Point** cluster_location=NULL;
 
-S_TRACK** cluster_track;
-Point** tracked_location;
+S_TRACK** cluster_track=NULL;
+Point** tracked_location=NULL;
 
 Mat drawing;

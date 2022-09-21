@@ -7,6 +7,9 @@
 #ifndef _NAME_MN_
 #define _NAME_MN_
 
+//边的合法性检查
+bool e_legal(EdgeID e_id);
+
 //计算Mn
 void getMn(NegMatrix<int>* Mn,vector<SN> Sn);
 

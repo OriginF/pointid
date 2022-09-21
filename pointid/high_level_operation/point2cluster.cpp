@@ -115,4 +115,9 @@ void point2cluster(vector<Point> connect_points){
     for(Point p:grid_points){
         circle(redraw,p,3,Scalar(0,0,0),1,LINE_8,0);
     }
+    for(int i=0;i<row_num;i++){
+        delete[] grid_queue[i];
+    }
+    delete[] grid_queue;
+    return;
 }

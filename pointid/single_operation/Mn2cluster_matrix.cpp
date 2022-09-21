@@ -4,12 +4,13 @@
 
 int get_cluster_index(EdgeID e_id,int locate){
     int pointid[4];
-    EdgeID to_1 = sub_div.Subdiv2D::getEdge(e_id,Subdiv2D::NEXT_AROUND_LEFT);
-    EdgeID to_2 = sub_div.Subdiv2D::getEdge(e_id,Subdiv2D::PREV_AROUND_RIGHT);
-    pointid[0] = sub_div.Subdiv2D::edgeOrg(e_id);
-    pointid[1] = sub_div.Subdiv2D::edgeDst(e_id);
-    pointid[2] = sub_div.Subdiv2D::edgeDst(to_1);
-    pointid[3] = sub_div.Subdiv2D::edgeDst(to_2);
+    EdgeID to_1 = sub_div->Subdiv2D::getEdge(e_id,Subdiv2D::NEXT_AROUND_LEFT);
+    EdgeID to_2 = sub_div->Subdiv2D::getEdge(e_id,Subdiv2D::PREV_AROUND_RIGHT);
+    if(to_1>1e7||to_2>1e7||to_1<=0||to_2<=0)return -1;
+    pointid[0] = sub_div->Subdiv2D::edgeOrg(e_id);
+    pointid[1] = sub_div->Subdiv2D::edgeDst(e_id);
+    pointid[2] = sub_div->Subdiv2D::edgeDst(to_1);
+    pointid[3] = sub_div->Subdiv2D::edgeDst(to_2);
     if(pointid[0]<=0||pointid[1]<=0||pointid[2]<=0||pointid[3]<=0)return -1;
     Point2f points[4];
     int num1,num2,num3,num4;
@@ -81,6 +82,15 @@ int get_cluster_index(EdgeID e_id,int locate){
 }
 
 void cluster_generator(int n){
+    g_lock.lock();
+    if(identified_cluster_location!=NULL){
+        for(int i=0;i<SP.cluster_side;i++){
+            delete[] identified_cluster_num[i];
+            delete[] identified_cluster_location[i];
+        }
+        delete[] identified_cluster_num;
+        delete[] identified_cluster_location;
+    }
     identified_cluster_num = new int*[SP.cluster_side];
     identified_cluster_location = new Point*[SP.cluster_side];
     for(int i=0;i<SP.cluster_side;i++){
@@ -95,40 +105,37 @@ void cluster_generator(int n){
             EdgeID e_id = Mn[n].get_normal(i,j);
             if(identified_cluster_num[i][j]==-1){
                 int num = get_cluster_index(e_id,0);
+                // cout << num << endl;
                 if(num!=-1){
-                    g_lock.lock();
                     identified_cluster_num[i][j]=cluster_size[num];
                     identified_cluster_location[i][j]=clusters[num];
-                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i][j+1]==-1){
                 int num = get_cluster_index(e_id,1);
+                // cout << num << endl;
                 if(num!=-1){
-                    g_lock.lock();
                     identified_cluster_num[i][j+1]=cluster_size[num];
                     identified_cluster_location[i][j+1]=clusters[num];
-                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i+1][j]==-1){
                 int num = get_cluster_index(e_id,2);
+                // cout << num << endl;
                 if(num!=-1){
-                    g_lock.lock();
                     identified_cluster_num[i+1][j] = cluster_size[num];
                     identified_cluster_location[i+1][j]=clusters[num];
-                    g_lock.unlock();
                 }
             }
             if(identified_cluster_num[i+1][j+1]==-1){
                 int num = get_cluster_index(e_id,3);
+                // cout << num << endl;
                 if(num!=-1){
-                    g_lock.lock();
                     identified_cluster_num[i+1][j+1] = cluster_size[num];
                     identified_cluster_location[i+1][j+1]=clusters[num];
-                    g_lock.unlock();
                 }
             }
         }
     }
+    g_lock.unlock();
 }

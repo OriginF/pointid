@@ -22,7 +22,6 @@ extern int g_side;
 extern int paper_cluster_num[PAPER_SIDE][PAPER_SIDE];
 
 //点簇识别传递互斥
-extern mutex** locks;
 extern mutex g_lock;
 
 //点簇识别结果存储

@@ -34,9 +34,14 @@ void false_position_tracking(){
     d_sum /= test_num;
     for(int i=0;i<g_side;i++){
         for(int j=0;j<g_side;j++){
-            cout << d_average[i][j] << " " << d_sum << " "<<N_1[i][j] << endl;
             float dBar = d_average[i][j]/(d_sum*float(N_1[i][j]));
             if(dBar>_D_BAR&&N_1[i][j]!=0){cluster_track[i][j] = S_TRACK::lost;};
         }
     }
+    for(int i=0;i<g_side;i++){
+        delete[] d_average[i];
+        delete[] N_1[i];
+    }
+    delete[] d_average;
+    delete[] N_1;
 }

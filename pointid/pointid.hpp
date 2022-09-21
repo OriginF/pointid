@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
+#include <opencv2/imgproc/types_c.h>
 #include <iostream>
 #include <cmath>
 #include <unordered_set>
@@ -30,6 +31,6 @@ using namespace cv;
 
 void pointid_run();
 
-int pointid();
+int pointid(Mat src);
 
 #endif

@@ -26,19 +26,19 @@ float mod_multi(Edge n1,Edge n2){
 
 float mod_multi(EdgeID e1,EdgeID e2){
     Point2f p01,p02,p11,p12;
-    sub_div.Subdiv2D::edgeOrg(e1,&p01);
-    sub_div.Subdiv2D::edgeDst(e1,&p02);
+    sub_div->Subdiv2D::edgeOrg(e1,&p01);
+    sub_div->Subdiv2D::edgeDst(e1,&p02);
     Edge n1 = Edge(p01.x,p01.y,p02.x,p02.y);
-    sub_div.Subdiv2D::edgeOrg(e2,&p11);
-    sub_div.Subdiv2D::edgeDst(e2,&p12);
+    sub_div->Subdiv2D::edgeOrg(e2,&p11);
+    sub_div->Subdiv2D::edgeDst(e2,&p12);
     Edge n2 = Edge(p11.x,p11.y,p12.x,p12.y);
     return mod_multi(n1,n2);
 }
 
 void cout_paint_line(string s,EdgeID e){
     Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
+    int organs = sub_div->Subdiv2D::edgeOrg(e,&org);
+    int dstans = sub_div->Subdiv2D::edgeDst(e,&dst);
     line(redraw,org,dst,Scalar(0,255,0));
     cout << s <<":["<<org<<","<<dst<<"]"<<endl;
 }
@@ -61,14 +61,34 @@ void transpose(){
 }
 
 int** reset_matrix(Point origin,int** matrix,int x_side,int y_side){
-    int** ans_matrix = new int*[x_side];
-    for(int x=0;x<x_side;x++){
-        ans_matrix[x] = new int[y_side];
-        for(int y=0;y<y_side;y++){
-            int _x = x-origin.x>=0?x-origin.x:x+x_side-origin.x;
-            int _y = y-origin.y>=0?y-origin.y:y+y_side-origin.y;
-            ans_matrix[_x][_y] = matrix[x][y];
+    if(final_cluster_num!=NULL){
+        for(int i=0;i<SP.cluster_side;i++){
+            delete[] final_cluster_num[i];
+        }
+        delete[] final_cluster_num;
+    }
+    final_cluster_num = new int*[SP.cluster_side];
+    for(int i=0;i<SP.cluster_side;i++){
+        final_cluster_num[i] = new int[SP.cluster_side];
+        for(int j=0;j<SP.cluster_side;j++){
+            final_cluster_num[i][j] = -1;
         }
     }
-    return ans_matrix;
+    for(int x = 0;x<SP.cluster_side;x++){
+        for(int y=0;y<SP.cluster_side;y++){
+            int x_,y_;
+            if(x>=origin.x){x_ = x-origin.x;}
+            else{x_ = x+SP.cluster_side-origin.x;}
+            if(y>=origin.y){y_ = y-origin.y;}
+            else{y_ = y+SP.cluster_side-origin.y;}
+            final_cluster_num[x_][y_] = identified_cluster_num[x][y];
+        }
+    }
+    // cout << "done!" << endl;
+    // for(int i=0;i<x_side;i++){
+    //     delete[] matrix[i];
+    // }
+    // delete[] matrix;
+    // matrix = ans_matrix;
+    return final_cluster_num;
 }

@@ -130,6 +130,7 @@ CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/base.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/check.hpp
+CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/core.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.inl.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda_types.hpp
@@ -199,6 +200,7 @@ CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/flann/saving.h
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/flann/timer.h
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
+CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
@@ -695,6 +697,8 @@ CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/asy
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/base.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/check.hpp
+CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/core.hpp
+CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/core_c.h
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.inl.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda_types.hpp
@@ -718,6 +722,7 @@ CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/per
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/saturate.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/traits.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/types.hpp
+CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/types_c.h
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/utility.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/utils/instrumentation.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/core/utils/tls.hpp
@@ -764,9 +769,11 @@ CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/flann/sa
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/flann/saving.h
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/flann/timer.h
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/highgui.hpp
+CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
+CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/types_c.h
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/ml.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
 CMakeFiles/ImageShow.dir/main.cpp.o: /usr/local/include/opencv4/opencv2/objdetect.hpp
@@ -1586,6 +1593,7 @@ CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/base.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/bufferpool.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/check.hpp
+CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/core_c.h
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda.inl.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/cuda_types.hpp
@@ -1609,6 +1617,7 @@ CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/saturate.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/traits.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/types.hpp
+CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/types_c.h
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/utility.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/utils/instrumentation.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/core/utils/tls.hpp
@@ -1658,6 +1667,7 @@ CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
+CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/types_c.h
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/ml.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
 CMakeFiles/ImageShow.dir/pointid/pointid.cpp.o: /usr/local/include/opencv4/opencv2/objdetect.hpp

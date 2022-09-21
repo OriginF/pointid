@@ -4,11 +4,14 @@
 #ifndef _POINT_ID_GLOBAL_VAR_
 #define _POINT_ID_GLOBAL_VAR_
 
+//初始化完成标记
+extern bool init_done;
+
 //画布
 extern Mat redraw;
 
 //三角分割
-extern Subdiv2D sub_div;
+extern Subdiv2D* sub_div;
 
 //表示对应的位置
 extern E_locate LOCATE[6];
@@ -35,6 +38,7 @@ extern Point L_1[17],L_2[15],L_3[16],L_4[16];
 
 extern bool identified;
 extern int** identified_cluster_num;
+extern int** final_cluster_num;
 extern Point** identified_cluster_location;
 
 #endif

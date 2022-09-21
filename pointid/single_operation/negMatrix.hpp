@@ -14,11 +14,17 @@ private:
     int y_bias;
     int x_max;
     int y_max;
-    T **matrix;
+    T **matrix=NULL;
 
 
 public:
     void reset(int x_side_,int y_side_,T value){
+        if(matrix!=NULL){
+            for(int i=0;i<x_side;i++){
+                delete[] matrix[i];
+            }
+            delete[] matrix;
+        }
         x_side = x_side_;
         y_side = y_side_;
         x_bias = y_bias = 0;
@@ -60,7 +66,7 @@ public:
     }
 
     T get_normal(int x,int y){
-        if(x>=x_side||y>=y_side){
+        if(x>x_side||y>y_side||x<0||y<0){
             cout << "wrong normal locate" << endl;
             exit(6);
         }

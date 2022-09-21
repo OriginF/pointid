@@ -8,16 +8,16 @@ void parameter_init(){
     SP_0.Amax = 80.0;
     SP_0.Amin = 7.0;
     SP_0.div = 111.3;//以此为分割长度,一个里面至多有4个点簇
-    SP_0.d_cl = 20;//以此为点簇判定标准,一个点簇至多有四个点
+    SP_0.d_cl = 30;//以此为点簇判定标准,一个点簇至多有四个点
     SP_0.resolution = 1374.0*882.0;
     SP_0.LSE = 0.1;//LSE threshold
     SP_0.thet_par = 0.55;
     SP_0.thet_ver = 0.55;
     SP_0.cluster_side = CLUSTER_SIDE;
 
-    SP.url = "./realimage/real2.jpg";
+    // SP.url = "./realimage/real2.jpg";
     // SP.url = "./points.jpg";
-
+    SP.url = "./point.mp4";
 
     //预处理全局变量
     LOCATE[0] = E_locate::e_CB;
@@ -42,4 +42,14 @@ void parameter_convert(Mat src){
     SP.thet_par = SP_0.thet_par;
     SP.thet_ver = SP_0.thet_ver;
     SP.cluster_side = SP_0.cluster_side;
+
+    clusters.clear();
+    cluster_size.clear();
+    point2index.clear();
+
+    //Delaunay三角剖分算法
+    if(sub_div!=NULL)delete sub_div;
+    Rect rect(0, 0, SP.row, SP.col);
+    sub_div = new cv::Subdiv2D();
+    sub_div->initDelaunay(rect);
 }

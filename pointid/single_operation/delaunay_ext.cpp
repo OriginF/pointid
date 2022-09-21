@@ -2,8 +2,8 @@
 
 E_locate CB_CD_AD_AB_maper(EdgeID e,int l){
     Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e,&dst);
+    int organs = sub_div->Subdiv2D::edgeOrg(e,&org);
+    int dstans = sub_div->Subdiv2D::edgeDst(e,&dst);
     if(org.x<=dst.x){
         if(org.y<=dst.y){
             switch(l){
@@ -52,26 +52,26 @@ EdgeID getNextEdgeID(EdgeID e,E_locate nx){
     EdgeID ans_id;
     switch(nx){
         case E_locate::e_AB:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
+            ans_id = sub_div->Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_DST);
             return ans_id;
         }
         case E_locate::e_AD:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
+            ans_id = sub_div->Subdiv2D::getEdge(e,Subdiv2D::NEXT_AROUND_RIGHT);
             return ans_id;
         }
         case E_locate::e_CB:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
+            ans_id = sub_div->Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_DST);
             return ans_id;
         }
         case E_locate::e_CD:{
-            ans_id = sub_div.Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
+            ans_id = sub_div->Subdiv2D::getEdge(e,Subdiv2D::PREV_AROUND_LEFT);
             return ans_id;
         }
         case E_locate::e_DB:{
             return e;
         }
         case E_locate::e_AC:{
-            ans_id = sub_div.Subdiv2D::rotateEdge(e,1);
+            ans_id = sub_div->Subdiv2D::rotateEdge(e,1);
             return ans_id;
         }
         default:cout << "wrong nx" << endl;exit(5);
@@ -83,8 +83,8 @@ EdgeID getNextEdgeID(EdgeID e,E_locate nx){
 Edge getNextEdge(EdgeID e,E_locate nx){
     EdgeID e_l_id= getNextEdgeID(e,nx);
     Point2f org,dst;
-    int organs = sub_div.Subdiv2D::edgeOrg(e_l_id,&org);
-    int dstans = sub_div.Subdiv2D::edgeDst(e_l_id,&dst);
+    int organs = sub_div->Subdiv2D::edgeOrg(e_l_id,&org);
+    int dstans = sub_div->Subdiv2D::edgeDst(e_l_id,&dst);
     return Edge(org.x,org.y,dst.x,dst.y);
 }
 

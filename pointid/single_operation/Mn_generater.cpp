@@ -1,5 +1,12 @@
 #include "Mn_generater.hpp"
 
+bool e_legal(EdgeID e_id){
+    if(e_id>SP.max_edge_id||e_id<0){
+        return false; 
+    }
+    else return true;
+}
+
 void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
     for(int i=0;i<Sn.size();i++){//这里的这个Mn的大小实际上是需要我们进行一个优化，但是我还没有考虑好空间的上界，目前先设立成这个大小。
         Mn[i].reset(SP.cluster_side,SP.cluster_side,-1);
@@ -20,12 +27,14 @@ void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
                 for(int l=0;l<=3;l++){
                     E_locate l_locate = CB_CD_AD_AB_maper(id,l);
                     EdgeID e_id = getNextEdgeID(id,l_locate);
+                    if(!e_legal(e_id))continue;
                     Point2f p01,p02;
-                    int ans1 = sub_div.Subdiv2D::edgeDst(e_id,&p01);
-                    int ans2 = sub_div.Subdiv2D::edgeOrg(e_id,&p02);
+                    int ans1 = sub_div->Subdiv2D::edgeDst(e_id,&p01);
+                    int ans2 = sub_div->Subdiv2D::edgeOrg(e_id,&p02);
                     int condition_ans = condition_Judger(e_id);
                     if(condition_ans>0){//这个地方变成的可能不是原来的那个边，很奇怪（有可能覆盖原来的位置
                         EdgeID eBar_id = get_eBar(e_id,l);
+                        if(!e_legal(eBar_id))continue;
                         Point eBar_p;
                         int eBar_condition_ans = condition_Judger(eBar_id);
                         float cos = abs(mod_multi(id,eBar_id));
@@ -57,13 +66,12 @@ void getMn(NegMatrix<int>* Mn,vector<SN> Sn){
                                     exit(-2);
                             }
                             Point2f p1,p2;
-                            int ans1 = sub_div.Subdiv2D::edgeDst(eBar_id,&p1);
-                            int ans2 = sub_div.Subdiv2D::edgeOrg(eBar_id,&p2);
-                            // if(n==0)line(redraw,p1,p2,Scalar(255,0,100));
-                            // if(n==0)cout << eBar_p << endl;
+                            int ans1 = sub_div->Subdiv2D::edgeDst(eBar_id,&p1);
+                            int ans2 = sub_div->Subdiv2D::edgeOrg(eBar_id,&p2);
                             Q.push(pair<EdgeID,Point>(eBar_id,eBar_p));
                             Sn_mark[eBar_id] = true;
-                            EdgeID rotate_eBar_id = sub_div.Subdiv2D::rotateEdge(eBar_id,2);
+                            EdgeID rotate_eBar_id = sub_div->Subdiv2D::rotateEdge(eBar_id,2);
+                            if(!e_legal(rotate_eBar_id))continue;
                             Sn_mark[rotate_eBar_id] = true;
                         }
                     }

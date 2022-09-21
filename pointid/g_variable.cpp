@@ -1,5 +1,8 @@
 #include "g_variable.hpp"
 
+
+bool init_done = false;
+
 //点簇设计
 int init_cluster_num[PAPER_SIDE][PAPER_SIDE] = {
     {3,4,1,2,3,1,2,4},
@@ -27,7 +30,7 @@ Point L_4[_4_NUM_]={
 
 //画布和三角分割
 Mat redraw;
-Subdiv2D sub_div;
+Subdiv2D* sub_div=NULL;
 
 //表示对应的位置
 E_locate LOCATE[6];
@@ -43,10 +46,11 @@ vector<int> cluster_size;
 map<int,int> point2index;
 
 //记录所有的点簇四边形关键边
-NegMatrix<int>* Mn;
+NegMatrix<int>* Mn = NULL;
 
 //得到结果的标记
 bool identified = false;
 //识别点集结果
-int** identified_cluster_num;
-Point** identified_cluster_location;
+int** identified_cluster_num=NULL;
+int** final_cluster_num=NULL;
+Point** identified_cluster_location=NULL;

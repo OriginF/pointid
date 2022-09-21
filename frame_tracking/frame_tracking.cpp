@@ -1,7 +1,17 @@
 #include "frame_tracking.hpp"
 
-int frame_tracking(){
+void frame_tracking_run(){
+    while(!init_done);
+    VideoWriter writer;
+    // writer.open("ans.mp4",CAP_OPENCV_MJPEG,25,Size(SP.row,SP.col),true);
+    while(true){
+        frame_tracking(writer);
+    }
+}
+
+int frame_tracking(VideoWriter writer){
     //初始化全局参数
+    clear_parameters();
     tr_parameter_init();
 
     //检查点是否首次更新完毕
@@ -62,12 +72,12 @@ int frame_tracking(){
     }
     //绘制划分结果
     imshow("output",drawing);
-    //系统等待
-    waitKey(0);
-    // system("path");
+    // //系统等待
+    // waitKey(0);
+    writer << drawing;
 
     //循环等待程序结束
-    this_thread::sleep_for(chrono::duration<double>(100000));
+    // this_thread::sleep_for(chrono::duration<double>(100));
     //系统等待
     return 0;
 }

@@ -2,6 +2,8 @@
 #include <thread>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/core/core.hpp"
 
 #include "tr_parameter_init.hpp"
 #include "../message_send.hpp"
@@ -16,6 +18,8 @@ using namespace cv;
 #ifndef _FRAME_TRACKING_
 #define _FRAME_TRACKING_
 
-int frame_tracking();
+void frame_tracking_run();
+
+int frame_tracking(VideoWriter writer);
 
 #endif

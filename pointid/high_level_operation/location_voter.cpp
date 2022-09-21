@@ -33,6 +33,7 @@ Point location_voter(int** identified_cluster_num){
             read_mark[i][j] = false;
         }
     }
+    Point ans(0,0);
     switch(identified_cluster_num[0][0]){
         case 1:{
             int max_index = 0;
@@ -42,7 +43,7 @@ Point location_voter(int** identified_cluster_num){
                 if(votes>max_votes){max_votes = votes;max_index = i;}
                 init_marks(read_mark);
             }
-            return L_1[max_index];
+            ans = L_1[max_index];
         }break;
         case 2:{
             int max_index = 0;
@@ -52,7 +53,7 @@ Point location_voter(int** identified_cluster_num){
                 if(votes>max_votes){max_votes = votes;max_index = i;}
                 init_marks(read_mark);
             }
-            return L_2[max_index];
+            ans = L_2[max_index];
         }break;
         case 3:{
             int max_index = 0;
@@ -62,7 +63,7 @@ Point location_voter(int** identified_cluster_num){
                 if(votes>max_votes){max_votes = votes;max_index = i;}
                 init_marks(read_mark);
             }
-            return L_3[max_index];
+            ans = L_3[max_index];
         }break;
         case 4:{
             int max_index = 0;
@@ -72,8 +73,12 @@ Point location_voter(int** identified_cluster_num){
                 if(votes>max_votes){max_votes = votes;max_index = i;}
                 init_marks(read_mark);
             }
-            return L_4[max_index];
+            ans = L_4[max_index];
         }break;
     }
-    return Point(0,0);
+    for(int i=0;i<SP.cluster_side;i++){
+        delete[] read_mark[i];
+    }
+    delete[] read_mark;
+    return ans;
 }
