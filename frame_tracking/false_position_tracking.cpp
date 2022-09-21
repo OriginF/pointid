@@ -5,7 +5,7 @@ float dBar_calculator(int& count, int i0,int j0,int i1,int j1){
     float ans_x=0, ans_y=0;
     ans_x += (tracked_location[i0][j0].x - tracked_location[i1][j1].x);
     ans_y += (tracked_location[i0][j0].y - tracked_location[i1][j1].y);
-    cout << ans_x << " " << ans_y << endl;
+    // cout << ans_x << " " << ans_y << endl;
     float ans = sqrt(pow(ans_x,2)+pow(ans_y,2));
     count++;
     return ans;

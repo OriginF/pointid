@@ -34,4 +34,6 @@ extern Point** tracked_location;
 //测试画布
 extern Mat drawing;
 
+extern int out_index;
+
 #endif

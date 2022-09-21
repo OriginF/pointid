@@ -204,6 +204,7 @@ CMakeFiles/ImageShow.dir/frame_tracking/frame_tracking.cpp.o
  /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
  /usr/local/include/opencv4/opencv2/imgproc.hpp
+ /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp
  /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/ml.hpp
  /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
@@ -773,6 +774,7 @@ CMakeFiles/ImageShow.dir/main.cpp.o
  /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
  /usr/local/include/opencv4/opencv2/imgcodecs.hpp
  /usr/local/include/opencv4/opencv2/imgproc.hpp
+ /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp
  /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/imgproc/types_c.h
  /usr/local/include/opencv4/opencv2/ml.hpp

@@ -26,3 +26,5 @@ S_TRACK** cluster_track=NULL;
 Point** tracked_location=NULL;
 
 Mat drawing;
+
+int out_index = 0;

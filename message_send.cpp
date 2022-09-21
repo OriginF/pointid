@@ -10,6 +10,5 @@ bool update_clusters_message(){
         }
     }
     g_lock.unlock();
-    cout << "1" << endl;
     return true;
 }

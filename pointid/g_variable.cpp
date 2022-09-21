@@ -55,3 +55,9 @@ int** identified_cluster_num=NULL;
 int** final_cluster_num=NULL;
 Point** identified_cluster_location=NULL;
 Point** final_cluster_location=NULL;
+
+//read_done;
+bool read_done = false;
+
+//frame index;
+int frame_index = 0;

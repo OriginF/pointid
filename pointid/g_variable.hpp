@@ -42,4 +42,8 @@ extern int** final_cluster_num;
 extern Point** identified_cluster_location;
 extern Point** final_cluster_location;
 
+extern bool read_done;
+
+extern int frame_index;
+
 #endif

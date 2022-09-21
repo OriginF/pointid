@@ -26,6 +26,8 @@ void parameter_init(){
     LOCATE[3] = E_locate::e_AB;
     LOCATE[4] = E_locate::e_AC;
     LOCATE[5] = E_locate::e_DB;
+
+    init_done = true;
 }
 
 void parameter_convert(Mat src){
