@@ -54,4 +54,6 @@ void parameter_convert(Mat src){
     Rect rect(0, 0, SP.row, SP.col);
     sub_div = new cv::Subdiv2D();
     sub_div->initDelaunay(rect);
+
+    convert_done = true;
 }

@@ -2,7 +2,7 @@
 
 
 bool init_done = false;
-
+bool convert_done = false;
 //点簇设计
 int init_cluster_num[PAPER_SIDE][PAPER_SIDE] = {
     {3,4,1,2,3,1,2,4},

@@ -6,6 +6,7 @@
 
 //初始化完成标记
 extern bool init_done;
+extern bool convert_done;
 
 //画布
 extern Mat redraw;
